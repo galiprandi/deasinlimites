@@ -18,3 +18,22 @@ body {
 .t-large {
   font-size: larger;
 }
+
+.only-mobile {
+  display: none;
+}
+
+.only-desktop {
+  display: block;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 960px) {
+  .only-mobile {
+    display: block;
+  }
+
+  .only-desktop {
+    display: none;
+  }
+}

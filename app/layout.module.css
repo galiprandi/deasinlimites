@@ -2,13 +2,55 @@
   min-height: 100svh;
   display: grid;
   grid-template-columns: 20em 1fr;
+  grid-template-areas: "aside main";
   gap: 3em;
 }
 
 .main {
+  grid-area: main;
   color: var(--text-primary);
+  width: 100%;
   max-width: 900px;
   padding: 4em 3em 4em 0;
   margin: 0 auto;
 }
 
+/* Mobile styles */
+@media screen and (max-width: 960px) {
+  /* Hide aside */
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+      "aside"
+      "main";
+    padding: 1.5em;
+    text-align: center;
+    gap: 2em;
+
+    & > aside {
+        margin: -2em;
+        padding: 1em .5em;
+        font-size: small;
+
+      & > header, & > footer {
+        display: none;
+      }
+
+      & ul{
+        flex-direction: row;
+        gap: 1em;
+
+        & li {
+         padding: 0; 
+        }
+      }
+    }
+
+    & > main {
+      padding: 0;
+    }
+
+   
+  }
+}

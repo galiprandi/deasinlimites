@@ -1,8 +1,7 @@
-import styles from "./page.module.css";
-
+  
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div>
       <h1>
         Bienvenido a <span className="t-accent">Puentes en el Aprendizaje</span>
       </h1>
