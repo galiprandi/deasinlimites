@@ -19,6 +19,10 @@ body {
   font-size: larger;
 }
 
+.t-center {
+  text-align: center;
+}
+
 .only-mobile {
   display: none;
 }

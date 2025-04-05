@@ -2,3 +2,9 @@
   display: flex;
   gap: 2em;
 }
+
+@media screen and (max-width: 960px) {
+  .socialLinks {
+    justify-content: center;
+  }
+}

@@ -1,3 +1,5 @@
+import SocialLinks from "@/components/SocialLinks";
+
   
 export default function Home() {
   return (
@@ -11,6 +13,10 @@ export default function Home() {
         barreras educativas, fomentando la conexión y el apoyo a estos
         estudiantes, y promoviendo un entorno inclusivo y colaborativo.
       </p>
+
+      <section className="only-mobile">
+        <SocialLinks />
+      </section>
     </div>
   );
 }
