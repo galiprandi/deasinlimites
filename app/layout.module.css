@@ -1,0 +1,14 @@
+.layout {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 20em 1fr;
+  gap: 3em;
+}
+
+.main {
+  color: var(--text-primary);
+  max-width: 900px;
+  padding: 4em 3em 4em 0;
+  margin: 0 auto;
+}
+
