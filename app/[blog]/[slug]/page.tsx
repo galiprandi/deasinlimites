@@ -97,7 +97,5 @@ export default async function Page({ params }: { params: PageParams }) {
 }
 
 // Interfaces
-interface PageParams {
-  blog: string;
-  slug: string;
-}
+
+type PageParams = Promise<{ blog: string; slug: string }>;

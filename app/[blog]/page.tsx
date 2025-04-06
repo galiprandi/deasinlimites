@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { blog: string };
+  params: PageParams;
 }): Promise<Metadata> {
   const { blog } = await params;
   const config = getBlogConfig(blog);
@@ -128,14 +128,14 @@ export default async function BlogPage({
 }
 
 // Interfaces
-interface SearchParams {
-  q?: string;
-  page?: string;
-}
-
 interface BlogPageProps {
-  params: {
-    blog: string;
-  };
+  params: PageParams;
   searchParams?: SearchParams;
 }
+
+type SearchParams = Promise<{
+  q?: string;
+  page?: string;
+}>;
+
+type PageParams = Promise<{ blog: string; slug: string }>;
