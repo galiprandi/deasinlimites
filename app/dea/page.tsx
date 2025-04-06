@@ -5,6 +5,9 @@ import SearchPosts from '@/components/SearchPosts';
 import Pagination from '@/components/Pagination';
 import styles from './page.module.css';
 
+// Content folder
+const folder = '/content/dea';
+
 // Metadatos para SEO
 export const metadata: Metadata = {
   title: 'Blog DEA - Recursos y Artículos',
@@ -35,8 +38,8 @@ export default function BlogHomePage({ searchParams = {} }: HomeProps) {
   
   // Obtener todos los posts y filtrar por búsqueda si es necesario
   const filteredPosts = searchQuery 
-    ? searchPosts(searchQuery)
-    : getAllPostsMetadata();
+    ? searchPosts(folder, searchQuery)
+    : getAllPostsMetadata(folder);
   
   // Paginar los resultados
   const { posts, totalPages } = paginatePosts(filteredPosts, currentPage, 10);

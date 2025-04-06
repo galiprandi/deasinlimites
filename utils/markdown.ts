@@ -9,8 +9,6 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
-// Directorio de contenido
-const contentDirectory = path.join(process.cwd(), '/content/dea');
 
 // Interfaces
 export interface PostMetadata {
@@ -27,13 +25,13 @@ export interface Post extends PostMetadata {
 }
 
 // Función para obtener todos los archivos MD en el directorio
-export function getPostFiles(): string[] {
-  return fs.readdirSync(contentDirectory).filter(file => file.endsWith('.md'));
+export function getPostFiles(folder:string): string[] {
+  return fs.readdirSync(path.join(process.cwd(), folder)).filter(file => file.endsWith('.md'));
 }
 
 // Función para obtener los metadatos de un post
-export function getPostMetadata(filename: string): PostMetadata {
-  const filePath = path.join(contentDirectory, filename);
+export function getPostMetadata(folder:string, filename: string): PostMetadata {
+  const filePath = path.join(process.cwd(), folder, filename);
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data } = matter(fileContent);
   
@@ -47,9 +45,9 @@ export function getPostMetadata(filename: string): PostMetadata {
 }
 
 // Función para obtener todos los metadatos de los posts
-export function getAllPostsMetadata(): PostMetadata[] {
-  const postFiles = getPostFiles();
-  const postsMetadata = postFiles.map(getPostMetadata);
+export function getAllPostsMetadata(folder:string): PostMetadata[] {
+  const postFiles = getPostFiles(folder);
+  const postsMetadata = postFiles.map((filename) => getPostMetadata(folder, filename));
   
   // Ordenar posts por fecha (más reciente primero)
   return postsMetadata.sort((a, b) => {
@@ -58,8 +56,8 @@ export function getAllPostsMetadata(): PostMetadata[] {
 }
 
 // Función para obtener un post completo por slug
-export async function getPostBySlug(slug: string): Promise<Post> {
-  const filePath = path.join(contentDirectory, `${slug}.md`);
+export async function getPostBySlug(folder:string, slug: string): Promise<Post> {
+  const filePath = path.join(process.cwd(), folder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContent);
   
@@ -84,8 +82,8 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 }
 
 // Función para buscar posts por término
-export function searchPosts(term: string): PostMetadata[] {
-  const allPosts = getAllPostsMetadata();
+export function searchPosts(folder:string, term: string): PostMetadata[] {
+  const allPosts = getAllPostsMetadata(folder);
   
   if (!term) {
     return allPosts;
@@ -100,8 +98,8 @@ export function searchPosts(term: string): PostMetadata[] {
 }
 
 // Función para obtener todos los tags únicos
-export function getAllTags(): string[] {
-  const allPosts = getAllPostsMetadata();
+export function getAllTags(folder:string): string[] {
+  const allPosts = getAllPostsMetadata(folder);
   const tagsSet = new Set<string>();
   
   allPosts.forEach(post => {
