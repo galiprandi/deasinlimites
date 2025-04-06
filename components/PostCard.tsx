@@ -29,7 +29,7 @@ export default function PostCard({ post, pathname }: PostCardProps) {
               ))}
             </div>
           </div>
-          <p className={styles.excerpt}>{post.excerpt}</p>
+          <p className={styles.summary}>{post.summary}</p>
         </div>
       </Link>
     </article>

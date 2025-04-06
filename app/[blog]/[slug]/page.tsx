@@ -20,21 +20,21 @@ export async function generateMetadata({
   const config = blogsConfig[blog];
   if (!config) notFound();
   const { contentFolder, url } = config;
-  const { title, excerpt, date } = await getPostBySlug(contentFolder, slug);
+  const { title, summary, date } = await getPostBySlug(contentFolder, slug);
 
   return {
     title,
-    description: excerpt,
+    description: summary,
     openGraph: {
       title,
-      description: excerpt,
+      description: summary,
       url: `${url}/${slug}`,
       type: "article",
       publishedTime: date,
     },
     twitter: {
       title,
-      description: excerpt,
+      description: summary,
     },
   };
 }
@@ -47,16 +47,16 @@ export default async function Page({ params }: { params: PageParams }) {
   const { contentFolder } = config;
 
   const post = await getPostBySlug(contentFolder, slug);
-  const { title, excerpt, date, content, tags } = post;
+  const { title, summary, date, content, tags } = post;
 
   return (
     <div className={styles.container}>
       <article className={styles.article}>
         <header>
           <h1>{title}</h1>
-          {excerpt && (
-            <div className={styles.excerpt}>
-              <p>{excerpt}</p>
+          {summary && (
+            <div className={styles.summary}>
+              <p>{summary}</p>
             </div>
           )}
           <div className={styles.meta}>

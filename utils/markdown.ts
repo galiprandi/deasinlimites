@@ -14,7 +14,7 @@ export interface PostMetadata {
   title: string;
   date: string;
   tags: string[];
-  excerpt: string;
+  summary: string;
   slug: string;
 }
 
@@ -42,7 +42,7 @@ export function getPostMetadata(
     title: data.title,
     date: data.date,
     tags: data.tags || [],
-    excerpt: data.excerpt || "",
+    summary: data.summary || "",
     slug: filename.replace(".md", ""),
   };
 }
@@ -82,7 +82,7 @@ export async function getPostBySlug(
     title: data.title,
     date: data.date,
     tags: data.tags || [],
-    excerpt: data.excerpt || "",
+    summary: data.summary || "",
     slug,
     content: processedContent.toString(),
   };
@@ -96,7 +96,7 @@ export function searchPosts(
   return posts.filter(
     (post) =>
       post.title.toLowerCase().includes(lowerCaseQuery) ||
-      post.excerpt?.toLowerCase().includes(lowerCaseQuery) ||
+      post.summary?.toLowerCase().includes(lowerCaseQuery) ||
       post.tags?.some((tag) => tag.toLowerCase().includes(lowerCaseQuery))
   );
 }

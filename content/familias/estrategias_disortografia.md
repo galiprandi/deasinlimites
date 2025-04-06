@@ -2,13 +2,15 @@
 title: "Disortografía: Estrategias Prácticas para Familias"
 date: "2025-04-05"
 author: "Equipo de Educación Inclusiva"
-tags: ["disortografía", "escritura", "ortografía", "dificultades de aprendizaje"]
-excerpt: "Estrategias prácticas para ayudar a niños con disortografía en casa. Incluye actividades lúdicas, técnicas de estudio y consejos para el apoyo emocional."
+tags:
+  ["disortografía", "escritura", "ortografía", "dificultades de aprendizaje"]
+summary: "Estrategias prácticas para ayudar a niños con disortografía en casa. Incluye actividades lúdicas, técnicas de estudio y consejos para el apoyo emocional."
 ---
 
 # **Disortografía: Estrategias para Familias**
 
 ## **Introducción**
+
 La disortografía es una dificultad específica en la escritura que afecta la ortografía, gramática y puntuación. En el hogar, los niños necesitan **un enfoque multisensorial y paciente** para desarrollar habilidades de escritura sin frustración.
 
 ---
@@ -84,7 +86,7 @@ La disortografía mejora significativamente con **práctica constante, paciencia
 ✔️ Usar múltiples sentidos (ver, escuchar, tocar)
 ✔️ Mantener una actitud positiva
 
-📢 *"Los errores ortográficos son solo escalones en el camino de aprender a escribir mejor cada día."*
+📢 _"Los errores ortográficos son solo escalones en el camino de aprender a escribir mejor cada día."_
 
 ---
 

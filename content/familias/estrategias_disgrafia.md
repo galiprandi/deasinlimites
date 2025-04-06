@@ -2,13 +2,15 @@
 title: "Disgrafía: Estrategias Prácticas para Familias"
 date: "2025-04-06"
 author: "Equipo de Educación Inclusiva"
-tags: ["disgrafía", "escritura", "motricidad fina", "dificultades de aprendizaje"]
-excerpt: "Estrategias prácticas para apoyar a niños con disgrafía en el hogar. Incluye ejercicios de motricidad, adaptaciones y consejos para reducir la frustración."
+tags:
+  ["disgrafía", "escritura", "motricidad fina", "dificultades de aprendizaje"]
+summary: "Estrategias prácticas para apoyar a niños con disgrafía en el hogar. Incluye ejercicios de motricidad, adaptaciones y consejos para reducir la frustración."
 ---
 
 # **Disgrafía: Estrategias de Apoyo en Casa**
 
 ## **Introducción**
+
 La disgrafía es una dificultad específica que afecta la escritura a nivel motor, haciendo que el acto de escribir resulte lento, fatigoso y con poca legibilidad. Estas estrategias buscan **fortalecer las habilidades motrices** y **hacer la escritura más accesible**.
 
 ---
@@ -86,7 +88,7 @@ La disgrafía requiere **tiempo, adaptaciones y mucha práctica**. Con las estra
 ✔️ Convertir los ejercicios en juegos
 ✔️ Mantener comunicación constante con la escuela
 
-📢 *"Cada letra escrita es un triunfo. La legibilidad mejorará con el tiempo, pero el valor de expresarse por escrito no tiene precio."*
+📢 _"Cada letra escrita es un triunfo. La legibilidad mejorará con el tiempo, pero el valor de expresarse por escrito no tiene precio."_
 
 ---
 
