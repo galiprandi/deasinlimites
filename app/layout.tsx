@@ -1,15 +1,18 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import AsideBar from "@/components/AsideBar";
 import styles from "./layout.module.css";
 import { siteConfig } from "@/config";
-import Image from "next/image";
-import logo from "@/assets/logo.svg";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -22,9 +25,6 @@ export default function RootLayout({
       <body className={`${styles.layout}`}>
         <AsideBar />
         <main className={styles.main}>
-          <div className="logo only-mobile">
-            <Image src={logo} alt="Logo" width={200} height={200} />
-          </div>
           {children}
           <footer>
             <div className="t-center">

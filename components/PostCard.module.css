@@ -7,6 +7,7 @@
 
   & .meta {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 1em;
 
@@ -26,5 +27,22 @@
   & a {
     text-decoration: none;
     color: var(--text-primary);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .card {
+    font-size: small;
+
+    & .tags {
+      font-size: larger;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    & .meta {
+      font-size: smaller;
+      justify-content: center;
+    }
   }
 }

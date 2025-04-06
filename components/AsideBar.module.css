@@ -36,8 +36,10 @@
     padding: 0.5em 1em;
     border-radius: 5px;
     cursor: pointer;
+    padding: 0.2em 0.6em;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: var(--bd-grey2);
     }
 

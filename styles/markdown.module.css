@@ -23,3 +23,26 @@
     }
   }
 }
+
+@media screen and (max-width: 960px) {
+  .article {
+    text-align: initial;
+    width: calc(100vw - 2em);
+
+    & header {
+      text-align: center;
+    }
+
+    & .meta {
+      flex-direction: column;
+
+      & > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: small;
+        gap: 1em;
+      }
+    }
+  }
+}

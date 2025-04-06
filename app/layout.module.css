@@ -21,43 +21,31 @@
 
 /* Mobile styles */
 @media screen and (max-width: 960px) {
-  /* Hide aside */
   .layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content 1fr;
-    grid-template-areas:
-      "aside"
-      "main";
-    padding: 1.5em;
-    text-align: center;
-    gap: 2em;
+    display: block;
 
     & > aside {
-      margin: -2em;
-      padding: 1em 0.5em;
+      width: 100vw;
+      height: auto;
+      padding: 1em 0;
       font-size: small;
 
-      & > header,
+      nav ul {
+        flex-direction: row;
+        gap: 0.5em;
+        justify-content: center;
+      }
+
       & > footer {
         display: none;
       }
-
-      & ul {
-        flex-direction: row;
-        gap: 1em;
-
-        & li {
-          padding: 0;
-        }
-      }
-    }
-
-    & > aside {
-      height: unset;
     }
 
     & > main {
-      padding: 0;
+      text-align: center;
+      width: calc(100vw - 2em);
+      padding: 1em;
+      margin: 0;
     }
   }
 }

@@ -16,6 +16,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #fff, #a5a5a5, #fff);
+}
+
 .t-accent {
   color: var(--color-accent);
 }
@@ -39,10 +46,6 @@ body {
   &:hover {
     color: white;
     background-color: var(--color-secondary);
-  }
-
-  & + & {
-    margin-left: 1em;
   }
 }
 

@@ -7,8 +7,8 @@ import SocialLinks from "./SocialLinks";
 
 const AsideBar = () => {
   return (
-    <aside className={`${styles.aside}`}>
-      <header>
+    <aside className={styles.aside}>
+      <header className="only-desktop">
         <Image src={logo} alt="Logo" width={200} height={200} />
       </header>
       <nav>
@@ -25,7 +25,7 @@ const AsideBar = () => {
           <li>
             <Link href="/docentes">Docentes</Link>
           </li>
-          <li>
+          <li className="only-desktop">
             <Link href="/acerca-de">Acerca de</Link>
           </li>
         </ul>

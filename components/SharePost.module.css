@@ -1,8 +1,10 @@
 .share {
+  text-align: center;
   margin-top: 2em;
 
   & .shareButtons {
     display: flex;
+    justify-content: center;
     gap: 2em;
   }
 }
