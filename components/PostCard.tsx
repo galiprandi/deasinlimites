@@ -1,7 +1,9 @@
-import Link from 'next/link';
-import { formatDate } from '@/utils/date'; // Crearemos esta utilidad después
-import { PostMetadata } from '@/utils/markdown';
-import styles from './PostCard.module.css';
+import Link from "next/link";
+import { formatDate } from "@/utils/date"; // Crearemos esta utilidad después
+import { PostMetadata } from "@/utils/markdown";
+import styles from "./PostCard.module.css";
+import Image from "next/image";
+import calendarIcon from "@/assets/icons/calendar.svg";
 
 interface PostCardProps {
   post: PostMetadata;
@@ -14,10 +16,20 @@ export default function PostCard({ post }: PostCardProps) {
         <div className={styles.cardContent}>
           <h2 className={styles.title}>{post.title}</h2>
           <div className={styles.meta}>
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
+            <span>
+              <Image
+                src={calendarIcon}
+                alt={formatDate(post.date)}
+                width={15}
+                height={15}
+              />
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+            </span>
             <div className={styles.tags}>
-              {post.tags.map(tag => (
-                <span key={tag} className={styles.tag}>{tag}</span>
+              {post.tags.map((tag) => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
               ))}
             </div>
           </div>

@@ -5,7 +5,7 @@
 }
 
 .searchInput {
-  width: 100%;
+  width: -webkit-fill-available;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;

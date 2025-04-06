@@ -1,70 +1,96 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { getPostBySlug, PostMetadata } from '@/utils/markdown';
-import { formatDate } from '@/utils/date';
-import styles from './page.module.css';
+import { Metadata } from "next";
+import styles from "@/styles/markdown.module.css";
+import Link from "next/link";
+import { getPostBySlug, PostMetadata } from "@/utils/markdown";
+import { formatDate } from "@/utils/date";
+import { blog, contentForlder } from "../config";
+import SharePost from "@/components/SharePost";
+import calendarIcon from "@/assets/icons/calendar.svg";
+import Image from "next/image";
 
 // Define dynamic metadata generation
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
-  
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await getPostBySlug(contentForlder, params.slug);
+
   return {
     title: post.title,
     description: post.excerpt,
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `/dea/${params.slug}`,
-      type: 'article',
+      url: `${blog.url}/${params.slug}`,
+      type: "article",
       publishedTime: post.date,
+    },
+    twitter: {
+      title: post.title,
+      description: post.excerpt,
     },
   };
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   // Await the post data
-  const post = await getPostBySlug(params.slug);
-  
+  const post = await getPostBySlug(contentForlder, params.slug);
+
   return (
     <div className={styles.container}>
       <article className={styles.article}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>{post.title}</h1>
-          <time className={styles.date} dateTime={post.date}>
-            {formatDate(post.date)}
-          </time>
-          
-          {post.tags && post.tags.length > 0 && (
-            <div className={styles.tags}>
-              {post.tags.map((tag: string) => (
-                <Link key={tag} href={`/dea?q=${tag}`} className={styles.tag}>
-                  {tag}
-                </Link>
-              ))}
+        <header>
+          <h1>{post.title}</h1>
+          {post.excerpt && (
+            <div className={styles.excerpt}>
+              <p>{post.excerpt}</p>
             </div>
           )}
-        </header>
-        
-        {post.excerpt && (
-          <div className={styles.excerpt}>
-            <p>{post.excerpt}</p>
+          <div className={styles.meta}>
+            <span>
+              <Image
+                src={calendarIcon}
+                alt={formatDate(post.date)}
+                width={15}
+                height={15}
+              />
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+            </span>
+
+            {post.tags && post.tags.length > 0 && (
+              <div className={styles.tags}>
+                {post.tags.map((tag: string) => (
+                  <Link key={tag} href={`./?q=${tag}`} className="tag">
+                    {tag}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-        )}
-        
-        <div 
+        </header>
+
+        <hr />
+        <br />
+
+        <div
           className={styles.content}
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>
-      
+
       {post.relatedPosts && post.relatedPosts.length > 0 && (
         <div className={styles.related}>
           <h2 className={styles.relatedTitle}>Artículos relacionados</h2>
           <div className={styles.relatedGrid}>
             {post.relatedPosts.map((related: PostMetadata) => (
-              <Link 
-                key={related.slug} 
-                href={`/dea/${related.slug}`}
+              <Link
+                key={related.slug}
+                href={`${blog.url}/${related.slug}`}
                 className={styles.relatedLink}
               >
                 {related.title}
@@ -73,33 +99,13 @@ export default async function PostPage({ params }: { params: { slug: string } })
           </div>
         </div>
       )}
-      
+
+      <SharePost url={`${blog.url}/${params.slug}`} />
+
       <div className={styles.backToHome}>
-        <Link href="/dea" className={styles.backLink}>
+        <Link href={blog.url} className={styles.backLink}>
           ← Volver al blog
         </Link>
-      </div>
-      
-      <div className={styles.share}>
-        <p className={styles.shareText}>¿Te resultó útil? Comparte este artículo:</p>
-        <div className={styles.shareButtons}>
-          <a 
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://yourdomain.com/dea/${params.slug}`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.shareButton}
-          >
-            Twitter
-          </a>
-          <a 
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yourdomain.com/dea/${params.slug}`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.shareButton}
-          >
-            Facebook
-          </a>
-        </div>
       </div>
     </div>
   );

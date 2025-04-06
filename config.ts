@@ -2,6 +2,7 @@ export const siteConfig = {
   title: "Puentes en el Aprendizaje",
   description:
     "Creando Puentes es un blog dirigido a padres y docentes de niños con dificultades específicas de aprendizaje (DEA).",
+  url: "https://puentesenelaprendizaje.com",
 };
 
 export const socialLinks = {

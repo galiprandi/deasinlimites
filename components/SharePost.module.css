@@ -1,0 +1,8 @@
+.share {
+  margin-top: 2em;
+
+  & .shareButtons {
+    display: flex;
+    gap: 2em;
+  }
+}

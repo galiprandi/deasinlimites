@@ -1,61 +1,30 @@
 .card {
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
-  background-color: #fff;
-}
+  background-color: var(--bd-grey2);
+  padding: 1.5em;
+  border-radius: var(--border-radius);
+  margin-bottom: 2em;
+  font-size: smaller;
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
+  & .meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
 
-.cardLink {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
+    & span {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+  }
 
-.cardContent {
-  padding: 1.5rem;
-}
+  & .tags {
+    display: flex;
 
-.title {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  color: #333;
-}
+    gap: 0.3em;
+  }
 
-.meta {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-left: auto;
-}
-
-.tag {
-  background-color: #f0f0f0;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-}
-
-.excerpt {
-  margin: 0;
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
+  & a {
+    text-decoration: none;
+    color: var(--text-primary);
+  }
 }
