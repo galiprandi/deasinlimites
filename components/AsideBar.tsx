@@ -26,9 +26,6 @@ const AsideBar = () => {
             <Link href="/docentes">Docentes</Link>
           </li>
           <li>
-            <Link href="/papers">Papers</Link>
-          </li>
-          <li>
             <Link href="/acerca-de">Acerca de</Link>
           </li>
         </ul>

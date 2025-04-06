@@ -1,9 +1,7 @@
 import { Metadata } from "next";
-import calendarIcon from "@/assets/icons/calendar.svg";
-import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "María de los Ángeles Céliz - CV",
+  title: "María de los Ángeles Céliz",
   description:
     "Educación y experiencia profesional de María de los Ángeles Céliz",
 };
