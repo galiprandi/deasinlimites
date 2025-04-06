@@ -29,10 +29,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogHomePage({ searchParams = {} }: HomeProps) {
-  // Get search params
-  const searchQuery = searchParams.q || "";
-  const currentPage = parseInt(searchParams.page || "1", blog.pageSize);
+export default async function BlogHomePage({ searchParams }: HomeProps) {
+  const { q, page } = (await searchParams) || {};
+  const searchQuery = q || "";
+  const currentPage = parseInt(page || "1", blog.pageSize);
 
   // Get all posts and filter by search if needed
   const filteredPosts = searchQuery
