@@ -1,7 +1,8 @@
 import { siteConfig } from "@/config";
+import { BlogConfig } from "@/types/blog";
 
 // Blog Config
-export const blog = {
+export const blog: BlogConfig = {
   title: "Guías integrales sobre DEA",
   description:
     "Guías prácticas para identificar y apoyar a niños con discalculia, dislexia, disgrafía y disortografía. Descubre estrategias multisensoriales, adaptaciones en el aula y recursos digitales para docentes y familias.",

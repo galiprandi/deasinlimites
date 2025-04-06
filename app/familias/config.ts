@@ -1,7 +1,8 @@
 import { siteConfig } from "@/config";
+import { BlogConfig } from "@/types/blog";
 
 // Blog Config
-export const blog = {
+export const blog: BlogConfig = {
   title: "Estrategias prácticas para familias",
   description:
     "Estrategias prácticas para familias con niños con discalculia, dislexia, disgrafía y disortografía. Actividades cotidianas, juegos educativos y apoyo emocional para el hogar.",
