@@ -5,6 +5,7 @@ import styles from "./layout.module.css";
 import { siteConfig } from "@/config";
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -34,6 +35,7 @@ export default function RootLayout({
             </div>
           </footer>
         </main>
+        <Analytics />
       </body>
     </html>
   );
