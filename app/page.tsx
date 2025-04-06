@@ -1,7 +1,10 @@
+import PostCard from "@/components/PostCard";
 import SocialLinks from "@/components/SocialLinks";
+import { getAllPostsMetadata } from "@/utils/markdown";
 
-  
 export default function Home() {
+  const postsDea = getAllPostsMetadata("/content/dea");
+
   return (
     <div>
       <h1>
@@ -13,6 +16,17 @@ export default function Home() {
         barreras educativas, fomentando la conexión y el apoyo a estos
         estudiantes, y promoviendo un entorno inclusivo y colaborativo.
       </p>
+      <br />
+      <hr />
+      <br />
+      <section>
+        <h2>Dificultades específicas del aprendizaje</h2>
+        <div className="grid">
+          {postsDea.map((post) => (
+            <PostCard key={post.slug} post={post} pathname={"/dea"} />
+          ))}
+        </div>
+      </section>
 
       <section className="only-mobile">
         <SocialLinks />
