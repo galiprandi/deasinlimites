@@ -1,14 +1,13 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // Interfaces
 export interface PostMetadata {
@@ -21,34 +20,40 @@ export interface PostMetadata {
 
 export interface Post extends PostMetadata {
   content: string;
-  relatedPosts: PostMetadata[];
 }
 
 // Función para obtener todos los archivos MD en el directorio
-export function getPostFiles(folder:string): string[] {
-  return fs.readdirSync(path.join(process.cwd(), folder)).filter(file => file.endsWith('.md'));
+export function getPostFiles(contentFolder: string): string[] {
+  return fs
+    .readdirSync(path.join(process.cwd(), contentFolder))
+    .filter((file) => file.endsWith(".md"));
 }
 
 // Función para obtener los metadatos de un post
-export function getPostMetadata(folder:string, filename: string): PostMetadata {
-  const filePath = path.join(process.cwd(), folder, filename);
-  const fileContent = fs.readFileSync(filePath, 'utf8');
+export function getPostMetadata(
+  contentFolder: string,
+  filename: string
+): PostMetadata {
+  const filePath = path.join(process.cwd(), contentFolder, filename);
+  const fileContent = fs.readFileSync(filePath, "utf8");
   const { data } = matter(fileContent);
-  
+
   return {
     title: data.title,
     date: data.date,
     tags: data.tags || [],
-    excerpt: data.excerpt || '',
-    slug: filename.replace('.md', '')
+    excerpt: data.excerpt || "",
+    slug: filename.replace(".md", ""),
   };
 }
 
 // Función para obtener todos los metadatos de los posts
-export function getAllPostsMetadata(folder:string): PostMetadata[] {
-  const postFiles = getPostFiles(folder);
-  const postsMetadata = postFiles.map((filename) => getPostMetadata(folder, filename));
-  
+export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
+  const postFiles = getPostFiles(contentFolder);
+  const postsMetadata = postFiles.map((filename) =>
+    getPostMetadata(contentFolder, filename)
+  );
+
   // Ordenar posts por fecha (más reciente primero)
   return postsMetadata.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -56,11 +61,14 @@ export function getAllPostsMetadata(folder:string): PostMetadata[] {
 }
 
 // Función para obtener un post completo por slug
-export async function getPostBySlug(folder:string, slug: string): Promise<Post> {
-  const filePath = path.join(process.cwd(), folder, `${slug}.md`);
-  const fileContent = fs.readFileSync(filePath, 'utf8');
+export async function getPostBySlug(
+  contentFolder: string,
+  slug: string
+): Promise<Post> {
+  const filePath = path.join(process.cwd(), contentFolder, `${slug}.md`);
+  const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
-  
+
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkRehype)
@@ -74,59 +82,62 @@ export async function getPostBySlug(folder:string, slug: string): Promise<Post> 
     title: data.title,
     date: data.date,
     tags: data.tags || [],
-    excerpt: data.excerpt || '',
+    excerpt: data.excerpt || "",
     slug,
     content: processedContent.toString(),
-    relatedPosts: data.relatedPosts || []
   };
 }
 
 // Función para buscar posts por término
-export function searchPosts(folder:string, term: string): PostMetadata[] {
-  const allPosts = getAllPostsMetadata(folder);
-  
+export function searchPosts(
+  contentFolder: string,
+  term: string
+): PostMetadata[] {
+  const allPosts = getAllPostsMetadata(contentFolder);
+
   if (!term) {
     return allPosts;
   }
-  
+
   const normalizedTerm = term.toLowerCase();
-  return allPosts.filter(post => (
-    post.title.toLowerCase().includes(normalizedTerm) ||
-    post.excerpt.toLowerCase().includes(normalizedTerm) ||
-    post.tags.some(tag => tag.toLowerCase().includes(normalizedTerm))
-  ));
+  return allPosts.filter(
+    (post) =>
+      post.title.toLowerCase().includes(normalizedTerm) ||
+      post.excerpt.toLowerCase().includes(normalizedTerm) ||
+      post.tags.some((tag) => tag.toLowerCase().includes(normalizedTerm))
+  );
 }
 
 // Función para obtener todos los tags únicos
-export function getAllTags(folder:string): string[] {
-  const allPosts = getAllPostsMetadata(folder);
+export function getAllTags(contentFolder: string): string[] {
+  const allPosts = getAllPostsMetadata(contentFolder);
   const tagsSet = new Set<string>();
-  
-  allPosts.forEach(post => {
-    post.tags.forEach(tag => {
+
+  allPosts.forEach((post) => {
+    post.tags.forEach((tag) => {
       tagsSet.add(tag);
     });
   });
-  
+
   return Array.from(tagsSet);
 }
 
 // Función para paginar posts
 export function paginatePosts(
-  posts: PostMetadata[], 
-  page: number = 1, 
+  posts: PostMetadata[],
+  page: number = 1,
   postsPerPage: number = 10
 ): {
-  posts: PostMetadata[],
-  totalPages: number
+  posts: PostMetadata[];
+  totalPages: number;
 } {
   const startIndex = (page - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   const paginatedPosts = posts.slice(startIndex, endIndex);
   const totalPages = Math.ceil(posts.length / postsPerPage);
-  
+
   return {
     posts: paginatedPosts,
-    totalPages
+    totalPages,
   };
 }

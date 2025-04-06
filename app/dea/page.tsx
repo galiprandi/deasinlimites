@@ -7,7 +7,27 @@ import PostCard from "@/components/PostCard";
 import SearchPosts from "@/components/SearchPosts";
 import Pagination from "@/components/Pagination";
 import styles from "@/styles/blog-home.module.css";
-import { blog, contentForlder, metadata } from "./config";
+import { siteConfig } from "@/config";
+import { Metadata } from "next";
+
+// Config
+import { blog } from "./config";
+
+export const metadata: Metadata = {
+  title: `${siteConfig.title}: ${blog.title}`,
+  description: blog.description,
+  keywords: blog.keywords,
+  openGraph: {
+    title: `${siteConfig.title}: ${blog.title}`,
+    description: blog.description,
+    url: blog.url,
+    type: "website",
+  },
+  twitter: {
+    title: `${siteConfig.title}: ${blog.title}`,
+    description: blog.description,
+  },
+};
 
 export default function BlogHomePage({ searchParams = {} }: HomeProps) {
   // Get search params
@@ -16,8 +36,8 @@ export default function BlogHomePage({ searchParams = {} }: HomeProps) {
 
   // Get all posts and filter by search if needed
   const filteredPosts = searchQuery
-    ? searchPosts(contentForlder, searchQuery)
-    : getAllPostsMetadata(contentForlder);
+    ? searchPosts(blog.contentFolder, searchQuery)
+    : getAllPostsMetadata(blog.contentFolder);
 
   // Paginate results
   const { posts, totalPages } = paginatePosts(
@@ -30,7 +50,7 @@ export default function BlogHomePage({ searchParams = {} }: HomeProps) {
     <div className={styles.container}>
       <header className={styles.header}>
         <h1 className={styles.title}>{blog.title}</h1>
-        <p className={styles.description}>{metadata.description}</p>
+        <p className={styles.description}>{blog.description}</p>
         <SearchPosts />
       </header>
 
@@ -50,7 +70,7 @@ export default function BlogHomePage({ searchParams = {} }: HomeProps) {
         {posts.length > 0 ? (
           <div className={styles.grid}>
             {posts.map((post) => (
-              <PostCard key={post.slug} post={post} />
+              <PostCard key={post.slug} post={post} pathname={blog.path} />
             ))}
           </div>
         ) : (
@@ -66,7 +86,6 @@ export default function BlogHomePage({ searchParams = {} }: HomeProps) {
 }
 
 // Interfaces
-
 interface SearchParams {
   q?: string;
   page?: string;

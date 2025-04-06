@@ -5,14 +5,10 @@ import styles from "./PostCard.module.css";
 import Image from "next/image";
 import calendarIcon from "@/assets/icons/calendar.svg";
 
-interface PostCardProps {
-  post: PostMetadata;
-}
-
-export default function PostCard({ post }: PostCardProps) {
+export default function PostCard({ post, pathname }: PostCardProps) {
   return (
     <article className={styles.card}>
-      <Link href={`/dea/${post.slug}`} className={styles.cardLink}>
+      <Link href={`${pathname}/${post.slug}`} className={styles.cardLink}>
         <div className={styles.cardContent}>
           <h2 className={styles.title}>{post.title}</h2>
           <div className={styles.meta}>
@@ -38,4 +34,10 @@ export default function PostCard({ post }: PostCardProps) {
       </Link>
     </article>
   );
+}
+
+// Interfaces
+interface PostCardProps {
+  post: PostMetadata;
+  pathname: string;
 }

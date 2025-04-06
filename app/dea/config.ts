@@ -1,40 +1,41 @@
 import { siteConfig } from "@/config";
-import { Metadata } from "next";
-
-// Content folder
-export const contentForlder = "/content/dea";
 
 // Blog Config
 export const blog = {
   title: "Guías integrales sobre DEA",
   description:
-    "Guías integrales sobre discalculia, dislexia, disgrafía y disortografía. Estrategias prácticas para docentes y familias.",
+    "Guías prácticas para identificar y apoyar a niños con discalculia, dislexia, disgrafía y disortografía. Descubre estrategias multisensoriales, adaptaciones en el aula y recursos digitales para docentes y familias.",
   keywords: [
-    "discalculia",
-    "dislexia",
-    "disgrafía",
-    "disortografía",
-    "educación",
-    "estrategias de aprendizaje",
-    "apoyo escolar",
-  ],
-  url: `${siteConfig.url}/dea`,
-  pageSize: 10,
-};
+    // Términos generales
+    "dificultades de aprendizaje",
+    "educación inclusiva",
+    "estrategias docentes",
+    "neurodiversidad",
+    "adaptaciones curriculares",
 
-// Metadata for SEO
-export const metadata: Metadata = {
-  title: `${siteConfig.title}: ${blog.title}`,
-  description: blog.description,
-  keywords: blog.keywords,
-  openGraph: {
-    title: `${siteConfig.title}: ${blog.title}`,
-    description: blog.description,
-    url: "/dea",
-    type: "website",
-  },
-  twitter: {
-    title: `${siteConfig.title}: ${blog.title}`,
-    description: blog.description,
-  },
+    // Por condición específica
+    "discalculia tipos",
+    "dislexia fonológica",
+    "disgrafía motriz",
+    "disortografía visual",
+    "signos dislexia preescolar",
+    "identificar discalculia",
+
+    // Estrategias y recursos
+    "enseñanza multisensorial",
+    "material concreto matemáticas",
+    "ejercicios motricidad fina",
+    "apps para dislexia",
+    "técnicas relajación disgrafía",
+    "juegos ortográficos",
+
+    // Público objetivo
+    "guías para docentes",
+    "apoyo familiar dificultades aprendizaje",
+    "recursos educación especial",
+  ],
+  path: "/docentes",
+  contentFolder: "/content/docentes",
+  url: `${siteConfig.url}/docentes`,
+  pageSize: 10,
 };

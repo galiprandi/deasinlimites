@@ -1,12 +1,14 @@
 import { Metadata } from "next";
 import styles from "@/styles/markdown.module.css";
 import Link from "next/link";
-import { getPostBySlug, PostMetadata } from "@/utils/markdown";
+import { getPostBySlug } from "@/utils/markdown";
 import { formatDate } from "@/utils/date";
-import { blog, contentForlder } from "../config";
 import SharePost from "@/components/SharePost";
 import calendarIcon from "@/assets/icons/calendar.svg";
 import Image from "next/image";
+
+// Config - Import from the root level to ensure consistency
+import { blog } from "@/app/docentes/config"; // Update this path based on your actual folder structure
 
 // Define dynamic metadata generation
 export async function generateMetadata({
@@ -14,7 +16,16 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const post = await getPostBySlug(contentForlder, params.slug);
+  // Add a check to ensure blog.contentFolder is defined before using it
+  if (!blog.contentFolder) {
+    console.error("contentFolder is undefined!");
+    return {
+      title: "Error loading post",
+      description: "Unable to load post data",
+    };
+  }
+
+  const post = await getPostBySlug(blog.contentFolder, params.slug);
 
   return {
     title: post.title,
@@ -38,8 +49,27 @@ export default async function PostPage({
 }: {
   params: { slug: string };
 }) {
+  // Add error handling to prevent runtime errors if contentFolder is undefined
+  if (!blog.contentFolder) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.article}>
+          <h1>Error loading post</h1>
+          <p>
+            The blog configuration is invalid. Content folder path is missing.
+          </p>
+          <div className={styles.backToHome}>
+            <Link href="/docentes" className={styles.backLink}>
+              ← Volver al blog
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Await the post data
-  const post = await getPostBySlug(contentForlder, params.slug);
+  const post = await getPostBySlug(blog.contentFolder, params.slug);
 
   return (
     <div className={styles.container}>
@@ -83,27 +113,10 @@ export default async function PostPage({
         />
       </article>
 
-      {post.relatedPosts && post.relatedPosts.length > 0 && (
-        <div className={styles.related}>
-          <h2 className={styles.relatedTitle}>Artículos relacionados</h2>
-          <div className={styles.relatedGrid}>
-            {post.relatedPosts.map((related: PostMetadata) => (
-              <Link
-                key={related.slug}
-                href={`${blog.url}/${related.slug}`}
-                className={styles.relatedLink}
-              >
-                {related.title}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-
       <SharePost url={`${blog.url}/${params.slug}`} />
 
       <div className={styles.backToHome}>
-        <Link href={blog.url} className={styles.backLink}>
+        <Link href={blog.path} className={styles.backLink}>
           ← Volver al blog
         </Link>
       </div>

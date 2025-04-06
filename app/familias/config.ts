@@ -1,40 +1,48 @@
 import { siteConfig } from "@/config";
-import { Metadata } from "next";
-
-// Content folder
-export const contentForlder = "/content/familias";
 
 // Blog Config
 export const blog = {
-  title: "Guías prácticas para familias",
+  title: "Estrategias prácticas para familias",
   description:
-    "Guías prácticas para entender y apoyar a niños con discalculia, dislexia, disgrafía y disortografía.",
+    "Estrategias prácticas para familias con niños con discalculia, dislexia, disgrafía y disortografía. Actividades cotidianas, juegos educativos y apoyo emocional para el hogar.",
   keywords: [
-    "discalculia",
-    "dislexia",
-    "disgrafía",
-    "disortografía",
-    "educación",
-    "estrategias de aprendizaje",
-    "apoyo escolar",
+    // Dificultades específicas
+    "discalculia actividades en casa",
+    "dislexia estrategias familiares",
+    "disgrafía ejercicios motricidad",
+    "disortografía juegos ortográficos",
+
+    // Áreas de desarrollo
+    "matemáticas cotidianas",
+    "lectura compartida",
+    "escritura creativa",
+    "ortografía divertida",
+
+    // Métodos de apoyo
+    "aprendizaje multisensorial",
+    "juegos educativos caseros",
+    "adaptaciones para tareas",
+    "refuerzo positivo",
+
+    // Recursos prácticos
+    "apps para dislexia",
+    "material concreto matemáticas",
+    "ejercicios motricidad fina",
+    "correctores ortográficos",
+
+    // Apoyo emocional
+    "autoestima niños",
+    "reducir frustración aprendizaje",
+    "celebrar progresos",
+    "comunicación familia-escuela",
+
+    // Edades específicas
+    "apoyo primaria",
+    "actividades preescolar",
+    "estrategias adolescentes",
   ],
+  path: "/familias",
+  contentFolder: "/content/familias",
   url: `${siteConfig.url}/familias`,
   pageSize: 10,
-};
-
-// Metadata for SEO
-export const metadata: Metadata = {
-  title: `${siteConfig.title}: ${blog.title}`,
-  description: blog.description,
-  keywords: blog.keywords,
-  openGraph: {
-    title: `${siteConfig.title}: ${blog.title}`,
-    description: blog.description,
-    url: "/familias",
-    type: "website",
-  },
-  twitter: {
-    title: `${siteConfig.title}: ${blog.title}`,
-    description: blog.description,
-  },
 };
