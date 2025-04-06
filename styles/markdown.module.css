@@ -1,0 +1,177 @@
+.markdownContent {
+  line-height: 1.7;
+  color: #333;
+  overflow-wrap: break-word;
+}
+
+/* Headings */
+.markdownContent h1 {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.markdownContent h2 {
+  font-size: 2rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.markdownContent h3 {
+  font-size: 1.5rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.markdownContent h4 {
+  font-size: 1.25rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.markdownContent h5 {
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.markdownContent h6 {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Links */
+.markdownContent a {
+  color: #0070f3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.markdownContent a:hover {
+  text-decoration: underline;
+}
+
+/* Paragraphs and spacing */
+.markdownContent p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* Lists */
+.markdownContent ul,
+.markdownContent ol {
+  margin-top: 0;
+  padding-left: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.markdownContent li {
+  margin-bottom: 0.5rem;
+}
+
+.markdownContent li > ul,
+.markdownContent li > ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Blockquotes */
+.markdownContent blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  color: #666;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+}
+
+/* Code blocks */
+.markdownContent pre {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.markdownContent code {
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  background-color: rgba(27, 31, 35, 0.05);
+}
+
+.markdownContent pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9em;
+}
+
+/* Tables */
+.markdownContent table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdownContent table th,
+.markdownContent table td {
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+}
+
+.markdownContent table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  text-align: left;
+}
+
+.markdownContent table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Images */
+.markdownContent img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+
+/* Horizontal Rule */
+.markdownContent hr {
+  border: 0;
+  height: 1px;
+  background-color: #eaeaea;
+  margin: 2rem 0;
+}
+
+/* Definition Lists */
+.markdownContent dl {
+  margin: 1.5rem 0;
+}
+
+.markdownContent dt {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.markdownContent dd {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
