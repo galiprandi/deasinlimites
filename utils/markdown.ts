@@ -88,23 +88,16 @@ export async function getPostBySlug(
   };
 }
 
-// Función para buscar posts por término
 export function searchPosts(
-  contentFolder: string,
-  term: string
+  posts: PostMetadata[],
+  query: string
 ): PostMetadata[] {
-  const allPosts = getAllPostsMetadata(contentFolder);
-
-  if (!term) {
-    return allPosts;
-  }
-
-  const normalizedTerm = term.toLowerCase();
-  return allPosts.filter(
+  const lowerCaseQuery = query.toLowerCase();
+  return posts.filter(
     (post) =>
-      post.title.toLowerCase().includes(normalizedTerm) ||
-      post.excerpt.toLowerCase().includes(normalizedTerm) ||
-      post.tags.some((tag) => tag.toLowerCase().includes(normalizedTerm))
+      post.title.toLowerCase().includes(lowerCaseQuery) ||
+      post.excerpt?.toLowerCase().includes(lowerCaseQuery) ||
+      post.tags?.some((tag) => tag.toLowerCase().includes(lowerCaseQuery))
   );
 }
 

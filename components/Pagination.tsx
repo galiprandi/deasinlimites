@@ -1,32 +1,34 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
-import styles from './Pagination.module.css';
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import styles from "./Pagination.module.css";
 
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
+  basePath: string;
 }
 
-export default function Pagination({ totalPages, currentPage }: PaginationProps) {
-  const pathname = usePathname();
+export default function Pagination({
+  totalPages,
+  currentPage,
+  basePath,
+}: PaginationProps) {
   const searchParams = useSearchParams();
-  
-  // Mantenemos los parámetros de búsqueda actuales al cambiar de página
+
   const createPageURL = (pageNumber: number) => {
     const params = new URLSearchParams(searchParams);
-    params.set('page', pageNumber.toString());
-    return `${pathname}?${params.toString()}`;
+    params.set("page", pageNumber.toString());
+    return `${basePath}?${params.toString()}`;
   };
-  
-  // No mostrar paginación si solo hay una página
+
+  // Don't show pagination if there's only one page
   if (totalPages <= 1) return null;
-  
+
   return (
     <nav className={styles.pagination} aria-label="Paginación">
       <ul className={styles.paginationList}>
-        {/* Botón Anterior */}
         <li>
           {currentPage > 1 ? (
             <Link
@@ -42,8 +44,7 @@ export default function Pagination({ totalPages, currentPage }: PaginationProps)
             </span>
           )}
         </li>
-        
-        {/* Números de página */}
+
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <li key={page}>
             {page === currentPage ? (
@@ -61,8 +62,7 @@ export default function Pagination({ totalPages, currentPage }: PaginationProps)
             )}
           </li>
         ))}
-        
-        {/* Botón Siguiente */}
+
         <li>
           {currentPage < totalPages ? (
             <Link
