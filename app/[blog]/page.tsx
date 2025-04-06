@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import {
   getAllPostsMetadata,
   paginatePosts,
-  PostMetadata,
   searchPosts,
 } from "@/utils/markdown";
 import PostCard from "@/components/PostCard";
