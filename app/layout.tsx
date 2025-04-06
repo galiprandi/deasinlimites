@@ -5,7 +5,7 @@ import AsideBar from "@/components/AsideBar";
 import styles from "./layout.module.css";
 import { siteConfig } from "@/config";
 import Image from "next/image";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
