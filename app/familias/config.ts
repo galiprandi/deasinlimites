@@ -2,13 +2,13 @@ import { siteConfig } from "@/config";
 import { Metadata } from "next";
 
 // Content folder
-export const contentForlder = "/content/dea";
+export const contentForlder = "/content/familias";
 
 // Blog Config
 export const blog = {
-  title: "Guías integrales sobre DEA",
+  title: "Guías prácticas para familias",
   description:
-    "Guías integrales sobre discalculia, dislexia, disgrafía y disortografía. Estrategias prácticas para docentes y familias.",
+    "Guías prácticas para entender y apoyar a niños con discalculia, dislexia, disgrafía y disortografía.",
   keywords: [
     "discalculia",
     "dislexia",
@@ -18,7 +18,7 @@ export const blog = {
     "estrategias de aprendizaje",
     "apoyo escolar",
   ],
-  url: `${siteConfig.url}/dea`,
+  url: `${siteConfig.url}/familias`,
   pageSize: 10,
 };
 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteConfig.title}: ${blog.title}`,
     description: blog.description,
-    url: "/dea",
+    url: "/familias",
     type: "website",
   },
   twitter: {
