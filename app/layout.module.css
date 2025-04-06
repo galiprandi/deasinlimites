@@ -30,7 +30,7 @@
       padding: 1em 0;
       font-size: small;
 
-      nav ul {
+      & > nav ul {
         flex-direction: row;
         gap: 0.5em;
         justify-content: center;
