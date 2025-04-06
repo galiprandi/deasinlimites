@@ -29,28 +29,31 @@
     gap: 2em;
 
     & > aside {
-        margin: -2em;
-        padding: 1em .5em;
-        font-size: small;
+      margin: -2em;
+      padding: 1em 0.5em;
+      font-size: small;
 
-      & > header, & > footer {
+      & > header,
+      & > footer {
         display: none;
       }
 
-      & ul{
+      & ul {
         flex-direction: row;
         gap: 1em;
 
         & li {
-         padding: 0; 
+          padding: 0;
         }
       }
+    }
+
+    & > aside {
+      height: unset;
     }
 
     & > main {
       padding: 0;
     }
-
-   
   }
 }
