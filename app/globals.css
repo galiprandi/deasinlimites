@@ -67,3 +67,12 @@ hr {
     display: none;
   }
 }
+
+/* Print styles */
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
