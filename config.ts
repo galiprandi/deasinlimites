@@ -1,9 +1,10 @@
 import { BlogConfig } from "./types/blog";
 
+const title = "DEA sin límites";
+
 export const siteConfig = {
-  title: "DEA sin limites",
-  description:
-    "DeA sin limites es un blog dirigido a padres y docentes de niños con dificultades específicas de aprendizaje (DEA).",
+  title,
+  description: `${title} es un blog dirigido a padres y docentes de niños con dificultades específicas de aprendizaje (DEA).`,
   url: "https://deasinlimites.com",
 };
 

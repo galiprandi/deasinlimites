@@ -18,9 +18,10 @@ export default function Home() {
       </h1>
       <p className="t-large">
         {siteConfig.description} es un blog dirigido a padres y docentes de
-        niños con dificultades específicas de aprendizaje (DEA). Su objetivo es
-        derribar barreras educativas, fomentando la conexión y el apoyo a estos
-        estudiantes, y promoviendo un entorno inclusivo y colaborativo.
+        niños con dificultades específicas de aprendizaje. Su objetivo es
+        derribar barreras educativas, brindando estrategias prácticas para que
+        los niños puedan progresar con libertad y superar obstáculos en su
+        aprendizaje, fomentando así un entorno inclusivo y colaborativo.
       </p>
       <br />
       <hr />
