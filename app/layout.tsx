@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.title,
     images: [
       {
-        url: "/logo.png",
+        url: "/logo_social.png",
         width: 1200,
         height: 630,
         alt: siteConfig.title,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: {
-      url: "/logo.png",
+      url: "/logo_social.png",
       width: 1200,
       height: 630,
       alt: siteConfig.title,
