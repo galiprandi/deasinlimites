@@ -1,6 +1,6 @@
 :root {
-  --color-accent: #f39413;
-  --color-secondary: #42a294;
+  --color-accent: #fdb344;
+  --color-secondary: #62a964;
   --text-primary: #1f2937;
   --bd-grey: #f2f2f2;
   --bd-grey2: #1f29371a;
@@ -69,10 +69,9 @@ hr {
 }
 
 /* Print styles */
-@media print
-{    
-    .no-print, .no-print *
-    {
-        display: none !important;
-    }
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
 }

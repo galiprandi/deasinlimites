@@ -1,10 +1,10 @@
 import { BlogConfig } from "./types/blog";
 
 export const siteConfig = {
-  title: "Puentes en el Aprendizaje",
+  title: "DEA sin limites",
   description:
-    "Creando Puentes es un blog dirigido a padres y docentes de niños con dificultades específicas de aprendizaje (DEA).",
-  url: "https://puentesenelaprendizaje.com",
+    "DeA sin limites es un blog dirigido a padres y docentes de niños con dificultades específicas de aprendizaje (DEA).",
+  url: "https://deasinlimites.com",
 };
 
 export const socialLinks = {

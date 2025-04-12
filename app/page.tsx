@@ -2,7 +2,8 @@ import PostCard from "@/components/PostCard";
 import SocialLinks from "@/components/SocialLinks";
 import { getAllPostsMetadata } from "@/utils/markdown";
 import Image from "next/image";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.png";
+import { siteConfig } from "@/config";
 
 export default function Home() {
   const postsDea = getAllPostsMetadata("/content/dea");
@@ -10,15 +11,15 @@ export default function Home() {
   return (
     <div>
       <div className="logo only-mobile">
-        <Image src={logo} alt="Logo" width={200} height={200} />
+        <Image src={logo} alt="Logo" width={230} height={230} />
       </div>
       <h1>
-        Bienvenido a <span className="t-accent">Puentes en el Aprendizaje</span>
+        Bienvenido a <span className="t-accent">{siteConfig.title}</span>
       </h1>
       <p className="t-large">
-        Creando Puentes es un blog dirigido a padres y docentes de niños con
-        dificultades específicas de aprendizaje (DEA). Su objetivo es derribar
-        barreras educativas, fomentando la conexión y el apoyo a estos
+        {siteConfig.description} es un blog dirigido a padres y docentes de
+        niños con dificultades específicas de aprendizaje (DEA). Su objetivo es
+        derribar barreras educativas, fomentando la conexión y el apoyo a estos
         estudiantes, y promoviendo un entorno inclusivo y colaborativo.
       </p>
       <br />
