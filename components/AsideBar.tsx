@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AsideBar.module.css";
 import Image from "next/image";
-import logo from "@/assets/logo_no-bg.png";
+import logo from "@/public/logo_no-bg.png";
 import Link from "next/link";
 import SocialLinks from "./SocialLinks";
 

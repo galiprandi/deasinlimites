@@ -2,7 +2,7 @@ import PostCard from "@/components/PostCard";
 import SocialLinks from "@/components/SocialLinks";
 import { getAllPostsMetadata } from "@/utils/markdown";
 import Image from "next/image";
-import logo from "@/assets/logo.png";
+import logo from "@/public/logo.png";
 import { siteConfig } from "@/config";
 
 export default function Home() {
