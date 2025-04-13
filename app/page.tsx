@@ -11,13 +11,13 @@ export default function Home() {
   return (
     <div>
       <div className="logo only-mobile">
-        <Image src={logo} alt="Logo" width={230} height={230} />
+        <Image src={logo} alt={siteConfig.title} width={230} height={230} />
       </div>
       <h1>
         Bienvenido a <span className="t-accent">{siteConfig.title}</span>
       </h1>
       <p className="t-large">
-        {siteConfig.description} es un blog dirigido a padres y docentes de
+        {siteConfig.title} es un blog dirigido a padres y docentes de
         niños con dificultades específicas de aprendizaje. Su objetivo es
         derribar barreras educativas, brindando estrategias prácticas para que
         los niños puedan progresar con libertad y superar obstáculos en su
