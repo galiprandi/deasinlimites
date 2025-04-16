@@ -8,6 +8,8 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { useRef, useEffect } from "react";
 
+import { fakeMessages } from "./messages.mock";
+
 export default function AI() {
   const {
     messages,
@@ -31,7 +33,7 @@ export default function AI() {
   return (
     <div className={styles.chat}>
       <div className={styles.messages} ref={messagesRef}>
-        {messages.map((message) => (
+        {fakeMessages.map((message) => (
           <div key={message.id} className={styles.message}>
             {message.parts.map((part, i) => {
               switch (part.type) {
@@ -84,50 +86,3 @@ export default function AI() {
     </div>
   );
 }
-
-// Create fake conversation
-/* const fakeMessages: UIMessage[] = [
-  {
-    id: "1",
-    role: "user",
-    parts: [{ type: "text", text: "Hola" }],
-    content: "Hola",
-  },
-  {
-    id: "2",
-    role: "assistant",
-    parts: [{ type: "text", text: "Hola, ¿en qué puedo ayudarte?" }],
-    content: "Hola, ¿en qué puedo ayudarte?",
-  },
-  {
-    id: "3",
-    role: "user",
-    parts: [
-      {
-        type: "text",
-        text: "Quiero adaptar una evaluación para un niño de 10 años",
-      },
-    ],
-    content: "Quiero adaptar una evaluación para un niño de 10 años",
-  },
-  {
-    id: "4",
-    role: "assistant",
-    parts: [
-      { type: "text", text: "Que tipo de DEA (dificultad) tiene el niño?" },
-    ],
-    content: "Que tipo de DEA (dificultad) tiene el niño?",
-  },
-  {
-    id: "5",
-    role: "user",
-    parts: [{ type: "text", text: "Tiene dislexia" }],
-    content: "Tiene dislexia",
-  },
-  {
-    id: "6",
-    role: "assistant",
-    parts: [{ type: "text", text: "Bien, copia y pega la evaluación" }],
-    content: "Bien, copia y pega la evaluación",
-  },
-]; */
