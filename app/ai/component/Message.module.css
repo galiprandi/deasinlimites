@@ -1,0 +1,21 @@
+.message {
+  padding: 1px 2em;
+  border-radius: 2em;
+  line-height: 1.75;
+}
+
+.message.user {
+  background-color: var(--bd-grey2);
+  width: fit-content;
+  margin-left: auto;
+}
+
+.message.assistant {
+  text-align: left;
+  width: fit-content;
+  margin-right: auto;
+}
+
+.message p {
+  margin: 0.3em 0;
+}

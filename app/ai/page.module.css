@@ -1,0 +1,37 @@
+.chat {
+  text-align: right;
+  display: grid;
+  grid-template-rows: 1fr 6em;
+  grid-auto-columns: 1fr;
+  margin-right: 3em;
+  overflow: hidden;
+  height: calc(100vh - 9em);
+}
+
+.messages {
+  padding: 1em;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: 100%;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 2em;
+  background-color: #fff;
+  padding: 1.5em;
+  gap: 1em;
+}
+
+.form button,
+.form input {
+  padding: 0 2em;
+  border-radius: 5px;
+  border: 1px solid var(--bd-grey2);
+  outline: 0;
+  background-color: var(--bd-grey2);
+  text-align: right;
+}
