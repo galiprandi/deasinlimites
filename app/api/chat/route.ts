@@ -1,7 +1,5 @@
-import { openai } from "@ai-sdk/openai";
 import { deepseek } from "@ai-sdk/deepseek";
-import { streamText, tool } from "ai";
-import { z } from "zod";
+import { streamText } from "ai";
 import { system } from "./prompt";
 
 export const maxDuration = 30;
@@ -19,6 +17,7 @@ export async function POST(req: Request) {
   return result.toDataStreamResponse();
 }
 
+/* 
 const tools: Parameters<typeof streamText>[0]["tools"] = {
   weather: tool({
     description: "Get the weather in a location (fahrenheit)",
@@ -48,3 +47,4 @@ const tools: Parameters<typeof streamText>[0]["tools"] = {
     },
   }),
 };
+ */

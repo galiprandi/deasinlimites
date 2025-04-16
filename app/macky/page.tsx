@@ -1,6 +1,5 @@
 "use client";
 
-import { UIMessage } from "ai";
 import { useChat } from "@ai-sdk/react";
 import Message from "./component/Message";
 
@@ -76,7 +75,7 @@ export default function AI() {
 }
 
 // Create fake conversation
-const fakeMessages: UIMessage[] = [
+/* const fakeMessages: UIMessage[] = [
   {
     id: "1",
     role: "user",
@@ -120,4 +119,4 @@ const fakeMessages: UIMessage[] = [
     parts: [{ type: "text", text: "Bien, copia y pega la evaluación" }],
     content: "Bien, copia y pega la evaluación",
   },
-];
+]; */
