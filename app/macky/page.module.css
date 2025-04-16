@@ -1,11 +1,11 @@
 .chat {
   text-align: right;
   display: grid;
-  grid-template-rows: 1fr 6em;
+  grid-template-rows: 1fr 4em;
   grid-auto-columns: 1fr;
   margin-right: 3em;
   overflow: hidden;
-  height: calc(100vh - 9em);
+  height: calc(100vh - 5.5em);
 }
 
 .messages {
@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-  height: 100%;
 }
 
 .form {

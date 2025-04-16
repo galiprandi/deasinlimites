@@ -60,7 +60,7 @@ export default function AI() {
           value={input}
           onChange={handleInputChange}
           disabled={status !== "ready"}
-          placeholder="Hola, ¿en qué puedo ayudarte?"
+          placeholder="escribe aquí..."
         />
         {status === "submitted" || status === "streaming" ? (
           <button type="button" onClick={() => stop()}>

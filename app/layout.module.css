@@ -3,7 +3,8 @@
   display: grid;
   grid-template-columns: 20em 1fr;
   grid-template-areas: "aside main";
-  gap: 3em;
+  gap: 2.5em;
+  padding-right: 2.5em;
 }
 
 .main {
@@ -11,7 +12,6 @@
   color: var(--text-primary);
   width: 100%;
   max-width: 900px;
-  padding: 4em 3em 4em 0;
   margin: 0 auto;
 
   & > footer {
