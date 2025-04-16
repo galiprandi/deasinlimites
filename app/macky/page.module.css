@@ -45,6 +45,6 @@
 
   &:hover,
   &:active {
-    background-color: var(--bd-grey2);
+    background-color: var(--color-accent);
   }
 }
