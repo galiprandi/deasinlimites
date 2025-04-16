@@ -1,7 +1,7 @@
 .chat {
   text-align: right;
   display: grid;
-  grid-template-rows: 1fr 4em;
+  grid-template-rows: 1fr auto auto 4em;
   grid-auto-columns: 1fr;
   margin-right: 3em;
   overflow: hidden;
@@ -40,7 +40,7 @@
 
 .form {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto;
   grid-template-rows: 2em;
   background-color: #fff;
   padding: 1.5em;
@@ -48,8 +48,8 @@
   border-top: 1px solid var(--bd-grey2, #eaeaea);
 }
 
-.form input {
-  padding: 0 2em;
+.inputField {
+  padding: 0 1em;
   border-radius: 5px;
   outline: 0;
   background-color: var(--bd-grey);
@@ -58,23 +58,24 @@
   transition: border-color 0.2s;
 }
 
-.form input:focus {
+.inputField:focus {
   border-color: var(--color-accent, #2196f3);
   box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
 }
 
-.form input:disabled {
+.inputField:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-.form button {
+.actionButton,
+.attachButton {
   background-color: var(--bd-grey);
   padding: 0.3em 0.5em;
   border-radius: 5px;
   border: 1px solid var(--bd-grey2);
   outline: 0;
-  text-align: right;
+  text-align: center;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -82,12 +83,15 @@
   transition: background-color 0.2s;
 }
 
-.form button:hover,
-.form button:active {
+.actionButton:hover,
+.actionButton:active,
+.attachButton:hover,
+.attachButton:active {
   background-color: var(--color-accent);
 }
 
-.form button:disabled {
+.actionButton:disabled,
+.attachButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -164,6 +168,42 @@
 
 .retryButton:hover {
   background-color: #d32f2f;
+}
+
+/* Estilos para la vista previa de archivos */
+.filePreview {
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.fileItem {
+  background-color: #e3f2fd;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.removeFileBtn {
+  background: none;
+  border: none;
+  color: #757575;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeFileBtn:hover {
+  color: #d32f2f;
 }
 
 @keyframes bounce {
