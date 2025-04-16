@@ -22,15 +22,29 @@
   grid-template-rows: 2em;
   background-color: #fff;
   padding: 1.5em;
-  gap: 1em;
+  gap: 0.5em;
 }
 
 .form button,
 .form input {
   padding: 0 2em;
   border-radius: 5px;
+  outline: 0;
+  background-color: var(--bd-grey);
+  border: 1px solid var(--bd-grey2);
+  text-align: right;
+}
+
+.form button {
+  background-color: var(--bd-grey);
+  padding: 0.3em 0.5em;
+  border-radius: 5px;
   border: 1px solid var(--bd-grey2);
   outline: 0;
-  background-color: var(--bd-grey2);
   text-align: right;
+
+  &:hover,
+  &:active {
+    background-color: var(--bd-grey2);
+  }
 }

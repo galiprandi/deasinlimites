@@ -2,8 +2,11 @@
 
 import { useChat } from "@ai-sdk/react";
 import Message from "./component/Message";
+import send from "@/assets/icons/send.svg";
+import Image from "next/image";
 
 import styles from "./page.module.css";
+import { useRef, useEffect } from "react";
 
 export default function AI() {
   const {
@@ -19,9 +22,15 @@ export default function AI() {
     maxSteps: 5,
   });
 
+  const messagesRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = messagesRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages]);
+
   return (
     <div className={styles.chat}>
-      <div className={styles.messages}>
+      <div className={styles.messages} ref={messagesRef}>
         {messages.map((message) => (
           <div key={message.id} className={styles.message}>
             {message.parts.map((part, i) => {
@@ -67,7 +76,9 @@ export default function AI() {
             Stop
           </button>
         ) : (
-          <button type="submit">Enviar</button>
+          <button type="submit">
+            <Image src={send} alt="Enviar" width={24} height={24} />
+          </button>
         )}
       </form>
     </div>
