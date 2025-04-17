@@ -150,6 +150,7 @@ export default function AI() {
           onChange={(event) => {
             if (event.target.files) {
               setFiles(event.target.files);
+              handleInputChange(event);
             }
           }}
           multiple
