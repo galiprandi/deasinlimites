@@ -26,7 +26,7 @@ const tools: Parameters<typeof streamText>[0]["tools"] = {
       feedback: string().describe("El feedback del usuario"),
     }),
     execute: async ({ feedback }) => {
-      console.log("Feedback:", feedback);
+      console.info(feedback);
       return { message: "Gracias por el feedback" };
     },
   },
