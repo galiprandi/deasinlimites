@@ -1,4 +1,4 @@
-export const fakeMessages: UIMessage[] = [
+export const fakeMessages = [
   {
     role: "user",
     content: "hola",
