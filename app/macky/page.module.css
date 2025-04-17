@@ -6,8 +6,6 @@
   margin-right: 3em;
   overflow: hidden;
   height: calc(100vh - 5.5em);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .messages {

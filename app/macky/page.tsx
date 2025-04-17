@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 
 import styles from "./page.module.css";
+import Hello from "./component/Hello";
 
 export default function AI() {
   const [isTyping, setIsTyping] = useState(false);
@@ -73,6 +74,8 @@ export default function AI() {
   return (
     <div className={styles.chat}>
       <div className={styles.messages} ref={messagesRef}>
+        {messages.length === 0 && <Hello />}
+
         {messages.map((message) => (
           <div key={message.id} className={styles.message}>
             {message.parts.map((part, i) => {
@@ -85,15 +88,15 @@ export default function AI() {
                       role={message.role}
                     />
                   );
-                case "tool-invocation":
-                  return (
-                    <div
-                      key={`${message.id}-${i}`}
-                      className={styles.toolInvocation}
-                    >
-                      <pre>{JSON.stringify(part.toolInvocation, null, 2)}</pre>
-                    </div>
-                  );
+                // case "tool-invocation":
+                //   return (
+                //     <div
+                //       key={`${message.id}-${i}`}
+                //       className={styles.toolInvocation}
+                //     >
+                //       <pre>{JSON.stringify(part.toolInvocation, null, 2)}</pre>
+                //     </div>
+                //   );
                 default:
                   return null;
               }
