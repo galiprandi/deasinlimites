@@ -1,7 +1,7 @@
 .chat {
   text-align: right;
   display: grid;
-  grid-template-rows: 1fr auto auto 4em;
+  grid-template-rows: 1fr auto;
   grid-auto-columns: 1fr;
   margin-right: 3em;
   overflow: hidden;
@@ -40,6 +40,7 @@
   grid-template-rows: 2em;
   background-color: #fff;
   padding: 1.5em;
+  padding-bottom: 0;
   gap: 0.5em;
   border-top: 1px solid var(--bd-grey2, #eaeaea);
 }
