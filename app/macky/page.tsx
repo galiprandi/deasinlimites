@@ -3,39 +3,32 @@
 import { useChat } from "@ai-sdk/react";
 import Message from "./component/Message";
 import send from "@/assets/icons/send.svg";
-import attachment from "@/assets/icons/attachment.svg"; // Necesitarás este icono
+import attachment from "@/assets/icons/attachment.svg";
+import pause from "@/assets/icons/pause.svg";
 import Image from "next/image";
 
 import styles from "./page.module.css";
 import { useRef, useEffect, useState } from "react";
 
-import { fakeMessages } from "./messages.mock";
-
 export default function AI() {
   const [isTyping, setIsTyping] = useState(false);
-  const [showRealMessages, setShowRealMessages] = useState(false);
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<FileList | undefined>(undefined);
 
   const {
-    messages: realMessages,
+    messages,
     input,
     handleInputChange,
-    handleSubmit: originalHandleSubmit,
+    handleSubmit,
     status,
     stop: stopGeneration,
     error,
     reload,
-    setMessages,
   } = useChat({
     maxSteps: 5,
     onResponse: () => {
       setIsTyping(false);
-      setShowRealMessages(true);
     },
   });
-
-  // Usar mensajes falsos o reales según el estado
-  const messages = showRealMessages ? realMessages : fakeMessages;
 
   const messagesRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -56,69 +49,12 @@ export default function AI() {
     }
   }, []);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const newFiles = Array.from(e.target.files);
-      setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    }
-  };
-
   const removeFile = (index: number) => {
-    setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+    setFiles(undefined);
   };
 
   const handleFileButtonClick = () => {
     fileInputRef.current?.click();
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (input.trim() === "" && files.length === 0) return;
-
-    setIsTyping(true);
-    setShowRealMessages(true);
-
-    // Si hay archivos, procesarlos
-    if (files.length > 0) {
-      try {
-        // Crear un FormData para enviar los archivos
-        const formData = new FormData();
-        formData.append("message", input);
-        files.forEach((file) => {
-          formData.append("files", file);
-        });
-
-        // Enviar los archivos y el mensaje al servidor
-        const response = await fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (!response.ok) {
-          throw new Error("Error al subir los archivos");
-        }
-
-        const data = await response.json();
-
-        // Añadir mensaje del usuario con información de los archivos
-        const fileNames = files.map((file) => file.name).join(", ");
-        const userMessage = `${input}${
-          input ? " " : ""
-        }[Archivos adjuntos: ${fileNames}]`;
-
-        // Limpiar los archivos
-        setFiles([]);
-
-        // Continuar con el flujo normal de envío de mensaje
-        originalHandleSubmit(e, { message: userMessage });
-      } catch (error) {
-        console.error("Error al procesar archivos:", error);
-        setIsTyping(false);
-      }
-    } else {
-      // Si no hay archivos, proceder con el flujo normal
-      originalHandleSubmit(e);
-    }
   };
 
   const isLoading = status === "submitted" || status === "streaming";
@@ -176,10 +112,9 @@ export default function AI() {
         )}
       </div>
 
-      {/* Mostrar vista previa de archivos seleccionados */}
-      {files.length > 0 && (
+      {!!files?.length && (
         <div className={styles.filePreview}>
-          {files.map((file, index) => (
+          {Array.from(files).map((file, index) => (
             <div key={index} className={styles.fileItem}>
               <span>{file.name}</span>
               <button
@@ -194,13 +129,30 @@ export default function AI() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form
+        className={styles.form}
+        onSubmit={(event) => {
+          handleSubmit(event, {
+            experimental_attachments: files,
+          });
+
+          setFiles(undefined);
+
+          if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+          }
+        }}
+      >
         <input
           type="file"
-          ref={fileInputRef}
-          onChange={handleFileChange}
           style={{ display: "none" }}
+          onChange={(event) => {
+            if (event.target.files) {
+              setFiles(event.target.files);
+            }
+          }}
           multiple
+          ref={fileInputRef}
         />
         <button
           type="button"
@@ -227,7 +179,7 @@ export default function AI() {
             onClick={() => stopGeneration()}
             className={styles.actionButton}
           >
-            Stop
+            <Image src={pause} alt="Detener" width={24} height={24} />
           </button>
         ) : (
           <button type="submit" className={styles.actionButton}>
