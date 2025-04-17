@@ -52,7 +52,10 @@ export default function AI() {
   }, []);
 
   const removeFile = (index: number) => {
-    setFiles(undefined);
+    if (!files) return;
+    const newFiles = Array.from(files);
+    newFiles.splice(index, 1);
+    setFiles(newFiles as unknown as FileList);
   };
 
   const handleFileButtonClick = () => {
