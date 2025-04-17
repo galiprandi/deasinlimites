@@ -20,14 +20,12 @@
 }
 
 .message {
-  /* Estilos para todos los mensajes */
   padding: 0.75rem;
   border-radius: 8px;
   max-width: 80%;
   word-break: break-word;
 }
 
-/* Añade clases específicas para roles distintos */
 .message[data-role="user"] {
   align-self: flex-end;
   background-color: var(--color-accent-light, #e3f2fd);

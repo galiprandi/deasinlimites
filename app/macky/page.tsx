@@ -7,8 +7,9 @@ import attachment from "@/assets/icons/attachment.svg";
 import pause from "@/assets/icons/pause.svg";
 import Image from "next/image";
 
-import styles from "./page.module.css";
 import { useRef, useEffect, useState } from "react";
+
+import styles from "./page.module.css";
 
 export default function AI() {
   const [isTyping, setIsTyping] = useState(false);
@@ -34,7 +35,7 @@ export default function AI() {
   const inputRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Scroll al fondo cuando hay nuevos mensajes
+  // Scroll to bottom
   useEffect(() => {
     const el = messagesRef.current;
     if (el) {
@@ -42,7 +43,7 @@ export default function AI() {
     }
   }, [messages]);
 
-  // Focus en el input al cargar la página
+  // Focus on input
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -55,6 +56,16 @@ export default function AI() {
 
   const handleFileButtonClick = () => {
     fileInputRef.current?.click();
+  };
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (input.trim() === "") return;
+    handleSubmit(e, {
+      experimental_attachments: files,
+    });
+    setIsTyping(true);
+    setFiles(undefined);
   };
 
   const isLoading = status === "submitted" || status === "streaming";
@@ -129,20 +140,7 @@ export default function AI() {
         </div>
       )}
 
-      <form
-        className={styles.form}
-        onSubmit={(event) => {
-          handleSubmit(event, {
-            experimental_attachments: files,
-          });
-
-          setFiles(undefined);
-
-          if (fileInputRef.current) {
-            fileInputRef.current.value = "";
-          }
-        }}
-      >
+      <form className={styles.form} onSubmit={onSubmit}>
         <input
           type="file"
           style={{ display: "none" }}
