@@ -36,6 +36,9 @@ export async function generateMetadata({
     title: pageTitle,
     description: config.description,
     keywords: config.keywords,
+    alternates: {
+      canonical: config.url,
+    },
     openGraph: {
       title: pageTitle,
       description: config.description,

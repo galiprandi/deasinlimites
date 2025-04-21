@@ -1,9 +1,24 @@
+import { siteConfig } from "@/config";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "María de los Ángeles Céliz",
   description:
     "Educación y experiencia profesional de María de los Ángeles Céliz",
+  alternates: {
+    canonical: "/acerca-de",
+  },
+  openGraph: {
+    title: `${siteConfig.author.name}`,
+    description:
+      "Educación y experiencia profesional de María de los Ángeles Céliz",
+    url: "https://deasinlimites.com/acerca-de",
+  },
+  twitter: {
+    title: `${siteConfig.author.name}`,
+    description:
+      "Educación y experiencia profesional de María de los Ángeles Céliz",
+  },
 };
 
 interface Experience {
