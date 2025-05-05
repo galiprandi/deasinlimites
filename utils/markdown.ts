@@ -95,7 +95,7 @@ export function searchPosts(
   const lowerCaseQuery = query.toLowerCase();
   return posts.filter(
     (post) =>
-      post.title.toLowerCase().includes(lowerCaseQuery) ||
+      post.title?.toLowerCase().includes(lowerCaseQuery) ||
       post.summary?.toLowerCase().includes(lowerCaseQuery) ||
       post.tags?.some((tag) => tag.toLowerCase().includes(lowerCaseQuery))
   );
