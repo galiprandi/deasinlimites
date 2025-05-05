@@ -47,6 +47,10 @@ hr {
     color: white;
     background-color: var(--color-secondary);
   }
+
+  & + & {
+    margin-left: 0.5em;
+  }
 }
 
 .only-mobile {
