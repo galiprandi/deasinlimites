@@ -14,7 +14,7 @@ export const siteConfig = {
 
 export const socialLinks = {
   linkedin: {
-    src: "https://www.linkedin.com/in/mar%C3%ADa-de-los-angeles-celiz-a00451276/",
+    src: "https://www.linkedin.com/in/mackyceliz",
     alt: "LinkedIn",
   },
   email: {
