@@ -1,11 +1,24 @@
+"use client";
+
 import React from "react";
 import styles from "./AsideBar.module.css";
 import Image from "next/image";
 import logo from "@/public/logo_no-bg.png";
 import Link from "next/link";
 import SocialLinks from "./SocialLinks";
+import { usePathname } from "next/navigation";
 
 const AsideBar = () => {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/", label: "Inicio", exact: true },
+    { href: "/dea", label: "DEA" },
+    { href: "/familias", label: "Familias" },
+    { href: "/docentes", label: "Docentes" },
+    { href: "/acerca-de", label: "Acerca de", desktopOnly: true },
+  ];
+
   return (
     <aside className={styles.aside}>
       <header className="only-desktop">
@@ -13,21 +26,27 @@ const AsideBar = () => {
       </header>
       <nav>
         <ul>
-          <li>
-            <Link href="/">Inicio</Link>
-          </li>
-          <li>
-            <Link href="/dea">DEA</Link>
-          </li>
-          <li>
-            <Link href="/familias">Familias</Link>
-          </li>
-          <li>
-            <Link href="/docentes">Docentes</Link>
-          </li>
-          <li className="only-desktop">
-            <Link href="/acerca-de">Acerca de</Link>
-          </li>
+          {navLinks.map((link) => {
+            const isActive = link.exact
+              ? pathname === link.href
+              : pathname.startsWith(link.href);
+
+            return (
+              <li
+                key={link.href}
+                className={`${link.desktopOnly ? "only-desktop" : ""} ${
+                  isActive ? styles.active : ""
+                }`}
+              >
+                <Link
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <footer>
