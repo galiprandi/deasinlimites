@@ -6,14 +6,15 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "gray-matter": "^4.0.3",
-    "next": "15.2.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-markdown": "^10.1.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-highlight": "^7.0.2",
@@ -27,12 +28,13 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@types/uuid": "^10.0.0",
     "eslint": "^9",
-    "eslint-config-next": "15.2.4",
+    "eslint-config-next": "16.2.6",
     "typescript": "^5"
   },
   "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677"
