@@ -39,8 +39,13 @@
     padding: 0.2em 0.6em;
 
     &:hover,
-    &:active {
+    &:active,
+    &.active {
       background-color: var(--bd-grey2);
+    }
+
+    &.active {
+      font-weight: bold;
     }
 
     & a {
