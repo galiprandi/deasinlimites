@@ -1,10 +1,29 @@
 .share {
   text-align: center;
   margin-top: 2em;
-
   & .shareButtons {
     display: flex;
     justify-content: center;
-    gap: 2em;
+    align-items: center;
+    gap: 1.5em;
+  }
+  & .shareButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 50%;
+    display: flex;
+    &:hover { background-color: var(--bd-grey2); }
+  }
+  & .copyContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  & .copyFeedback {
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+    font-weight: bold;
   }
 }

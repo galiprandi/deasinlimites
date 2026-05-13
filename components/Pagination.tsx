@@ -48,7 +48,10 @@ export default function Pagination({
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <li key={page}>
             {page === currentPage ? (
-              <span className={`${styles.paginationLink} ${styles.active}`}>
+              <span
+                className={`${styles.paginationLink} ${styles.active}`}
+                aria-current="page"
+              >
                 {page}
               </span>
             ) : (
