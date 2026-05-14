@@ -1,0 +1,19 @@
+
+> deasinlimites@0.1.0 dev /app
+> next dev --turbopack --port 3005
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3005
+- Network:       http://192.168.0.2:3005
+✓ Ready in 831ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+○ Compiling / ...
+ GET / 200 in 7.5s (next.js: 6.3s, application-code: 1152ms)
+ GET /dea 200 in 2.8s (next.js: 2.6s, generate-params: 1516ms, application-code: 206ms)
+[browser] Image with src "/_next/static/media/logo_no-bg.0xyx7a98j0ah5.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
