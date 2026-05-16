@@ -1,3 +1,33 @@
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--color-accent);
+  color: var(--text-primary);
+  z-index: 1000;
+  border-bottom-right-radius: var(--border-radius);
+  outline: 2px solid var(--text-primary);
+}
+
 :root {
   --color-accent: #fdb344;
   --color-secondary: #62a964;
