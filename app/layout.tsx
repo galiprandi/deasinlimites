@@ -72,8 +72,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${styles.layout}`}>
+        <a href="#main-content" className="skip-link">
+          Saltar al contenido
+        </a>
         <AsideBar />
-        <main className={styles.main}>
+        <main className={styles.main} id="main-content">
           {children}
           <footer>
             <div className="t-center">
