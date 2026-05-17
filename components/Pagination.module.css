@@ -27,6 +27,12 @@
   border-color: #ccc;
 }
 
+.paginationLink:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(253, 179, 68, 0.3);
+}
+
 .active {
   background-color: #0070f3;
   color: white;

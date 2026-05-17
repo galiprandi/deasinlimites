@@ -13,3 +13,7 @@
 ## 2025-05-15 - [Skip to Content Link for Keyboard Accessibility]
 **Learning:** For sites with persistent sidebar or top navigation, a "Skip to Content" link is essential for keyboard users to bypass repetitive navigation links. Implementing this requires a target anchor (e.g., `<main id="main-content">`) and CSS that hides the link visually while keeping it accessible on focus.
 **Action:** Always include a "Skip to Content" link as the first element in the `<body>` for layouts with significant navigation blocks.
+
+## 2025-05-16 - [Keyboard Focus Visibility for Pagination]
+**Learning:** Pagination links are critical for navigation but often lack clear focus indicators. Using the `:focus-visible` pseudo-class with a high-contrast outline (`--color-accent`) and `outline-offset` ensures that keyboard users can easily track their position during navigation without affecting the experience for mouse users.
+**Action:** Always provide explicit `:focus-visible` styles for interactive elements that facilitate site-wide navigation, especially when they use custom styling that might suppress default browser outlines.
