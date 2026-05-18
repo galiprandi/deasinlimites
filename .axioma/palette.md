@@ -17,3 +17,11 @@
 ## 2025-05-16 - [Keyboard Focus Visibility for Pagination]
 **Learning:** Pagination links are critical for navigation but often lack clear focus indicators. Using the `:focus-visible` pseudo-class with a high-contrast outline (`--color-accent`) and `outline-offset` ensures that keyboard users can easily track their position during navigation without affecting the experience for mouse users.
 **Action:** Always provide explicit `:focus-visible` styles for interactive elements that facilitate site-wide navigation, especially when they use custom styling that might suppress default browser outlines.
+
+## 2025-05-17 - Mejorando la Visibilidad del Enfoque del Teclado
+**Learning:** El uso de `:focus-visible` permite proporcionar indicadores de enfoque claros para los usuarios de teclado sin afectar la estética para los usuarios de ratón. Es fundamental utilizar colores de alto contraste que respeten los tokens de diseño de la aplicación.
+**Action:** Aplicar estilos de enfoque personalizados a todos los elementos interactivos que carezcan de indicadores nativos claros.
+
+## 2025-05-17 - Autonomía en la Creación de PRs
+**Learning:** En este flujo de trabajo, se prefiere la autonomía total. No es necesario esperar confirmación explícita para proceder con la creación del PR una vez completadas las verificaciones.
+**Action:** Proceder directamente a la fase de entrega (submit) tras validar los cambios, documentando el proceso en español.

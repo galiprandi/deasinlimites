@@ -3,6 +3,16 @@
   gap: 2em;
 }
 
+.socialLinks a {
+  border-radius: 4px;
+  display: flex;
+}
+
+.socialLinks a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
 @media screen and (max-width: 960px) {
   .socialLinks {
     justify-content: center;
