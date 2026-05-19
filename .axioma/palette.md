@@ -25,3 +25,7 @@
 ## 2025-05-17 - Autonomía en la Creación de PRs
 **Learning:** En este flujo de trabajo, se prefiere la autonomía total. No es necesario esperar confirmación explícita para proceder con la creación del PR una vez completadas las verificaciones.
 **Action:** Proceder directamente a la fase de entrega (submit) tras validar los cambios, documentando el proceso en español.
+
+## 2025-05-18 - [Focus Visibility for Main Navigation and Content]
+**Learning:** Main navigation elements like sidebar links and primary content links (e.g., blog post cards) are often overlooked during accessibility audits. Adding high-contrast `:focus-visible` styles using theme-consistent design tokens (`--color-accent`) significantly improves keyboard navigation clarity and follows the site's established design patterns.
+**Action:** Ensure both navigation and content-heavy interactive components have explicit focus indicators that align with the site's accent colors and spacing tokens.
