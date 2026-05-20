@@ -29,3 +29,7 @@
 ## 2025-05-18 - [Focus Visibility for Main Navigation and Content]
 **Learning:** Main navigation elements like sidebar links and primary content links (e.g., blog post cards) are often overlooked during accessibility audits. Adding high-contrast `:focus-visible` styles using theme-consistent design tokens (`--color-accent`) significantly improves keyboard navigation clarity and follows the site's established design patterns.
 **Action:** Ensure both navigation and content-heavy interactive components have explicit focus indicators that align with the site's accent colors and spacing tokens.
+
+## 2025-05-19 - [Discoverability and Accessibility for Symbol Buttons]
+**Learning:** Interactive elements that use abstract symbols (like a "×" for clearing input) benefit significantly from having a `title` attribute for native tooltips and a high-contrast `:focus-visible` outline. This combination ensures that the button's purpose is discoverable for mouse users through hover and remains accessible for keyboard users during navigation.
+**Action:** Always include descriptive `title` attributes and explicit focus indicators for buttons using icons or symbols.

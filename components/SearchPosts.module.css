@@ -43,3 +43,8 @@
   background-color: #f0f0f0;
   color: #333;
 }
+
+.clearButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

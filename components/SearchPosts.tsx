@@ -38,6 +38,7 @@ export default function SearchPosts() {
           className={styles.clearButton}
           onClick={() => setSearchQuery("")}
           aria-label="Limpiar búsqueda"
+          title="Limpiar búsqueda"
         >
           ×
         </button>
