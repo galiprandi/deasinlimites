@@ -94,7 +94,11 @@ export default async function BlogPage({
 
       <main className={styles.main}>
         {searchQuery && (
-          <div className={styles.searchInfo}>
+          <div
+            className={styles.searchInfo}
+            role="status"
+            aria-live="polite"
+          >
             <p>
               {filteredPosts.length === 0
                 ? `No se encontraron resultados para "${searchQuery}"`

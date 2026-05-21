@@ -33,3 +33,7 @@
 ## 2025-05-19 - [Discoverability and Accessibility for Symbol Buttons]
 **Learning:** Interactive elements that use abstract symbols (like a "×" for clearing input) benefit significantly from having a `title` attribute for native tooltips and a high-contrast `:focus-visible` outline. This combination ensures that the button's purpose is discoverable for mouse users through hover and remains accessible for keyboard users during navigation.
 **Action:** Always include descriptive `title` attributes and explicit focus indicators for buttons using icons or symbols.
+
+## 2025-05-20 - [Smooth Search-as-you-type and Live Updates]
+**Learning:** For dynamic search filters, using `router.replace` with `scroll: false` prevents browser history pollution and page jumping, creating a much smoother interaction. Additionally, wrapping result summaries in `role="status"` and `aria-live="polite"` ensures these changes are perceptible to screen reader users as they type.
+**Action:** Use `router.replace` with `scroll: false` for all live filtering components and always include ARIA live regions for the resulting status updates.
