@@ -34,9 +34,9 @@
 }
 
 .active {
-  background-color: #0070f3;
+  background-color: var(--color-secondary);
   color: white;
-  border-color: #0070f3;
+  border-color: var(--color-secondary);
 }
 
 .disabled {
