@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import AsideBar from "@/components/AsideBar";
 import styles from "./layout.module.css";
 import { blogsConfig, siteConfig } from "@/config";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
