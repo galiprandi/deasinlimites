@@ -37,3 +37,7 @@
 ## 2025-05-20 - [Smooth Search-as-you-type and Live Updates]
 **Learning:** For dynamic search filters, using `router.replace` with `scroll: false` prevents browser history pollution and page jumping, creating a much smoother interaction. Additionally, wrapping result summaries in `role="status"` and `aria-live="polite"` ensures these changes are perceptible to screen reader users as they type.
 **Action:** Use `router.replace` with `scroll: false` for all live filtering components and always include ARIA live regions for the resulting status updates.
+
+## 2026-05-21 - [Visual Feedback and Card Interactivity]
+**Learning:** Adding subtle elevation (`translateY`) and shadow transitions to content cards provides immediate, tactile feedback that enhances the user's sense of control and discovery. Aligning hover states with brand colors (`--color-secondary`) reinforces site identity while maintaining a professional and polished feel.
+**Action:** Always implement smooth transitions and elevation feedback for primary interactive containers like PostCards to improve the perceived quality of the UI.

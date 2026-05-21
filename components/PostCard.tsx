@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate } from "@/utils/date"; // Crearemos esta utilidad después
+import { formatDate } from "@/utils/date";
 import { PostMetadata } from "@/utils/markdown";
 import styles from "./PostCard.module.css";
 import Image from "next/image";
