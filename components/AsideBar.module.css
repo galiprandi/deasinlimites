@@ -29,36 +29,38 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.8em;
-  font-size: larger;
+  gap: 0.4em;
+  font-size: 1.1rem;
 
   & li {
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 0.2em 0.6em;
-
-    &:hover,
-    &:active,
-    &.active {
-      background-color: var(--bd-grey2);
-    }
-
-    &.active {
-      font-weight: bold;
-    }
+    border-radius: var(--border-radius);
 
     & a {
       display: block;
       text-decoration: none;
       color: var(--text-primary);
-      border-radius: 4px;
-      transition: outline 0.2s ease;
+      padding: 0.6em 1.2em;
+      border-radius: var(--border-radius);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid transparent;
+    }
+
+    &:hover a {
+      background-color: var(--bd-grey2);
+      padding-left: 1.5em;
+    }
+
+    &.active a {
+      background-color: var(--color-secondary);
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 12px -4px rgba(98, 169, 100, 0.4);
     }
 
     & a:focus-visible {
       outline: 2px solid var(--color-accent);
-      outline-offset: 4px;
+      outline-offset: 2px;
+      background-color: rgba(253, 179, 68, 0.1);
     }
   }
 }
