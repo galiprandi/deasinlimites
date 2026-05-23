@@ -14,6 +14,14 @@
 - **Estado Activo**: Uso de `var(--color-secondary)` con una sombra suave para destacar la sección actual con elegancia y consistencia.
 - **Micro-interacciones en SocialLinks**: Los iconos sociales ahora incluyen un fondo circular reactivo y un efecto de escala al pasar el cursor, alineándose con las tendencias modernas de micro-UX.
 
+### SharePost
+- **Consistencia de Micro-interacciones**: Los botones de compartir ahora comparten el mismo lenguaje visual que `SocialLinks`, con escalado suave (`scale(1.1)`) y fondos reactivos.
+- **Feedback Dinámico**: El mensaje "¡Copiado!" ahora presenta una animación de entrada (`fadeIn`) para reducir la carga cognitiva y mejorar la percepción de respuesta del sistema.
+
+### Pagination
+- **Unificación de Tokens**: Uso de `var(--border-radius)` para asegurar que los controles de navegación sigan la misma geometría que el resto de la interfaz.
+- **Feedback de Navegación**: Los enlaces de paginación ahora reaccionan con un sutil desplazamiento vertical y cambio de color a `var(--bd-grey2)`, alineándose con el comportamiento de las `PostCard`.
+
 ## Tokens de Diseño Utilizados
 - `--color-accent`: `#fdb344` (Enfoque y acentos)
 - `--color-secondary`: `#62a964` (Estados activos y hover)

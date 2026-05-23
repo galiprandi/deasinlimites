@@ -41,3 +41,7 @@
 ## 2026-05-21 - [Visual Feedback and Card Interactivity]
 **Learning:** Adding subtle elevation (`translateY`) and shadow transitions to content cards provides immediate, tactile feedback that enhances the user's sense of control and discovery. Aligning hover states with brand colors (`--color-secondary`) reinforces site identity while maintaining a professional and polished feel.
 **Action:** Always implement smooth transitions and elevation feedback for primary interactive containers like PostCards to improve the perceived quality of the UI.
+
+## 2026-05-23 - [Pattern Reusability and Motion Consistency]
+**Learning:** Establishing a shared vocabulary for micro-interactions (e.g., `0.3s cubic-bezier`, `scale(1.1)`) across different components like `SocialLinks` and `SharePost` creates a more cohesive and professional user experience. Furthermore, using semantic tokens like `var(--border-radius)` and `var(--bd-grey2)` across navigation elements like `Pagination` ensures visual harmony and eases future theme updates.
+**Action:** Replicate proven interactive patterns across similar components and strictly adhere to design tokens for geometry and state backgrounds.
