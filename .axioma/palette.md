@@ -45,3 +45,7 @@
 ## 2026-05-23 - [Pattern Reusability and Motion Consistency]
 **Learning:** Establishing a shared vocabulary for micro-interactions (e.g., `0.3s cubic-bezier`, `scale(1.1)`) across different components like `SocialLinks` and `SharePost` creates a more cohesive and professional user experience. Furthermore, using semantic tokens like `var(--border-radius)` and `var(--bd-grey2)` across navigation elements like `Pagination` ensures visual harmony and eases future theme updates.
 **Action:** Replicate proven interactive patterns across similar components and strictly adhere to design tokens for geometry and state backgrounds.
+
+## 2026-05-24 - [Search UI Affordance and Focus Clarity]
+**Learning:** Adding a search icon that changes color upon focus provides a dual benefit: it strengthens the visual identity of the search input and serves as an additional non-textual indicator of the active state. Combining this with a subtle `box-shadow` focus ring creates a high-visibility indicator that feels modern and accessible, moving beyond simple border changes.
+**Action:** Enhance search inputs with reactive icons and shadow-based focus rings to improve both discoverability and accessibility.
