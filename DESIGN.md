@@ -22,6 +22,12 @@
 - **Unificación de Tokens**: Uso de `var(--border-radius)` para asegurar que los controles de navegación sigan la misma geometría que el resto de la interfaz.
 - **Feedback de Navegación**: Los enlaces de paginación ahora reaccionan con un sutil desplazamiento vertical y cambio de color a `var(--bd-grey2)`, alineándose con el comportamiento de las `PostCard`.
 
+### Search UI
+- **Contexto Visual**: Incorporación de un icono de búsqueda dinámico que reacciona al estado de enfoque, mejorando la affordance del componente.
+- **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con un acento lateral (`var(--color-secondary)`) y fondo neutro (`var(--bd-grey)`) para una integración visual superior.
+- **Micro-interacciones**: El botón de limpieza incluye una animación `fadeInScale` y feedback táctil al pasar el cursor, reduciendo la fricción en la edición de consultas.
+- **Enfoque de Alta Visibilidad**: Implementación de un anillo de enfoque con `box-shadow` y `var(--color-accent)`, garantizando que el estado activo sea inconfundible para usuarios de teclado.
+
 ## Tokens de Diseño Utilizados
 - `--color-accent`: `#fdb344` (Enfoque y acentos)
 - `--color-secondary`: `#62a964` (Estados activos y hover)

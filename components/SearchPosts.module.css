@@ -4,32 +4,49 @@
   width: 100%;
 }
 
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
 .searchInput {
   width: -webkit-fill-available;
-  padding: 0.75rem 2.5rem 0.75rem 1rem;
-  border: 1px solid #ccc;
+  padding: 0.85rem 2.5rem 0.85rem 2.75rem;
+  border: 1px solid #e5e7eb;
   border-radius: var(--border-radius);
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: white;
 }
 
-.searchInput:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+.searchInput:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(253, 179, 68, 0.15);
+}
+
+.searchInput:focus + .searchIcon {
+  color: var(--color-accent);
 }
 
 .clearButton {
   position: absolute;
-  right: 10px;
+  right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
+  background: var(--bd-grey2);
   border: none;
-  color: #666;
-  font-size: 1.25rem;
+  color: #6b7280;
+  font-size: 1.1rem;
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0;
   line-height: 1;
   border-radius: 50%;
   display: flex;
@@ -37,14 +54,28 @@
   justify-content: center;
   width: 1.5rem;
   height: 1.5rem;
+  transition: all 0.2s ease;
+  animation: fadeInScale 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clearButton:hover {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #f3f4f6;
+  color: #111827;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .clearButton:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
 }
