@@ -28,6 +28,12 @@
 - **Micro-interacciones**: El botón de limpieza incluye una animación `fadeInScale` y feedback táctil al pasar el cursor, reduciendo la fricción en la edición de consultas.
 - **Enfoque de Alta Visibilidad**: Implementación de un anillo de enfoque con `box-shadow` y `var(--color-accent)`, garantizando que el estado activo sea inconfundible para usuarios de teclado.
 
+### Acerca de (Perfil Profesional)
+- **Layout de Tarjetas**: Transición de una lista plana a una rejilla de tarjetas interactivas que utilizan `var(--bd-grey2)` para una separación visual clara.
+- **Micro-interacciones**: Las tarjetas de experiencia y educación heredan el comportamiento de elevación y sombra de las `PostCard`, manteniendo la cohesión en toda la plataforma.
+- **Jerarquía Visual**: Uso de `var(--color-secondary)` para etiquetas de fechas y subtítulos, destacando la información cronológica de forma elegante.
+- **Consistencia de Datos**: Sincronización de metadatos dinámicos y normalización de la identidad del autor en todo el sitio.
+
 ## Tokens de Diseño Utilizados
 - `--color-accent`: `#fdb344` (Enfoque y acentos)
 - `--color-secondary`: `#62a964` (Estados activos y hover)

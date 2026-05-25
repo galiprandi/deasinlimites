@@ -1,23 +1,21 @@
 import { siteConfig } from "@/config";
 import { Metadata } from "next";
+import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "María de los Ángeles Céliz",
-  description:
-    "Educación y experiencia profesional de María de los Ángeles Céliz",
+  title: siteConfig.author.name,
+  description: `Educación y experiencia profesional de ${siteConfig.author.name}`,
   alternates: {
-    canonical: "/acerca-de",
+    canonical: `${siteConfig.url}/acerca-de`,
   },
   openGraph: {
-    title: `${siteConfig.author.name}`,
-    description:
-      "Educación y experiencia profesional de María de los Ángeles Céliz",
-    url: "https://deasinlimites.com/acerca-de",
+    title: siteConfig.author.name,
+    description: `Educación y experiencia profesional de ${siteConfig.author.name}`,
+    url: `${siteConfig.url}/acerca-de`,
   },
   twitter: {
-    title: `${siteConfig.author.name}`,
-    description:
-      "Educación y experiencia profesional de María de los Ángeles Céliz",
+    title: siteConfig.author.name,
+    description: `Educación y experiencia profesional de ${siteConfig.author.name}`,
   },
 };
 
@@ -46,13 +44,13 @@ const education: Education[] = [
   {
     degree: "Profesorado EGB I y II",
     institution: "Escuela y Liceo vocacional Sarmiento U.N.T",
-    location: "San Miguel de Tucuman, Argentina",
+    location: "San Miguel de Tucumán, Argentina",
     dates: "2002",
   },
   {
     degree: "Profesorado Nivel Inicial",
     institution: "Escuela y Liceo vocacional Sarmiento U.N.T",
-    location: "San Miguel de Tucuman, Argentina",
+    location: "San Miguel de Tucumán, Argentina",
     dates: "1999 - 2001",
   },
 ];
@@ -60,19 +58,19 @@ const education: Education[] = [
 const experience: Experience[] = [
   {
     title: "Maestra de apoyo",
-    location: "San Miguel de Tucuman, Argentina",
-    dates: "2012 - Present",
+    location: "San Miguel de Tucumán, Argentina",
+    dates: "2012 - Actualidad",
     description:
       "Maestra de apoyo especializada en niños con dificultades específicas de aprendizaje (DEA).",
   },
   {
     title: "Maestra EGB I y II",
-    location: "Colegio Suizo, San Miguel de Tucuman, Argentina",
+    location: "Colegio Suizo, San Miguel de Tucumán, Argentina",
     dates: "2011 - 2012",
   },
   {
     title: "Maestra EGB I y II",
-    location: "Colegio Santa Catalina, San Miguel de Tucuman, Argentina",
+    location: "Colegio Santa Catalina, San Miguel de Tucumán, Argentina",
     dates: "2010 - 2011",
   },
   {
@@ -107,57 +105,60 @@ const training: Training[] = [
 
 export default function AcercaDe() {
   return (
-    <main>
-      <div>
-        <h1>María de los Ángeles Céliz</h1>
-        <p>Educadora y Especialista en Dificultades de Aprendizaje</p>
-      </div>
-      <br />
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>{siteConfig.author.name}</h1>
+        <p className={styles.subtitle}>Educadora y Especialista en Dificultades de Aprendizaje</p>
+      </header>
+
       <hr />
-      <br />
-      <section>
+
+      <section className={styles.section}>
         <h2>Educación</h2>
-        <div>
+        <div className={styles.grid}>
           {education.map((edu, index) => (
-            <div key={index}>
+            <article key={index} className={styles.card}>
               <h3>
-                {edu.degree} <small>({edu.dates})</small>
+                {edu.degree}
+                <span className={styles.dateTag}>{edu.dates}</span>
               </h3>
-              <p>{edu.institution}</p>
-              <p>{edu.location}</p>
-            </div>
+              <p className={styles.institution}>{edu.institution}</p>
+              <p className={styles.location}>{edu.location}</p>
+            </article>
           ))}
         </div>
       </section>
-      <br />
-      <section>
+
+      <section className={styles.section}>
         <h2>Experiencia</h2>
-        <div>
+        <div className={styles.grid}>
           {experience.map((exp, index) => (
-            <div key={index}>
+            <article key={index} className={styles.card}>
               <h3>
-                {exp.title} <small>({exp.dates})</small>
+                {exp.title}
+                <span className={styles.dateTag}>{exp.dates}</span>
               </h3>
-              <p>{exp.location}</p>
-              {exp.description && <p>{exp.description}</p>}
-            </div>
+              <p className={styles.location}>{exp.location}</p>
+              {exp.description && <p className={styles.description}>{exp.description}</p>}
+            </article>
           ))}
         </div>
       </section>
-      <br />
-      <section>
+
+      <section className={styles.section}>
         <h2>Capacitaciones</h2>
-        <div>
+        <div className={styles.grid}>
           {training.map((train, index) => (
-            <div key={index}>
+            <article key={index} className={styles.card}>
               <h3>
-                {train.title} <small>({train.dates})</small>
+                {train.title}
+                <span className={styles.dateTag}>{train.dates}</span>
               </h3>
-              <p>{train.institution}</p>
-            </div>
+              <p className={styles.institution}>{train.institution}</p>
+            </article>
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

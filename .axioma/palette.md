@@ -49,3 +49,7 @@
 ## 2026-05-24 - [Search UI Affordance and Focus Clarity]
 **Learning:** Adding a search icon that changes color upon focus provides a dual benefit: it strengthens the visual identity of the search input and serves as an additional non-textual indicator of the active state. Combining this with a subtle `box-shadow` focus ring creates a high-visibility indicator that feels modern and accessible, moving beyond simple border changes.
 **Action:** Enhance search inputs with reactive icons and shadow-based focus rings to improve both discoverability and accessibility.
+
+## 2026-05-25 - [Professional Profile and Resume UX Consistency]
+**Learning:** Professional profile pages ("About Me") should not be treated as secondary content. Applying the same interactive language as the rest of the site (e.g., card-based layouts, hover elevation, and brand-aligned accents) creates a sense of professional continuity. Furthermore, centralizing author identity in a single configuration file prevents data fragmentation and improves maintainability.
+**Action:** Ensure "About Me" pages reflect the site's primary UI patterns and rely on centralized configuration for personal data and SEO metadata.
