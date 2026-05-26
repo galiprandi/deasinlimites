@@ -33,3 +33,10 @@
 - `--color-secondary`: `#62a964` (Estados activos y hover)
 - `--bd-grey2`: `#1f29371a` (Fondos de tarjetas)
 - `--border-radius`: `0.6em`
+
+### Acerca de
+- **Estructura Semántica**: Transición a un layout basado en `header`, `section` y `article` para mejorar el SEO y la accesibilidad.
+- **Visualización de Trayectoria**: Implementación de una rejilla de tarjetas (`grid`) para Educación, Experiencia y Capacitaciones, optimizando el uso del espacio.
+- **Micro-interacciones**: Las tarjetas presentan una elevación sutil y un cambio de color de acento (`var(--color-secondary)`) en hover, manteniendo la coherencia con las `PostCard`.
+- **Diseño de Etiquetas**: Uso de `dateTag` para resaltar periodos temporales de forma visualmente limpia y distinguible.
+- **Consistencia de Marca**: Sincronización de metadatos y títulos con `siteConfig` para garantizar una identidad uniforme.
