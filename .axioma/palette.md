@@ -49,3 +49,7 @@
 ## 2026-05-24 - [Search UI Affordance and Focus Clarity]
 **Learning:** Adding a search icon that changes color upon focus provides a dual benefit: it strengthens the visual identity of the search input and serves as an additional non-textual indicator of the active state. Combining this with a subtle `box-shadow` focus ring creates a high-visibility indicator that feels modern and accessible, moving beyond simple border changes.
 **Action:** Enhance search inputs with reactive icons and shadow-based focus rings to improve both discoverability and accessibility.
+
+## 2026-05-26 - [Semantic Layout and Card-based CV]
+**Learning:** Re-structuring CV-like pages (e.g., "About Me") using semantic HTML sections and a grid of cards improves information density without sacrificing readability. Consistent hover effects (elevation and accent colors) across different page types reinforce the application's interactive vocabulary and perceived quality.
+**Action:** Use CSS Grid and modular cards for structured information lists, ensuring they share the same interactive behavior as other site components for a cohesive UX.
