@@ -16,6 +16,7 @@ const AsideBar = () => {
     { href: "/dea", label: "DEA" },
     { href: "/familias", label: "Familias" },
     { href: "/docentes", label: "Docentes" },
+    { href: "/papers", label: "Publicaciones" },
     { href: "/acerca-de", label: "Acerca de", desktopOnly: true },
   ];
 
