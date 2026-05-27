@@ -40,3 +40,13 @@
 - **Micro-interacciones**: Las tarjetas presentan una elevación sutil y un cambio de color de acento (`var(--color-secondary)`) en hover, manteniendo la coherencia con las `PostCard`.
 - **Diseño de Etiquetas**: Uso de `dateTag` para resaltar periodos temporales de forma visualmente limpia y distinguible.
 - **Consistencia de Marca**: Sincronización de metadatos y títulos con `siteConfig` para garantizar una identidad uniforme.
+
+### Publicaciones (Papers)
+- **Galería de Recursos**: Implementación de una rejilla de tarjetas optimizada para la visualización de documentos técnicos y guías.
+- **Jerarquía Visual**: Uso de etiquetas de categoría distintivas para facilitar el escaneo rápido de contenido.
+- **Interactividad de Tarjetas**: Aplicación del lenguaje de diseño "elevación al hover" para mantener la consistencia con el blog principal.
+
+### Markdown & Artículos
+- **Optimización de Lectura**: Ajuste del `line-height` a 1.8 y aumento del tamaño de fuente base para reducir la fatiga visual en artículos largos.
+- **Citas Sofisticadas**: Refinamiento de `blockquote` con bordes de acento (`var(--color-secondary)`) y fondos neutros, elevando el valor de las menciones y extractos.
+- **Interactividad de Enlaces**: Implementación de `text-underline-offset` y transiciones de color de acento para una experiencia de navegación interna más fluida y estéticamente agradable.

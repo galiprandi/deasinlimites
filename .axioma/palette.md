@@ -53,3 +53,7 @@
 ## 2026-05-26 - [Semantic Layout and Card-based CV]
 **Learning:** Re-structuring CV-like pages (e.g., "About Me") using semantic HTML sections and a grid of cards improves information density without sacrificing readability. Consistent hover effects (elevation and accent colors) across different page types reinforce the application's interactive vocabulary and perceived quality.
 **Action:** Use CSS Grid and modular cards for structured information lists, ensuring they share the same interactive behavior as other site components for a cohesive UX.
+
+## 2026-05-27 - [Typography for Long-form Content]
+**Learning:** For articles and technical publications, a generous `line-height` (1.8) and clear hierarchy of headings significantly reduce cognitive load. Sophisticated treatments for `blockquote` elements (accents and subtle backgrounds) help highlight key information and provide visual rhythm to text-heavy pages.
+**Action:** Standardize Markdown styling with optimized line heights and distinct blockquote patterns to ensure high readability across all articles and papers.
