@@ -7,7 +7,7 @@ export const siteConfig = {
   description: `${title} es un blog dirigido a padres y docentes de niños con dificultades específicas de aprendizaje (DEA).`,
   url: "https://deasinlimites.com",
   author: {
-    name: "María de los Ángeles Celiz",
+    name: "María de los Ángeles Céliz",
     email: "mariadelosangelesceliz@gmail.com",
   },
 };

@@ -8,7 +8,7 @@ test.describe('Home Page', () => {
 
   test('should display blog posts on the home page', async ({ page }) => {
     await page.goto('/');
-    const postCards = page.locator('.grid article');
+    const postCards = page.locator('section article');
     await expect(postCards).not.toHaveCount(0);
   });
 });
@@ -16,7 +16,7 @@ test.describe('Home Page', () => {
 test.describe('Blog Pages', () => {
   test('should navigate to a blog post from the home page', async ({ page }) => {
     await page.goto('/');
-    const firstPost = page.locator('.grid article').first();
+    const firstPost = page.locator('section article').first();
     const postTitle = await firstPost.locator('h2').innerText();
     await firstPost.locator('a').first().click();
 
