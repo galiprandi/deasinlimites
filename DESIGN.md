@@ -42,9 +42,10 @@
 - **Consistencia de Marca**: Sincronización de metadatos y títulos con `siteConfig` para garantizar una identidad uniforme.
 
 ### Publicaciones (Papers)
-- **Galería de Recursos**: Implementación de una rejilla de tarjetas optimizada para la visualización de documentos técnicos y guías.
-- **Jerarquía Visual**: Uso de etiquetas de categoría distintivas para facilitar el escaneo rápido de contenido.
-- **Interactividad de Tarjetas**: Aplicación del lenguaje de diseño "elevación al hover" para mantener la consistencia con el blog principal.
+- **Galería de Recursos**: Implementación de una rejilla de tarjetas basada en `var(--bd-grey2)` y `var(--border-radius)` para una integración total con el sistema.
+- **Jerarquía Semántica**: Estructura mejorada con `header` y `footer` internos para separar categorías, títulos y metadatos de forma clara.
+- **Interactividad Evolutiva**: Las tarjetas reaccionan con elevación y cambio de color de borde a `var(--color-secondary)`, mientras que los botones de acción incluyen una micro-animación de desplazamiento lateral.
+- **Accesibilidad**: Inclusión de `aria-label` descriptivos y estados `:focus-visible` de alta visibilidad para garantizar una navegación inclusiva.
 
 ### Markdown & Artículos
 - **Optimización de Lectura**: Ajuste del `line-height` a 1.8 y aumento del tamaño de fuente base para reducir la fatiga visual en artículos largos.

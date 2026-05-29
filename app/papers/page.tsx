@@ -57,15 +57,21 @@ export default function PapersPage() {
         {publications.map((pub) => (
           <article key={pub.id} className={styles.card}>
             <div className={styles.cardContent}>
-              <span className={styles.category}>{pub.category}</span>
-              <h2 className={styles.cardTitle}>{pub.title}</h2>
+              <header>
+                <span className={styles.category}>{pub.category}</span>
+                <h2 className={styles.cardTitle}>{pub.title}</h2>
+              </header>
               <p className={styles.description}>{pub.description}</p>
-              <div className={styles.footer}>
+              <footer className={styles.footer}>
                 <span className={styles.date}>{pub.date}</span>
-                <a href={pub.link} className={styles.button}>
-                  Leer más
+                <a
+                  href={pub.link}
+                  className={styles.button}
+                  aria-label={`Leer más sobre ${pub.title}`}
+                >
+                  Leer más <span>→</span>
                 </a>
-              </div>
+              </footer>
             </div>
           </article>
         ))}
