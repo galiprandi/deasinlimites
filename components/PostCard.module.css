@@ -47,7 +47,8 @@
   align-items: center;
   gap: 1em;
   margin-bottom: 1em;
-  color: #666;
+  color: var(--text-primary);
+  opacity: 0.6;
 }
 
 .meta span {
@@ -64,7 +65,8 @@
 .summary {
   margin: 0;
   line-height: 1.6;
-  color: #4b5563;
+  color: var(--text-primary);
+  opacity: 0.8;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
