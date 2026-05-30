@@ -1,8 +1,31 @@
 .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
   & .header {
     text-align: center;
-    margin-bottom: 3rem;
+    padding: 4rem 1rem 3rem;
+    margin-bottom: 2rem;
+    background-color: var(--bd-grey);
+    border-radius: var(--border-radius);
+    border-bottom: 1px solid var(--bd-grey2);
   }
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-primary);
+  opacity: 0.9;
 }
 
 .searchInfo {
@@ -27,11 +50,14 @@
 .empty {
   text-align: center;
   padding: 4rem 0;
-  color: #6b7280;
+  color: var(--text-primary);
+  opacity: 0.6;
   font-size: 1.1rem;
 }
 
 .grid {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  padding: 2rem 0;
 }

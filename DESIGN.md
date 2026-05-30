@@ -51,3 +51,8 @@
 - **Optimización de Lectura**: Ajuste del `line-height` a 1.8 y aumento del tamaño de fuente base para reducir la fatiga visual en artículos largos.
 - **Citas Sofisticadas**: Refinamiento de `blockquote` con bordes de acento (`var(--color-secondary)`) y fondos neutros, elevando el valor de las menciones y extractos.
 - **Interactividad de Enlaces**: Implementación de `text-underline-offset` y transiciones de color de acento para una experiencia de navegación interna más fluida y estéticamente agradable.
+
+### Blog Home & Consistencia
+- **Unificación de Layout**: Las páginas de categorías de blog ahora comparten el mismo diseño Hero y rejilla responsiva que la página de inicio, utilizando `var(--bd-grey)` y `repeat(auto-fill, minmax(300px, 1fr))`.
+- **Estandarización de Tokens**: Eliminación de colores hex hardcodeados en favor de variantes basadas en opacidad de `var(--text-primary)`, asegurando que metadatos (0.6) y resúmenes (0.8) mantengan un contraste jerárquico consistente.
+- **Jerarquía Visual**: Refinamiento de estilos para títulos y descripciones de sección para garantizar una lectura clara y profesional en todo el sitio.
