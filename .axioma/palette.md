@@ -57,3 +57,7 @@
 ## 2026-05-27 - [Typography for Long-form Content]
 **Learning:** For articles and technical publications, a generous `line-height` (1.8) and clear hierarchy of headings significantly reduce cognitive load. Sophisticated treatments for `blockquote` elements (accents and subtle backgrounds) help highlight key information and provide visual rhythm to text-heavy pages.
 **Action:** Standardize Markdown styling with optimized line heights and distinct blockquote patterns to ensure high readability across all articles and papers.
+
+## 2026-05-28 - [Hero Unification and Token-based Opacity]
+**Learning:** Unifying the Hero treatment across informational and content pages ensures a cohesive brand identity. Furthermore, replacing hardcoded hex values with design tokens and opacity (e.g., `var(--text-primary)` with 0.6 or 0.8) ensures text hierarchy remains consistent, accessible, and theme-aware across different background contexts.
+**Action:** Standardize informational page headers (Acerca de, Papers) to match the landing page's Hero design and use design tokens for secondary text color consistency.

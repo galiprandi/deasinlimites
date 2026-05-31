@@ -1,7 +1,7 @@
 .article {
   line-height: 1.8;
   font-size: 1.1rem;
-  color: #333;
+  color: var(--text-primary);
 
   & header {
     margin-bottom: 3rem;
@@ -20,7 +20,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 1em;
-      color: #666;
+      color: var(--text-primary);
+      opacity: 0.6;
       font-size: 0.95rem;
 
       & span {
@@ -44,7 +45,8 @@
   & h3 {
     font-size: 1.4rem;
     margin: 2rem 0 1rem;
-    color: #444;
+    color: var(--text-primary);
+    opacity: 0.9;
   }
 
   & blockquote {
@@ -54,7 +56,8 @@
     background-color: var(--bd-grey);
     font-style: italic;
     font-size: 1.2rem;
-    color: #555;
+    color: var(--text-primary);
+    opacity: 0.8;
     border-radius: 0 8px 8px 0;
   }
 
