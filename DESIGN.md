@@ -53,6 +53,6 @@
 - **Interactividad de Enlaces**: Implementación de `text-underline-offset` y transiciones de color de acento para una experiencia de navegación interna más fluida y estéticamente agradable.
 
 ### Blog Home & Consistencia
-- **Unificación de Layout**: Las páginas de categorías de blog ahora comparten el mismo diseño Hero y rejilla responsiva que la página de inicio, utilizando `var(--bd-grey)` y `repeat(auto-fill, minmax(300px, 1fr))`.
-- **Estandarización de Tokens**: Eliminación de colores hex hardcodeados en favor de variantes basadas en opacidad de `var(--text-primary)`, asegurando que metadatos (0.6) y resúmenes (0.8) mantengan un contraste jerárquico consistente.
+- **Unificación de Layout**: Las páginas de categorías de blog y las páginas informativas (`Acerca de`, `Publicaciones`) ahora comparten el mismo diseño Hero y rejilla responsiva que la página de inicio, utilizando `var(--bd-grey)` y un espaciado consistente.
+- **Estandarización de Tokens**: Eliminación de colores hex hardcodeados en favor de variantes basadas en opacidad de `var(--text-primary)`, asegurando que metadatos (0.6), resúmenes (0.8) y descripciones secundarias mantengan un contraste jerárquico consistente y adaptativo.
 - **Jerarquía Visual**: Refinamiento de estilos para títulos y descripciones de sección para garantizar una lectura clara y profesional en todo el sitio.

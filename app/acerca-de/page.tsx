@@ -111,8 +111,6 @@ export default function AcercaDe() {
         <p className={styles.subtitle}>Educadora y Especialista en Dificultades de Aprendizaje</p>
       </header>
 
-      <hr />
-
       <section className={styles.section}>
         <h2>Educación</h2>
         <div className={styles.grid}>
