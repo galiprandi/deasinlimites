@@ -19,14 +19,14 @@
 - **Feedback Dinámico**: El mensaje "¡Copiado!" ahora presenta una animación de entrada (`fadeIn`) para reducir la carga cognitiva y mejorar la percepción de respuesta del sistema.
 
 ### Pagination
-- **Unificación de Tokens**: Uso de `var(--border-radius)` para asegurar que los controles de navegación sigan la misma geometría que el resto de la interfaz.
-- **Feedback de Navegación**: Los enlaces de paginación ahora reaccionan con un sutil desplazamiento vertical y cambio de color a `var(--bd-grey2)`, alineándose con el comportamiento de las `PostCard`.
+- **Unificación de Tokens**: Uso de `var(--border-radius)` y eliminación de colores hexadecimales en favor de tokens de diseño y opacidad sobre `var(--text-primary)`.
+- **Feedback de Navegación**: Los enlaces de paginación ahora reaccionan con elevación dinámica (`translateY(-2px)`) y sombras temáticas basadas en `var(--color-secondary-rgb)`, alineándose con el lenguaje de las `PostCard`.
 
 ### Search UI
-- **Contexto Visual**: Incorporación de un icono de búsqueda dinámico que reacciona al estado de enfoque, mejorando la affordance del componente.
-- **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con un acento lateral (`var(--color-secondary)`) y fondo neutro (`var(--bd-grey)`) para una integración visual superior.
-- **Micro-interacciones**: El botón de limpieza incluye una animación `fadeInScale` y feedback táctil al pasar el cursor, reduciendo la fricción en la edición de consultas.
-- **Enfoque de Alta Visibilidad**: Implementación de un anillo de enfoque con `box-shadow` y `var(--color-accent)`, garantizando que el estado activo sea inconfundible para usuarios de teclado.
+- **Contexto Visual**: El icono de búsqueda ahora utiliza una opacidad adaptativa y transiciones fluidas para reaccionar al enfoque del campo de entrada.
+- **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con sombras temáticas (`var(--color-secondary-rgb)`) para una profundidad visual consistente.
+- **Micro-interacciones**: El botón de limpieza y el borde del input han sido migrados a `var(--bd-grey2)`, eliminando dependencias de colores estáticos y mejorando la integración con el fondo.
+- **Enfoque de Alta Visibilidad**: El anillo de enfoque utiliza ahora `var(--color-accent-rgb)` para una definición superior y consistencia cromática total.
 
 ## Tokens de Diseño Utilizados
 - `--color-accent`: `#fdb344` (Enfoque y acentos)

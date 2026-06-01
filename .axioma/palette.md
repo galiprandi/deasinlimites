@@ -61,3 +61,7 @@
 ## 2026-05-28 - [Hero Unification and Token-based Opacity]
 **Learning:** Unifying the Hero treatment across informational and content pages ensures a cohesive brand identity. Furthermore, replacing hardcoded hex values with design tokens and opacity (e.g., `var(--text-primary)` with 0.6 or 0.8) ensures text hierarchy remains consistent, accessible, and theme-aware across different background contexts.
 **Action:** Standardize informational page headers (Acerca de, Papers) to match the landing page's Hero design and use design tokens for secondary text color consistency.
+
+## 2026-05-31 - [Token-based Shadows and Opacity Hierarchy]
+**Learning:** Hardcoded hex or RGB values in shadows and borders create maintenance debt and visual drift. By introducing RGB design tokens (e.g., `--color-secondary-rgb`), we can implement theme-aware shadows that maintain brand consistency. Furthermore, using opacity on a single primary text token (`var(--text-primary)`) for secondary elements, instead of multiple grey hex values, ensures a more robust and predictable visual hierarchy.
+**Action:** Use RGB tokens for themed box-shadows and favor opacity-driven variants of primary tokens over hardcoded neutral colors to maintain design system integrity.

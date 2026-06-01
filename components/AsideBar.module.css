@@ -54,7 +54,7 @@
       background-color: var(--color-secondary);
       color: white;
       font-weight: 600;
-      box-shadow: 0 4px 12px -4px rgba(98, 169, 100, 0.4);
+      box-shadow: 0 4px 12px -4px rgba(var(--color-secondary-rgb), 0.4);
     }
 
     & a:focus-visible {
