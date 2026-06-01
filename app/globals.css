@@ -30,7 +30,9 @@
 
 :root {
   --color-accent: #fdb344;
+  --color-accent-rgb: 253, 179, 68;
   --color-secondary: #62a964;
+  --color-secondary-rgb: 98, 169, 100;
   --text-primary: #1f2937;
   --bd-grey: #f2f2f2;
   --bd-grey2: #1f29371a;
