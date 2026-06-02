@@ -1,7 +1,5 @@
 .container {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 
   & .header {
     text-align: center;
@@ -10,6 +8,7 @@
     background-color: var(--bd-grey);
     border-radius: var(--border-radius);
     border-bottom: 1px solid var(--bd-grey2);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -25,7 +24,7 @@
   max-width: 800px;
   margin: 0 auto;
   color: var(--text-primary);
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .searchInfo {
@@ -49,10 +48,14 @@
 
 .empty {
   text-align: center;
-  padding: 4rem 0;
+  padding: 6rem 1rem;
   color: var(--text-primary);
   opacity: 0.6;
   font-size: 1.1rem;
+  background-color: var(--bd-grey);
+  border-radius: var(--border-radius);
+  margin: 2rem 0;
+  border: 1px dashed var(--bd-grey2);
 }
 
 .grid {

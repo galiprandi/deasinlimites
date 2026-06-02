@@ -1,7 +1,5 @@
 .container {
-  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1rem;
 }
 
 .header {
@@ -11,6 +9,7 @@
   background-color: var(--bd-grey);
   border-radius: var(--border-radius);
   border-bottom: 1px solid var(--bd-grey2);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .title {
@@ -25,7 +24,8 @@
   max-width: 800px;
   margin: 0 auto;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.8;
+  opacity: 0.8;
 }
 
 .grid {

@@ -53,6 +53,9 @@
 - **Interactividad de Enlaces**: Implementación de `text-underline-offset` y transiciones de color de acento para una experiencia de navegación interna más fluida y estéticamente agradable.
 
 ### Blog Home & Consistencia
-- **Unificación de Layout**: Las páginas de categorías de blog y las páginas informativas (`Acerca de`, `Publicaciones`) ahora comparten el mismo diseño Hero y rejilla responsiva que la página de inicio, utilizando `var(--bd-grey)` y un espaciado consistente.
+- **Estandarización de Layout Global**: Unificación del ancho máximo del contenido a `1000px` en `layout.module.css`, eliminando discrepancias entre páginas y asegurando una alineación vertical perfecta en todo el sitio.
+- **Cinética de Entrada**: Implementación de animaciones `fadeInUp` en todas las secciones Hero y cabeceras de página, proporcionando una transición de carga fluida y profesional.
+- **Evolución de Títulos de Sección**: Los títulos de sección en la Home ahora utilizan el lenguaje visual de `searchInfo`, con bordes de acento izquierdo y fondos neutros para una jerarquía clara.
+- **Refinamiento de Lectura**: Estandarización de `line-height: 1.8` y `opacity: 0.8` para todas las descripciones de cabecera, optimizando la legibilidad y el confort visual.
+- **Micro-UX de Búsqueda**: Mejora del feedback visual en el campo de búsqueda con sombras multi-capa y un diseño de estado vacío ("No results") más estructurado y elegante.
 - **Estandarización de Tokens**: Eliminación de colores hex hardcodeados en favor de variantes basadas en opacidad de `var(--text-primary)`, asegurando que metadatos (0.6), resúmenes (0.8) y descripciones secundarias mantengan un contraste jerárquico consistente y adaptativo.
-- **Jerarquía Visual**: Refinamiento de estilos para títulos y descripciones de sección para garantizar una lectura clara y profesional en todo el sitio.

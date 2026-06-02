@@ -1,6 +1,4 @@
 .container {
-  padding: 1rem 0;
-  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -11,6 +9,7 @@
   background-color: var(--bd-grey);
   border-radius: var(--border-radius);
   border-bottom: 1px solid var(--bd-grey2);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header h1 {
@@ -25,7 +24,8 @@
   font-weight: 500;
   max-width: 800px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.8;
+  opacity: 0.8;
 }
 
 .section {

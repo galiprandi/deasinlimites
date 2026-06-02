@@ -40,6 +40,17 @@
   --border-radius: 0.6em;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
