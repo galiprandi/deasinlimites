@@ -53,6 +53,9 @@
 - **Interactividad de Enlaces**: Implementación de `text-underline-offset` y transiciones de color de acento para una experiencia de navegación interna más fluida y estéticamente agradable.
 
 ### Blog Home & Consistencia
+- **Feedback de Continuidad**: Inclusión de indicadores dinámicos "Leer más" en `PostCard` que se revelan con animaciones de opacidad y desplazamiento al interactuar, mejorando la affordance de lectura.
+- **Navegación Contextual**: Implementación de enlaces de retorno en artículos individuales que facilitan la exploración por categorías, manteniendo al usuario dentro del flujo de contenido.
+- **Modernización de Elementos Globales**: Refinamiento de la regla horizontal (`hr`) alineada con los tokens de diseño neutros (`var(--bd-grey2)`), eliminando gradientes innecesarios para un look más contemporáneo y limpio.
 - **Estandarización de Layout Global**: Unificación del ancho máximo del contenido a `1000px` en `layout.module.css`, eliminando discrepancias entre páginas y asegurando una alineación vertical perfecta en todo el sitio.
 - **Cinética de Entrada**: Implementación de animaciones `fadeInUp` en todas las secciones Hero y cabeceras de página, proporcionando una transición de carga fluida y profesional.
 - **Evolución de Títulos de Sección**: Los títulos de sección en la Home ahora utilizan el lenguaje visual de `searchInfo`, con bordes de acento izquierdo y fondos neutros para una jerarquía clara.
