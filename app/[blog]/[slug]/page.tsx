@@ -54,6 +54,12 @@ export default async function Page({ params }: { params: PageParams }) {
 
   return (
     <div className={styles.container}>
+      <nav className={styles.backNav}>
+        <Link href={`/${blog}`} className={styles.backLink}>
+          <span aria-hidden="true">←</span> Volver a {config.title}
+        </Link>
+      </nav>
+
       <article className={styles.article}>
         <header>
           <h1>{title}</h1>
@@ -86,7 +92,6 @@ export default async function Page({ params }: { params: PageParams }) {
         </header>
 
         <hr />
-        <br />
 
         <div
           className={styles.content}

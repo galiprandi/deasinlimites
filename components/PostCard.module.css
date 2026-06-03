@@ -73,6 +73,31 @@
   overflow: hidden;
 }
 
+.readMore {
+  margin-top: 1.25em;
+  color: var(--color-secondary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .readMore {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.readMore span {
+  transition: transform 0.2s ease;
+}
+
+.card:hover .readMore span {
+  transform: translateX(3px);
+}
+
 @media screen and (max-width: 960px) {
   .card {
     font-size: small;
