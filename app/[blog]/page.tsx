@@ -5,6 +5,7 @@ import {
   paginatePosts,
   searchPosts,
 } from "@/utils/markdown";
+import { Suspense } from "react";
 import PostCard from "@/components/PostCard";
 import SearchPosts from "@/components/SearchPosts";
 import Pagination from "@/components/Pagination";
@@ -89,7 +90,9 @@ export default async function BlogPage({
       <header className={styles.header}>
         <h1 className={styles.title}>{config.title}</h1>
         <p className={styles.description}>{config.description}</p>
-        <SearchPosts />
+        <Suspense fallback={<div style={{ height: "45px" }} />}>
+          <SearchPosts />
+        </Suspense>
       </header>
 
       <main className={styles.main}>
