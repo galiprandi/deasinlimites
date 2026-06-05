@@ -28,6 +28,9 @@
 - **Micro-interacciones**: El botón de limpieza y el borde del input han sido migrados a `var(--bd-grey2)`, eliminando dependencias de colores estáticos y mejorando la integración con el fondo.
 - **Enfoque de Alta Visibilidad**: El anillo de enfoque utiliza ahora `var(--color-accent-rgb)` para una definición superior y consistencia cromática total.
 
+## Estabilidad Técnica
+- **Arquitectura de Búsqueda**: Implementación de límites de `<Suspense>` en `app/[blog]/page.tsx` para el componente `SearchPosts`. Esta medida previene errores de hidratación vinculados a `useSearchParams` y permite una carga progresiva del cliente sin bloquear el renderizado estático del servidor.
+
 ## Tokens de Diseño Utilizados
 - `--color-accent`: `#fdb344` (Enfoque y acentos)
 - `--color-secondary`: `#62a964` (Estados activos y hover)

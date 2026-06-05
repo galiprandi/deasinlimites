@@ -65,3 +65,7 @@
 ## 2026-05-31 - [Token-based Shadows and Opacity Hierarchy]
 **Learning:** Hardcoded hex or RGB values in shadows and borders create maintenance debt and visual drift. By introducing RGB design tokens (e.g., `--color-secondary-rgb`), we can implement theme-aware shadows that maintain brand consistency. Furthermore, using opacity on a single primary text token (`var(--text-primary)`) for secondary elements, instead of multiple grey hex values, ensures a more robust and predictable visual hierarchy.
 **Action:** Use RGB tokens for themed box-shadows and favor opacity-driven variants of primary tokens over hardcoded neutral colors to maintain design system integrity.
+
+## 2026-06-05 - [Hydration Stability and Visual Consistency]
+**Learning:** Components using `useSearchParams` in Next.js require an explicit `Suspense` boundary to prevent hydration mismatches during dynamic navigation. Additionally, synchronizing card interactivity (elevation and themed shadows) across informational pages like "About" and "Papers" using brand-aware RGB tokens ensures a "perfectly unified" feel throughout the application.
+**Action:** Always wrap search-dependent client components in `Suspense` and maintain a shared vocabulary of hover effects across all card-based layouts.
