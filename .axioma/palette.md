@@ -69,3 +69,7 @@
 ## 2026-06-05 - [Hydration Stability and Visual Consistency]
 **Learning:** Components using `useSearchParams` in Next.js require an explicit `Suspense` boundary to prevent hydration mismatches during dynamic navigation. Additionally, synchronizing card interactivity (elevation and themed shadows) across informational pages like "About" and "Papers" using brand-aware RGB tokens ensures a "perfectly unified" feel throughout the application.
 **Action:** Always wrap search-dependent client components in `Suspense` and maintain a shared vocabulary of hover effects across all card-based layouts.
+
+## 2026-06-06 - [Global Consistency and Themed Interactivity]
+**Learning:** Themed box-shadows using `rgba(var(--color-secondary-rgb), 0.15)` provide a more integrated depth effect than generic black shadows. Consistently applying the "Card as Link" pattern and "Read More" reveal animations across all galleries (including Papers) reinforces the site's interactive vocabulary and improves usability by maximizing the hit area.
+**Action:** Replaced hardcoded shadows with themed tokens, unified Hero treatments with accent spans, and standardized card interactivity across informational pages.

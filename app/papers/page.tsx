@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Publicaciones | DEA sin límites",
@@ -47,32 +48,30 @@ export default function PapersPage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Publicaciones</h1>
+        <h1>Publicaciones <span>especializadas</span></h1>
         <p className={styles.subtitle}>
-          Recursos especializados y materiales descargables para familias y profesionales.
+          Recursos y materiales descargables para familias y profesionales.
         </p>
       </header>
 
       <section className={styles.grid}>
         {publications.map((pub) => (
           <article key={pub.id} className={styles.card}>
-            <div className={styles.cardContent}>
-              <header>
-                <span className={styles.category}>{pub.category}</span>
-                <h2 className={styles.cardTitle}>{pub.title}</h2>
-              </header>
-              <p className={styles.description}>{pub.description}</p>
-              <footer className={styles.footer}>
-                <span className={styles.date}>{pub.date}</span>
-                <a
-                  href={pub.link}
-                  className={styles.button}
-                  aria-label={`Leer más sobre ${pub.title}`}
-                >
-                  Leer más <span>→</span>
-                </a>
-              </footer>
-            </div>
+            <Link href={pub.link} className={styles.cardLink}>
+              <div className={styles.cardContent}>
+                <header>
+                  <span className={styles.category}>{pub.category}</span>
+                  <h2 className={styles.cardTitle}>{pub.title}</h2>
+                </header>
+                <p className={styles.description}>{pub.description}</p>
+                <footer className={styles.footer}>
+                  <span className={styles.date}>{pub.date}</span>
+                  <div className={styles.button}>
+                    Leer más <span aria-hidden="true">→</span>
+                  </div>
+                </footer>
+              </div>
+            </Link>
           </article>
         ))}
       </section>

@@ -7,7 +7,7 @@
   border-radius: 50%;
   display: flex;
   padding: 0.5em;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent;
 }
 
