@@ -104,10 +104,15 @@ const training: Training[] = [
 ];
 
 export default function AcercaDe() {
+  const [firstName, ...lastNameParts] = siteConfig.author.name.split(" ");
+  const lastName = lastNameParts.join(" ");
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>{siteConfig.author.name}</h1>
+        <h1>
+          {firstName} <span>{lastName}</span>
+        </h1>
         <p className={styles.subtitle}>Educadora y Especialista en Dificultades de Aprendizaje</p>
       </header>
 

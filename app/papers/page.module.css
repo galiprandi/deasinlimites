@@ -12,18 +12,22 @@
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.title {
+.header h1 {
   font-size: 2.5rem;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
+.header h1 span {
+  color: var(--color-accent);
+}
+
 .subtitle {
   font-size: 1.1rem;
-  color: var(--color-secondary);
+  color: var(--text-primary);
   max-width: 800px;
   margin: 0 auto;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.8;
   opacity: 0.8;
 }
@@ -51,6 +55,19 @@
   transform: translateY(-5px);
   box-shadow: 0 12px 24px -8px rgba(var(--color-secondary-rgb), 0.15);
   border-color: var(--color-secondary);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardLink:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .cardContent {
@@ -114,21 +131,25 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
 }
 
-.button:hover {
-  color: var(--color-accent);
+.card:hover .button {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.button span {
+  transition: transform 0.2s ease;
+}
+
+.card:hover .button span {
   transform: translateX(3px);
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
-  border-radius: 4px;
 }
 
 @media (max-width: 768px) {

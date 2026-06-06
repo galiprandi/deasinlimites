@@ -65,3 +65,6 @@
 - **Refinamiento de Lectura**: Estandarización de `line-height: 1.8` y `opacity: 0.8` para todas las descripciones de cabecera, optimizando la legibilidad y el confort visual.
 - **Micro-UX de Búsqueda**: Mejora del feedback visual en el campo de búsqueda con sombras multi-capa y un diseño de estado vacío ("No results") más estructurado y elegante.
 - **Estandarización de Tokens**: Eliminación de colores hex hardcodeados en favor de variantes basadas en opacidad de `var(--text-primary)`, asegurando que metadatos (0.6), resúmenes (0.8) y descripciones secundarias mantengan un contraste jerárquico consistente y adaptativo.
+- **Unificación de Identidad Visual**: Las páginas de Publicaciones (Papers) y Acerca de ahora comparten el sistema de acentos en títulos (`h1 span`) y la jerarquía tipográfica de la Home, consolidando una marca cohesiva.
+- **Refinamiento de Interactividad en Galerías**: Implementación del patrón de "Tarjeta como Enlace" en Publicaciones para optimizar el área de interacción y sincronización de micro-interacciones de revelado dinámico ("Leer más") con el resto del sitio.
+- **Sombras Tematizadas**: Migración de sombras hardcodeadas en `PostCard` y `Pagination` hacia el token RGBA dinámico `var(--color-secondary-rgb)`, permitiendo una profundidad visual que respeta el esquema de color de la aplicación.
