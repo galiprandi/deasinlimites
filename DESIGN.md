@@ -69,6 +69,14 @@
 - **Refinamiento de Interactividad en Galerías**: Implementación del patrón de "Tarjeta como Enlace" en Publicaciones para optimizar el área de interacción y sincronización de micro-interacciones de revelado dinámico ("Leer más") con el resto del sitio.
 - **Sombras Tematizadas**: Migración de sombras hardcodeadas en `PostCard` y `Pagination` hacia el token RGBA dinámico `var(--color-secondary-rgb)`, permitiendo una profundidad visual que respeta el esquema de color de la aplicación.
 
+### Home (Inicio)
+- **Expansión de Secciones**: La página de inicio ahora ofrece una visión integral del blog, incluyendo secciones dedicadas a DEA, Familias y Docentes.
+- **Jerarquía de Contenido**: Se limita la visualización a las 3 publicaciones más recientes por categoría para mantener un layout limpio y fomentar la exploración de las secciones específicas.
+- **Unificación de Títulos**: Todas las secciones de la Home ahora emplean el estilo `sectionTitle` estandarizado, garantizando una jerarquía visual coherente.
+
+### Blog Category & Headers
+- **Unificación de Héroe**: Aplicación del patrón de acento cromático (`h1 span`) en los encabezados de las categorías del blog, alineando estas páginas con la Home y "Acerca de".
+
 ## Refactor UI Polish Micro-UX
 
 ### Micro-interacciones & Feedback

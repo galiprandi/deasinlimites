@@ -85,10 +85,16 @@ export default async function BlogPage({
     config.pageSize
   );
 
+  const titleParts = config.title.split(" ");
+  const lastWord = titleParts.pop();
+  const firstPart = titleParts.join(" ");
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>{config.title}</h1>
+        <h1 className={styles.title}>
+          {firstPart && <>{firstPart} </>}<span>{lastWord}</span>
+        </h1>
         <p className={styles.description}>{config.description}</p>
         <Suspense fallback={<div style={{ height: "45px" }} />}>
           <SearchPosts />

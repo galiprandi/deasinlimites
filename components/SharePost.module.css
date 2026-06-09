@@ -5,7 +5,8 @@
 
 .shareText {
   margin-bottom: 1em;
-  color: #4b5563;
+  color: var(--text-primary);
+  opacity: 0.8;
 }
 
 .shareButtons {

@@ -18,6 +18,10 @@
   color: var(--text-primary);
 }
 
+.title span {
+  color: var(--color-accent);
+}
+
 .description {
   font-size: 1.1rem;
   line-height: 1.8;

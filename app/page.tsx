@@ -7,7 +7,9 @@ import { siteConfig } from "@/config";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const postsDea = getAllPostsMetadata("/content/dea");
+  const postsDea = getAllPostsMetadata("/content/dea").slice(0, 3);
+  const postsFamilias = getAllPostsMetadata("/content/familias").slice(0, 3);
+  const postsDocentes = getAllPostsMetadata("/content/docentes").slice(0, 3);
 
   return (
     <div className={styles.container}>
@@ -32,6 +34,28 @@ export default function Home() {
           <div className={styles.contentGrid}>
             {postsDea.map((post) => (
               <PostCard key={post.slug} post={post} pathname={"/dea"} />
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 className={styles.sectionTitle}>
+            Estrategias para familias
+          </h2>
+          <div className={styles.contentGrid}>
+            {postsFamilias.map((post) => (
+              <PostCard key={post.slug} post={post} pathname={"/familias"} />
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 className={styles.sectionTitle}>
+            Estrategias para docentes
+          </h2>
+          <div className={styles.contentGrid}>
+            {postsDocentes.map((post) => (
+              <PostCard key={post.slug} post={post} pathname={"/docentes"} />
             ))}
           </div>
         </section>

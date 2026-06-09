@@ -73,3 +73,7 @@
 ## 2026-06-06 - [Global Consistency and Themed Interactivity]
 **Learning:** Themed box-shadows using `rgba(var(--color-secondary-rgb), 0.15)` provide a more integrated depth effect than generic black shadows. Consistently applying the "Card as Link" pattern and "Read More" reveal animations across all galleries (including Papers) reinforces the site's interactive vocabulary and improves usability by maximizing the hit area.
 **Action:** Replaced hardcoded shadows with themed tokens, unified Hero treatments with accent spans, and standardized card interactivity across informational pages.
+
+## 2026-06-08 - [Landing Page Information Density and Hierarchy]
+**Learning:** A landing page serves as a map for the entire ecosystem. Expanding it to show recent content from all primary categories (DEA, Familias, Docentes) improves discoverability and provides an immediate value proposition. Limiting each section to 3 items prevents "infinite scrolling" fatigue and maintains a clean, professional layout that directs users toward specific section archives.
+**Action:** Expand homepages to represent all content pillars using standardized section headers and limited, high-impact previews.
