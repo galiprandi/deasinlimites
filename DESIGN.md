@@ -82,3 +82,13 @@
 ### Navegación & Estructura
 - **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)`, reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
 - **Unified Shadows**: Auditoría y confirmación de que todas las tarjetas en 'Acerca de' y 'Papers' operan bajo el sistema de sombras tematizadas `rgba(var(--color-secondary-rgb), 0.15)`, garantizando una homogeneidad total en la profundidad del sitio.
+
+### Markdown & Artículos (Evolución)
+- **Héroe Unificado en Artículos**: Los encabezados de los artículos ahora utilizan el fondo `var(--bd-grey)` y bordes redondeados, alineándose con el Hero global. El título incorpora acentos cromáticos (`h1 span`) y el resumen mantiene una jerarquía tipográfica optimizada.
+- **Navegación Contextual Integrada**: El enlace de retorno ("Volver") se ha trasladado al interior del Hero del artículo, utilizando un diseño de "píldora" con fondo blanco y micro-interacciones de desplazamiento lateral para una navegación más fluida y cohesiva.
+
+### Experiencia 404
+- **Página de Error Curada**: Implementación de una página "No encontrado" personalizada que mantiene el lenguaje visual del sitio. Incluye una ilustración simbólica, títulos con acento y un botón de acción principal ("Volver al inicio") con elevación y sombras tematizadas.
+
+### Footer Global
+- **Jerarquía Visual Refinada**: El pie de página ahora cuenta con una separación clara mediante un borde superior sutil, tipografía en itálica para el lema del sitio y sincronización automática del año de copyright, elevando la profesionalidad del cierre de página.

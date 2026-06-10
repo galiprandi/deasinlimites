@@ -14,8 +14,22 @@
   max-width: 1000px;
   margin: 0 auto;
 
-  & > footer {
-    margin: 2em 0;
+  & > .footer {
+    margin: 4em 0 2em;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bd-grey2);
+    color: var(--text-primary);
+    opacity: 0.6;
+
+    & p {
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    & small {
+      font-size: 0.85rem;
+      font-style: italic;
+    }
   }
 }
 

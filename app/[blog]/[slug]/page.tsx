@@ -52,22 +52,30 @@ export default async function Page({ params }: { params: PageParams }) {
   const post = await getPostBySlug(contentFolder, slug);
   const { title, summary, date, content, tags } = post;
 
+  const words = title.split(" ");
+  const lastWord = words.pop();
+  const titleStart = words.join(" ");
+
   return (
     <div className={styles.container}>
-      <nav className={styles.backNav}>
-        <Link href={`/${blog}`} className={styles.backLink}>
-          <span aria-hidden="true">←</span> Volver a {config.title}
-        </Link>
-      </nav>
-
       <article className={styles.article}>
         <header>
-          <h1>{title}</h1>
+          <nav className={styles.backNav}>
+            <Link href={`/${blog}`} className={styles.backLink}>
+              <span aria-hidden="true">←</span> Volver a {config.title}
+            </Link>
+          </nav>
+
+          <h1>
+            {titleStart} <span>{lastWord}</span>
+          </h1>
+
           {summary && (
             <div className={styles.summary}>
               <p>{summary}</p>
             </div>
           )}
+
           <div className={styles.meta}>
             <span>
               <Image
@@ -90,8 +98,6 @@ export default async function Page({ params }: { params: PageParams }) {
             )}
           </div>
         </header>
-
-        <hr />
 
         <div
           className={styles.content}

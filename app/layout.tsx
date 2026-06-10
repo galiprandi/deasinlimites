@@ -78,12 +78,13 @@ export default function RootLayout({
         <AsideBar />
         <main className={styles.main} id="main-content">
           {children}
-          <footer>
+          <footer className={styles.footer}>
             <div className="t-center">
-              <small>
-                Copyright 2025 - Todos los derechos reservados por{" "}
-                {siteConfig.title}
-              </small>
+              <p>
+                Copyright © {new Date().getFullYear()} —{" "}
+                <strong>{siteConfig.title}</strong>
+              </p>
+              <small>Derribando barreras educativas con amor y compromiso.</small>
             </div>
           </footer>
         </main>

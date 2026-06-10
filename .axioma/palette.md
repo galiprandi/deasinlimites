@@ -73,3 +73,11 @@
 ## 2026-06-06 - [Global Consistency and Themed Interactivity]
 **Learning:** Themed box-shadows using `rgba(var(--color-secondary-rgb), 0.15)` provide a more integrated depth effect than generic black shadows. Consistently applying the "Card as Link" pattern and "Read More" reveal animations across all galleries (including Papers) reinforces the site's interactive vocabulary and improves usability by maximizing the hit area.
 **Action:** Replaced hardcoded shadows with themed tokens, unified Hero treatments with accent spans, and standardized card interactivity across informational pages.
+
+## 2026-06-10 - [Contextual Navigation and Article Hero Unification]
+**Learning:** Relocating navigation elements like "Volver" links inside the Hero section of an article, while using a distinct "pill" design, creates a more integrated and intentional user flow. Furthermore, extending the unified Hero background and title accent pattern to article details completes the site's visual ecosystem, making every view feel like part of a curated whole.
+**Action:** Integrate contextual back-links within header sections using interactive pill styles and apply global Hero tokens to article detail headers.
+
+## 2026-06-11 - [Curated Error States and Brand Continuity]
+**Learning:** A custom 404 page is an opportunity to reinforce brand voice and provide clear paths forward. Using the same design vocabulary (Hero backgrounds, accent spans, and themed action buttons) for error states reduces user frustration and maintains a professional atmosphere even when things go wrong.
+**Action:** Implement professional 404 pages using the site's established Hero and Button design patterns to ensure end-to-end visual continuity.
