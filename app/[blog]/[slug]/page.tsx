@@ -52,29 +52,38 @@ export default async function Page({ params }: { params: PageParams }) {
   const post = await getPostBySlug(contentFolder, slug);
   const { title, summary, date, content, tags } = post;
 
+  const titleParts = title.split(" ");
+  const lastWord = titleParts.pop();
+  const firstPart = titleParts.join(" ");
+
   return (
     <div className={styles.container}>
-      <nav className={styles.backNav}>
-        <Link href={`/${blog}`} className={styles.backLink}>
-          <span aria-hidden="true">←</span> Volver a {config.title}
-        </Link>
-      </nav>
-
       <article className={styles.article}>
-        <header>
-          <h1>{title}</h1>
+        <header className={styles.hero}>
+          <nav className={styles.backNav}>
+            <Link href={`/${blog}`} className={styles.backLink}>
+              <span aria-hidden="true">←</span> Volver a {config.title}
+            </Link>
+          </nav>
+
+          <h1>
+            {firstPart && <>{firstPart} </>}
+            <span>{lastWord}</span>
+          </h1>
+
           {summary && (
             <div className={styles.summary}>
               <p>{summary}</p>
             </div>
           )}
+
           <div className={styles.meta}>
-            <span>
+            <span className={styles.date}>
               <Image
                 src={calendarIcon}
                 alt={formatDate(date)}
-                width={15}
-                height={15}
+                width={16}
+                height={16}
               />
               <time dateTime={date}>{formatDate(date)}</time>
             </span>
@@ -91,12 +100,12 @@ export default async function Page({ params }: { params: PageParams }) {
           </div>
         </header>
 
-        <hr />
-
-        <div
-          className={styles.content}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <div className={styles.bodyContent}>
+          <div
+            className={styles.content}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </div>
       </article>
 
       <SharePost url={`${config.url}/${slug}`} />

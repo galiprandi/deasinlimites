@@ -77,3 +77,7 @@
 ## 2026-06-08 - [Landing Page Information Density and Hierarchy]
 **Learning:** A landing page serves as a map for the entire ecosystem. Expanding it to show recent content from all primary categories (DEA, Familias, Docentes) improves discoverability and provides an immediate value proposition. Limiting each section to 3 items prevents "infinite scrolling" fatigue and maintains a clean, professional layout that directs users toward specific section archives.
 **Action:** Expand homepages to represent all content pillars using standardized section headers and limited, high-impact previews.
+
+## 2026-06-10 - [Article Hero Unification and Readability]
+**Learning:** Centering the primary information of an article (Title, Summary, Meta) within a themed Hero container (`var(--bd-grey)`) drastically improves the focus and perceived importance of the content. Furthermore, capping the body text width at `850px` ensures an optimal line length (70-80 characters), which is the gold standard for reading comprehension and visual comfort in long-form content.
+**Action:** Unify article headers with the site-wide Hero pattern and implement a specific `bodyContent` width constraint to elevate the reading experience.

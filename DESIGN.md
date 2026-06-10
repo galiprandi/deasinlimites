@@ -77,6 +77,12 @@
 ### Blog Category & Headers
 - **Unificación de Héroe**: Aplicación del patrón de acento cromático (`h1 span`) en los encabezados de las categorías del blog, alineando estas páginas con la Home y "Acerca de".
 
+### Detalle de Artículo (Post Detail)
+- **Héroe Inmersivo**: Los artículos ahora cuentan con una sección de cabecera (Hero) centrada, con fondo `var(--bd-grey)` y bordes sutiles, unificando la experiencia visual con el resto del sitio.
+- **Jerarquía Tipográfica**: Implementación del acento cromático en el título (`h1 span`) y optimización del espaciado para el resumen y metadatos.
+- **Legibilidad Avanzada**: El contenido del artículo se envuelve en un contenedor `bodyContent` con un ancho máximo optimizado (`850px`), evitando líneas de texto excesivamente largas y mejorando el confort visual.
+- **Navegación Contextual**: El enlace "Volver" se integra de forma limpia en el Hero, facilitando el retorno a la categoría principal con una affordance mejorada.
+
 ## Refactor UI Polish Micro-UX
 
 ### Micro-interacciones & Feedback
@@ -88,5 +94,5 @@
 - **Image Presentation**: Las imágenes ahora cuentan con sombras de mayor profundidad (`0 8px 24px`) y una transición suave de escala en hover, elevando el contenido visual al estándar de publicación premium.
 
 ### Navegación & Estructura
-- **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)`, reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
+- **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)` y una sombra de profundidad mejorada (`0 8px 16px -6px`), reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
 - **Unified Shadows**: Auditoría y confirmación de que todas las tarjetas en 'Acerca de' y 'Papers' operan bajo el sistema de sombras tematizadas `rgba(var(--color-secondary-rgb), 0.15)`, garantizando una homogeneidad total en la profundidad del sitio.
