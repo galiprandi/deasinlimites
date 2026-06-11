@@ -5,15 +5,28 @@ import Image from "next/image";
 import logo from "@/public/logo.png";
 import { siteConfig } from "@/config";
 import styles from "./page.module.css";
+import sharedStyles from "@/styles/shared.module.css";
 
 export default function Home() {
   const postsDea = getAllPostsMetadata("/content/dea").slice(0, 3);
   const postsFamilias = getAllPostsMetadata("/content/familias").slice(0, 3);
   const postsDocentes = getAllPostsMetadata("/content/docentes").slice(0, 3);
 
+  const renderTitleWithAccent = (title: string) => {
+    const words = title.trim().split(" ");
+    if (words.length <= 1) return <span>{title}</span>;
+    const lastWord = words.pop();
+    const firstPart = words.join(" ");
+    return (
+      <>
+        {firstPart} <span>{lastWord}</span>
+      </>
+    );
+  };
+
   return (
     <div className={styles.container}>
-      <header className={styles.hero}>
+      <header className={sharedStyles.hero}>
         <div className="logo only-mobile">
           <Image src={logo} alt={siteConfig.title} width={230} height={230} />
         </div>
@@ -29,7 +42,7 @@ export default function Home() {
       <main>
         <section>
           <h2 className={styles.sectionTitle}>
-            Dificultades específicas del aprendizaje
+            {renderTitleWithAccent("Dificultades específicas del aprendizaje")}
           </h2>
           <div className={styles.contentGrid}>
             {postsDea.map((post) => (
@@ -40,7 +53,7 @@ export default function Home() {
 
         <section>
           <h2 className={styles.sectionTitle}>
-            Estrategias para familias
+            {renderTitleWithAccent("Estrategias para familias")}
           </h2>
           <div className={styles.contentGrid}>
             {postsFamilias.map((post) => (
@@ -51,7 +64,7 @@ export default function Home() {
 
         <section>
           <h2 className={styles.sectionTitle}>
-            Estrategias para docentes
+            {renderTitleWithAccent("Estrategias para docentes")}
           </h2>
           <div className={styles.contentGrid}>
             {postsDocentes.map((post) => (

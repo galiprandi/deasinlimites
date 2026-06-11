@@ -13,10 +13,26 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  & > footer {
-    margin: 2em 0;
-  }
+.footer {
+  margin-top: auto;
+  padding: 3rem 0;
+  border-top: 1px solid var(--bd-grey2);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+  opacity: 0.8;
+}
+
+.footerAuthor {
+  opacity: 0.6 !important;
+  font-size: 0.85rem;
 }
 
 /* Mobile styles */

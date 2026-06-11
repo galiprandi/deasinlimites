@@ -1,0 +1,29 @@
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--bd-grey);
+  border-radius: var(--border-radius);
+  margin-bottom: 3rem;
+  border: 1px solid var(--bd-grey2);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hero h1 span {
+  color: var(--color-accent);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  opacity: 0.8;
+  font-weight: 400;
+}

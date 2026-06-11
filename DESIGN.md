@@ -96,3 +96,9 @@
 ### Navegación & Estructura
 - **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)` y una sombra de profundidad mejorada (`0 8px 16px -6px`), reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
 - **Unified Shadows**: Auditoría y confirmación de que todas las tarjetas en 'Acerca de' y 'Papers' operan bajo el sistema de sombras tematizadas `rgba(var(--color-secondary-rgb), 0.15)`, garantizando una homogeneidad total en la profundidad del sitio.
+
+## 🐜 [CAROL]: Refactorización y Refinamiento Estético
+- [x] Estandarización de footer global en `app/layout.tsx` (Año dinámico, bordes temáticos, tipografía refinada).
+- [x] Implementación de acentos cromáticos en títulos de secciones del Home (`app/page.tsx`).
+- [x] Creación de página 404 personalizada (`app/not-found.tsx`) con lenguaje de diseño "Hero".
+- [x] Centralización de estilos compartidos de cabecera en `styles/shared.module.css`.
