@@ -78,12 +78,15 @@ export default function RootLayout({
         <AsideBar />
         <main className={styles.main} id="main-content">
           {children}
-          <footer>
+          <footer className={styles.footer}>
             <div className="t-center">
-              <small>
-                Copyright 2025 - Todos los derechos reservados por{" "}
-                {siteConfig.title}
-              </small>
+              <p>
+                &copy; {new Date().getFullYear()} — Todos los derechos reservados por{" "}
+                <strong>{siteConfig.title}</strong>
+              </p>
+              <p className={styles.footerAuthor}>
+                Desarrollado con ❤️ por {siteConfig.author.name}
+              </p>
             </div>
           </footer>
         </main>
