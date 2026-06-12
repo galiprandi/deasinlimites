@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./page.module.css";
+import sharedStyles from "@/styles/shared.module.css";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -47,9 +48,9 @@ const publications: Publication[] = [
 export default function PapersPage() {
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
+      <header className={sharedStyles.hero}>
         <h1>Publicaciones <span>especializadas</span></h1>
-        <p className={styles.subtitle}>
+        <p>
           Recursos y materiales descargables para familias y profesionales.
         </p>
       </header>
