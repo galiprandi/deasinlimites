@@ -102,3 +102,8 @@
 - [x] Implementación de acentos cromáticos en títulos de secciones del Home (`app/page.tsx`).
 - [x] Creación de página 404 personalizada (`app/not-found.tsx`) con lenguaje de diseño "Hero".
 - [x] Centralización de estilos compartidos de cabecera en `styles/shared.module.css`.
+
+### Unificación de Cabeceras y Tarjetas (Papers & Acerca de)
+- **Unificación de Héroe**: Migración de cabeceras locales en `Acerca de` y `Papers` hacia el componente centralizado `sharedStyles.hero`, garantizando paridad absoluta en animaciones y espaciado.
+- **Estandarización de Micro-UX**: Sincronización de elevaciones (`translateY(-5px)`) y sombras tematizadas (`rgba(var(--color-secondary-rgb), 0.15)`) en todas las tarjetas informativas.
+- **Limpieza de Deuda Técnica**: Eliminación de CSS redundante en los módulos de página, delegando la responsabilidad estructural a los estilos compartidos.

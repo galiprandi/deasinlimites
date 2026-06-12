@@ -1,6 +1,7 @@
 import { siteConfig } from "@/config";
 import { Metadata } from "next";
 import styles from "./page.module.css";
+import sharedStyles from "@/styles/shared.module.css";
 
 export const metadata: Metadata = {
   title: siteConfig.author.name,
@@ -109,11 +110,11 @@ export default function AcercaDe() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
+      <header className={sharedStyles.hero}>
         <h1>
           {firstName} <span>{lastName}</span>
         </h1>
-        <p className={styles.subtitle}>Educadora y Especialista en Dificultades de Aprendizaje</p>
+        <p>Educadora y Especialista en Dificultades de Aprendizaje</p>
       </header>
 
       <section className={styles.section}>
