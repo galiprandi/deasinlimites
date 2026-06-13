@@ -10,6 +10,7 @@ import PostCard from "@/components/PostCard";
 import SearchPosts from "@/components/SearchPosts";
 import Pagination from "@/components/Pagination";
 import styles from "@/styles/blog-home.module.css";
+import sharedStyles from "@/styles/shared.module.css";
 import { blogsConfig, getBlogConfig, siteConfig } from "@/config";
 
 // Generate static params for each blog/section
@@ -91,11 +92,11 @@ export default async function BlogPage({
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>
+      <header className={sharedStyles.hero}>
+        <h1>
           {firstPart && <>{firstPart} </>}<span>{lastWord}</span>
         </h1>
-        <p className={styles.description}>{config.description}</p>
+        <p>{config.description}</p>
         <Suspense fallback={<div style={{ height: "45px" }} />}>
           <SearchPosts />
         </Suspense>

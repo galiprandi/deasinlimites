@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import styles from "@/styles/markdown.module.css";
+import sharedStyles from "@/styles/shared.module.css";
 import Link from "next/link";
 import { getPostBySlug } from "@/utils/markdown";
 import { formatDate } from "@/utils/date";
@@ -59,10 +60,10 @@ export default async function Page({ params }: { params: PageParams }) {
   return (
     <div className={styles.container}>
       <article className={styles.article}>
-        <header className={styles.hero}>
+        <header className={sharedStyles.hero}>
           <nav className={styles.backNav}>
-            <Link href={`/${blog}`} className={styles.backLink}>
-              <span aria-hidden="true">←</span> Volver a {config.title}
+            <Link href={`/${blog}`} className="pill-link">
+              <span aria-hidden="true" className="arrow-back">←</span> Volver a {config.title}
             </Link>
           </nav>
 
@@ -72,13 +73,13 @@ export default async function Page({ params }: { params: PageParams }) {
           </h1>
 
           {summary && (
-            <div className={styles.summary}>
+            <div className={sharedStyles.summary}>
               <p>{summary}</p>
             </div>
           )}
 
-          <div className={styles.meta}>
-            <span className={styles.date}>
+          <div className={sharedStyles.meta}>
+            <span className={sharedStyles.date}>
               <Image
                 src={calendarIcon}
                 alt={formatDate(date)}
@@ -89,7 +90,7 @@ export default async function Page({ params }: { params: PageParams }) {
             </span>
 
             {tags && tags.length > 0 && (
-              <div className={styles.tags}>
+              <div className={sharedStyles.tags}>
                 {tags.map((tag: string) => (
                   <Link key={tag} href={`./?q=${tag}`} className="tag">
                     {tag}

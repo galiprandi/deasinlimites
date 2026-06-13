@@ -1,67 +1,87 @@
 .layout {
-  min-height: 100svh;
-  display: grid;
-  grid-template-columns: 20em 1fr;
-  grid-template-areas: "aside main";
-  gap: 2.5em;
-  padding-right: 2.5em;
+  display: flex;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.aside {
+  width: 260px;
+  position: fixed;
+  height: 100vh;
+  border-right: 1px solid var(--bd-grey2);
+  background-color: white;
+  z-index: 100;
 }
 
 .main {
-  grid-area: main;
-  color: var(--text-primary);
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  flex: 1;
+  margin-left: 260px;
   display: flex;
   flex-direction: column;
 }
 
+.content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 .footer {
-  margin-top: auto;
-  padding: 3rem 0;
+  padding: 3rem 2rem;
   border-top: 1px solid var(--bd-grey2);
-  color: var(--text-primary);
-  font-size: 0.9rem;
+  margin-top: 4rem;
 }
 
-.footer p {
-  margin: 0.5rem 0;
-  opacity: 0.8;
+.footerContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footerAuthor {
-  opacity: 0.6 !important;
-  font-size: 0.85rem;
+.footerInfo {
+  & p {
+    margin: 0;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  & .tagline {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-top: 0.25rem;
+  }
 }
 
-/* Mobile styles */
 @media screen and (max-width: 960px) {
   .layout {
-    display: block;
+    flex-direction: column;
+  }
 
-    & > aside {
-      width: 100vw;
-      height: auto;
-      padding: 1em 0;
-      font-size: small;
+  .aside {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--bd-grey2);
+  }
 
-      & > nav ul {
-        flex-direction: row;
-        gap: 0.5em;
-        justify-content: center;
-      }
+  .main {
+    margin-left: 0;
+  }
 
-      & > footer {
-        display: none;
-      }
-    }
+  .content {
+    padding: 1rem;
+  }
 
-    & > main {
-      text-align: center;
-      width: calc(100vw - 2em);
-      padding: 1em;
-      margin: 0;
-    }
+  .footerContent {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
   }
 }

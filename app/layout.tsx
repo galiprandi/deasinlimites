@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import AsideBar from "@/components/AsideBar";
+import SocialLinks from "@/components/SocialLinks";
 import styles from "./layout.module.css";
 import { blogsConfig, siteConfig } from "@/config";
 import { Analytics } from "@vercel/analytics/react";
@@ -71,22 +72,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${styles.layout}`}>
+      <body className={styles.layout}>
         <a href="#main-content" className="skip-link">
           Saltar al contenido
         </a>
-        <AsideBar />
+        <aside className={styles.aside}>
+          <AsideBar />
+        </aside>
         <main className={styles.main} id="main-content">
-          {children}
+          <div className={styles.content}>{children}</div>
           <footer className={styles.footer}>
-            <div className="t-center">
-              <p>
-                &copy; {new Date().getFullYear()} — Todos los derechos reservados por{" "}
-                <strong>{siteConfig.title}</strong>
-              </p>
-              <p className={styles.footerAuthor}>
-                Desarrollado con ❤️ por {siteConfig.author.name}
-              </p>
+            <div className={styles.footerContent}>
+              <div className={styles.footerInfo}>
+                <p>
+                  &copy; {new Date().getFullYear()} {siteConfig.title}
+                </p>
+                <p className={styles.tagline}>{siteConfig.description}</p>
+              </div>
+              <div className="only-mobile">
+                <SocialLinks />
+              </div>
             </div>
           </footer>
         </main>
