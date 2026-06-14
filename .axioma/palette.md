@@ -81,3 +81,7 @@
 ## 2026-06-10 - [Article Hero Unification and Readability]
 **Learning:** Centering the primary information of an article (Title, Summary, Meta) within a themed Hero container (`var(--bd-grey)`) drastically improves the focus and perceived importance of the content. Furthermore, capping the body text width at `850px` ensures an optimal line length (70-80 characters), which is the gold standard for reading comprehension and visual comfort in long-form content.
 **Action:** Unify article headers with the site-wide Hero pattern and implement a specific `bodyContent` width constraint to elevate the reading experience.
+
+## 2026-06-12 - [Global UI Unification and Mobile Navigation Refinement]
+**Learning:** Centralizing UI patterns like Hero sections and Action buttons into shared CSS modules or global classes reduces technical debt and ensures visual parity across the application. Encapsulating mobile-specific navigation logic within its relevant component (e.g., AsideBar) rather than the global layout improves maintainability and prevents CSS leakages or side effects.
+**Action:** Standardized all page headers using `sharedStyles.hero`, implemented global `.pill-link` styles for contextual actions, and refactored mobile navigation to be self-contained in `AsideBar.module.css`, optimizing the active state for small screens.

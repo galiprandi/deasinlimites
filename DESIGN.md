@@ -107,3 +107,18 @@
 - **Unificación de Héroe**: Migración de cabeceras locales en `Acerca de` y `Papers` hacia el componente centralizado `sharedStyles.hero`, garantizando paridad absoluta en animaciones y espaciado.
 - **Estandarización de Micro-UX**: Sincronización de elevaciones (`translateY(-5px)`) y sombras tematizadas (`rgba(var(--color-secondary-rgb), 0.15)`) en todas las tarjetas informativas.
 - **Limpieza de Deuda Técnica**: Eliminación de CSS redundante en los módulos de página, delegando la responsabilidad estructural a los estilos compartidos.
+
+## Refactor UI Polish Unification
+
+### Sistema de Acción "Pill"
+- **Estandarización de Botones**: Introducción de las clases globales `.pill-link` y `.pill-button` en `globals.css` para acciones secundarias y navegación contextual.
+- **Micro-interacción de Retorno**: El enlace de "Volver" en los artículos ahora utiliza un estilo de píldora con fondo blanco y bordes sutiles, incluyendo una animación de desplazamiento (`translateX(-4px)`) en la flecha para mejorar la affordance.
+
+### Navegación Móvil & Layout
+- **Encapsulación de Sidebar**: Migración de estilos de navegación móvil al módulo `AsideBar.module.css`, eliminando la contaminación de estilos globales en `layout.module.css`.
+- **Feedback de Ubicación (Mobile)**: Sustitución del borde lateral por un borde inferior de acento (`var(--color-accent)`) en los enlaces activos para dispositivos móviles, optimizando la claridad visual en layouts verticales.
+- **Centralización de Redes Sociales**: Reubicación de `SocialLinks` dentro del footer global para la vista móvil, eliminando duplicidad en la Home y manteniendo una interfaz más limpia y profesional.
+
+### Consistencia de Contenido (Markdown)
+- **Ritmo Vertical**: Estandarización de márgenes y espaciados en el cuerpo de los artículos para garantizar una lectura fluida.
+- **Unificación de Hero en Artículos**: Los detalles de post ahora consumen `sharedStyles.hero`, asegurando que todos los elementos de cabecera (título, resumen, metadatos) compartan el mismo lenguaje visual que las páginas principales.

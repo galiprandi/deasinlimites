@@ -21,39 +21,34 @@ const AsideBar = () => {
   ];
 
   return (
-    <aside className={styles.aside}>
-      <header className="only-desktop">
-        <Image src={logo} alt="Logo" width={200} height={200} />
+    <div className={styles.sidebar}>
+      <header className={`${styles.header} only-desktop`}>
+        <Image src={logo} alt="Logo" width={200} height={200} priority />
       </header>
-      <nav>
-        <ul>
-          {navLinks.map((link) => {
-            const isActive = link.exact
-              ? pathname === link.href
-              : pathname.startsWith(link.href);
+      <nav className={styles.nav}>
+        {navLinks.map((link) => {
+          const isActive = link.exact
+            ? pathname === link.href
+            : pathname.startsWith(link.href);
 
-            return (
-              <li
-                key={link.href}
-                className={`${link.desktopOnly ? "only-desktop" : ""} ${
-                  isActive ? styles.active : ""
-                }`}
-              >
-                <Link
-                  href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`${styles.link} ${isActive ? styles.active : ""} ${
+                link.desktopOnly ? "only-desktop" : ""
+              }`}
+              aria-current={isActive ? "page" : undefined}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
       </nav>
-      <footer>
+      <footer className={`${styles.footer} only-desktop`}>
         <SocialLinks />
       </footer>
-    </aside>
+    </div>
   );
 };
 
