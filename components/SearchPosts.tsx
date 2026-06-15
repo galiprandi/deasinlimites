@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import styles from "./SearchPosts.module.css";
 
@@ -8,8 +8,22 @@ export default function SearchPosts() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const inputRef = useRef<HTMLInputElement>(null);
   const initialQuery = searchParams.get("q") || "";
   const [searchQuery, setSearchQuery] = useState(initialQuery);
+
+  // Keyboard shortcut (/) to focus search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "/" && document.activeElement?.tagName !== "INPUT" && document.activeElement?.tagName !== "TEXTAREA") {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   // Sincronizar el estado local con el parámetro de búsqueda de la URL
   useEffect(() => {
@@ -41,6 +55,7 @@ export default function SearchPosts() {
   return (
     <div className={styles.searchContainer}>
       <input
+        ref={inputRef}
         type="text"
         className={styles.searchInput}
         placeholder="Buscar en el blog..."
@@ -48,6 +63,9 @@ export default function SearchPosts() {
         onChange={(e) => setSearchQuery(e.target.value)}
         aria-label="Buscar en el blog"
       />
+      <div className={styles.searchShortcut} aria-hidden="true">
+        <span>/</span>
+      </div>
       <div className={styles.searchIcon}>
         <svg
           width="18"

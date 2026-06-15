@@ -122,3 +122,11 @@
 ### Consistencia de Contenido (Markdown)
 - **Ritmo Vertical**: Estandarización de márgenes y espaciados en el cuerpo de los artículos para garantizar una lectura fluida.
 - **Unificación de Hero en Artículos**: Los detalles de post ahora consumen `sharedStyles.hero`, asegurando que todos los elementos de cabecera (título, resumen, metadatos) compartan el mismo lenguaje visual que las páginas principales.
+
+## 🎨 Palette: Micro-UX Improvements
+
+### Search Keyboard Shortcut
+- **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
+- **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
+- **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
+- **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
