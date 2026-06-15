@@ -68,6 +68,7 @@
 - **Unificación de Identidad Visual**: Las páginas de Publicaciones (Papers) y Acerca de ahora comparten el sistema de acentos en títulos (`h1 span`) y la jerarquía tipográfica de la Home, consolidando una marca cohesiva.
 - **Refinamiento de Interactividad en Galerías**: Implementación del patrón de "Tarjeta como Enlace" en Publicaciones para optimizar el área de interacción y sincronización de micro-interacciones de revelado dinámico ("Leer más") con el resto del sitio.
 - **Sombras Tematizadas**: Migración de sombras hardcodeadas en `PostCard` y `Pagination` hacia el token RGBA dinámico `var(--color-secondary-rgb)`, permitiendo una profundidad visual que respeta el esquema de color de la aplicación.
+- **Unificación de Cajas de Información**: Creación del componente `infoBox` en `styles/shared.module.css` para estandarizar los encabezados de sección y estados de búsqueda, utilizando bordes de acento (`var(--color-secondary)`), fondos neutros y sombras suaves.
 
 ### Home (Inicio)
 - **Expansión de Secciones**: La página de inicio ahora ofrece una visión integral del blog, incluyendo secciones dedicadas a DEA, Familias y Docentes.
@@ -87,14 +88,14 @@
 
 ### Micro-interacciones & Feedback
 - **SharePost Refined**: Evolución de la animación `fadeInPop` usando `cubic-bezier(0.4, 0, 0.2, 1)` y una micro-escala inicial (`0.95`), logrando un feedback de copiado mucho más elástico y profesional.
-- **SocialLinks Kinetics**: Inclusión de una rotación sutil (`5deg`) combinada con escalado en el estado `:hover`, aportando una capa de "juego" y reactividad a los accesos sociales.
+- **SocialLinks Kinetics**: Inclusión de una rotación sutil (`5deg`) combinada con escalado y una sombra temática profunda en el estado `:hover`, aportando una capa de "juego" y reactividad a los accesos sociales.
 
 ### Tipografía & Lectura (Markdown)
 - **Vertical Rhythm Excellence**: Ajuste milimétrico de márgenes en `h2` (3rem/1.5rem) y `h3` (2.5rem/1.2rem) para optimizar la jerarquía y el descanso visual en artículos de largo formato.
 - **Image Presentation**: Las imágenes ahora cuentan con sombras de mayor profundidad (`0 8px 24px`) y una transición suave de escala en hover, elevando el contenido visual al estándar de publicación premium.
 
 ### Navegación & Estructura
-- **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)` y una sombra de profundidad mejorada (`0 8px 16px -6px`), reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
+- **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)` y una sombra de profundidad mejorada (`0 8px 16px -6px rgba(var(--color-secondary-rgb), 0.4)`), reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
 - **Unified Shadows**: Auditoría y confirmación de que todas las tarjetas en 'Acerca de' y 'Papers' operan bajo el sistema de sombras tematizadas `rgba(var(--color-secondary-rgb), 0.15)`, garantizando una homogeneidad total en la profundidad del sitio.
 
 ## 🐜 [CAROL]: Refactorización y Refinamiento Estético

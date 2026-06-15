@@ -85,3 +85,11 @@
 ## 2026-06-12 - [Global UI Unification and Mobile Navigation Refinement]
 **Learning:** Centralizing UI patterns like Hero sections and Action buttons into shared CSS modules or global classes reduces technical debt and ensures visual parity across the application. Encapsulating mobile-specific navigation logic within its relevant component (e.g., AsideBar) rather than the global layout improves maintainability and prevents CSS leakages or side effects.
 **Action:** Standardized all page headers using `sharedStyles.hero`, implemented global `.pill-link` styles for contextual actions, and refactored mobile navigation to be self-contained in `AsideBar.module.css`, optimizing the active state for small screens.
+
+## 2026-06-15 - [Refined Navigation Depth and Unified Info Language]
+**Learning:** Increasing the active state shadow depth in sidebars (using `0.4` opacity for brand-themed RGB tokens) creates a much stronger sense of location and depth. Furthermore, unifiying section headers and search status boxes into a single visual language (`.infoBox`)—characterized by a 4px accent border and neutral backgrounds—standardizes how the user interprets "contextual information" across the site.
+**Action:** Elevated navigation active states with deeper shadows and created a unified `.infoBox` standard in `sharedStyles` for all informational headers and search feedback.
+
+## 2026-06-16 - [Kinetic Micro-UX for Social Interactions]
+**Learning:** Adding a subtle rotation (`5deg`) in combination with scaling and themed shadows on social icons transforms a static link into a "live" interactive element. This level of micro-UX detail signals a high quality of polish and makes the interface feel more responsive and high-end.
+**Action:** Enhanced `SocialLinks` with rotation and deeper themed shadows on hover to elevate the site's kinetic feedback.

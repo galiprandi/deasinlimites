@@ -118,7 +118,7 @@ export default function AcercaDe() {
       </header>
 
       <section className={styles.section}>
-        <h2>Educación</h2>
+        <h2 className={sharedStyles.infoBox}>Educación</h2>
         <div className={styles.grid}>
           {education.map((edu, index) => (
             <article key={index} className={styles.card}>
@@ -134,7 +134,7 @@ export default function AcercaDe() {
       </section>
 
       <section className={styles.section}>
-        <h2>Experiencia</h2>
+        <h2 className={sharedStyles.infoBox}>Experiencia</h2>
         <div className={styles.grid}>
           {experience.map((exp, index) => (
             <article key={index} className={styles.card}>
@@ -150,7 +150,7 @@ export default function AcercaDe() {
       </section>
 
       <section className={styles.section}>
-        <h2>Capacitaciones</h2>
+        <h2 className={sharedStyles.infoBox}>Capacitaciones</h2>
         <div className={styles.grid}>
           {training.map((train, index) => (
             <article key={index} className={styles.card}>

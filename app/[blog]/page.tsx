@@ -105,7 +105,7 @@ export default async function BlogPage({
       <main className={styles.main}>
         {searchQuery && (
           <div
-            className={styles.searchInfo}
+            className={sharedStyles.infoBox}
             role="status"
             aria-live="polite"
           >
