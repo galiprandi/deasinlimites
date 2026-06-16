@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { formatDate } from "./date";
 import matter from "gray-matter";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
@@ -16,6 +17,7 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   slug: string;
+  readingTime: number;
 }
 
 export interface Post extends PostMetadata {
@@ -36,7 +38,7 @@ export function getPostMetadata(
 ): PostMetadata {
   const filePath = path.join(process.cwd(), contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(fileContent);
+  const { data, content } = matter(fileContent);
 
   return {
     title: data.title,
@@ -44,6 +46,7 @@ export function getPostMetadata(
     tags: data.tags || [],
     summary: data.summary || "",
     slug: filename.replace(".md", ""),
+    readingTime: getReadingTime(content),
   };
 }
 
@@ -69,6 +72,8 @@ export async function getPostBySlug(
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
+  const readingTime = getReadingTime(content);
+
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkRehype)
@@ -84,6 +89,7 @@ export async function getPostBySlug(
     tags: data.tags || [],
     summary: data.summary || "",
     slug,
+    readingTime,
     content: processedContent.toString(),
   };
 }
@@ -133,4 +139,16 @@ export function paginatePosts(
     posts: paginatedPosts,
     totalPages,
   };
+}
+
+/**
+ * Calcula el tiempo estimado de lectura en minutos
+ * @param content - El contenido en formato markdown o texto plano
+ * @returns El tiempo estimado de lectura en minutos
+ */
+export function getReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  const readingTime = Math.ceil(words / wordsPerMinute);
+  return readingTime;
 }

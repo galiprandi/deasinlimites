@@ -89,6 +89,10 @@ export default async function Page({ params }: { params: PageParams }) {
               <time dateTime={date}>{formatDate(date)}</time>
             </span>
 
+            <span className={sharedStyles.readingTime}>
+              {post.readingTime} min de lectura
+            </span>
+
             {tags && tags.length > 0 && (
               <div className={sharedStyles.tags}>
                 {tags.map((tag: string) => (
