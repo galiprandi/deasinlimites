@@ -68,6 +68,11 @@
 - **Unificación de Identidad Visual**: Las páginas de Publicaciones (Papers) y Acerca de ahora comparten el sistema de acentos en títulos (`h1 span`) y la jerarquía tipográfica de la Home, consolidando una marca cohesiva.
 - **Refinamiento de Interactividad en Galerías**: Implementación del patrón de "Tarjeta como Enlace" en Publicaciones para optimizar el área de interacción y sincronización de micro-interacciones de revelado dinámico ("Leer más") con el resto del sitio.
 - **Sombras Tematizadas**: Migración de sombras hardcodeadas en `PostCard` y `Pagination` hacia el token RGBA dinámico `var(--color-secondary-rgb)`, permitiendo una profundidad visual que respeta el esquema de color de la aplicación.
+- **Unificación de Cajas de Información**: Creación del componente `infoBox` en `styles/shared.module.css` para estandarizar los encabezados de sección y estados de búsqueda, utilizando bordes de acento (`var(--color-secondary)`), fondos neutros y sombras suaves.
+
+### Blog Home & Archivos
+- **Estados Vacíos Elevados**: Refinamiento de los contenedores `.empty` con mayor padding vertical (`6rem`) y bordes punteados (`dashed var(--bd-grey2)`), transformando la ausencia de contenido en un estado visual intencional y elegante.
+- **Sincronización de Búsqueda**: Aplicación de la clase `.infoBox` estandarizada para los resultados de búsqueda en todas las categorías, garantizando una respuesta visual coherente independientemente de la sección.
 
 ### Home (Inicio)
 - **Expansión de Secciones**: La página de inicio ahora ofrece una visión integral del blog, incluyendo secciones dedicadas a DEA, Familias y Docentes.
@@ -86,15 +91,17 @@
 ## Refactor UI Polish Micro-UX
 
 ### Micro-interacciones & Feedback
+- **Sincronización de Flechas de Acción**: Introducción de la clase global `.arrowIcon` con una animación de entrada `translateX(4px)` coordinada para todos los enlaces de "Leer más". Esto crea un lenguaje de dirección de lectura consistente en `PostCard` y `Papers`.
 - **SharePost Refined**: Evolución de la animación `fadeInPop` usando `cubic-bezier(0.4, 0, 0.2, 1)` y una micro-escala inicial (`0.95`), logrando un feedback de copiado mucho más elástico y profesional.
-- **SocialLinks Kinetics**: Inclusión de una rotación sutil (`5deg`) combinada con escalado en el estado `:hover`, aportando una capa de "juego" y reactividad a los accesos sociales.
+- **SocialLinks Kinetics**: Inclusión de una rotación sutil (`5deg`) combinada con escalado y una sombra temática profunda en el estado `:hover`, aportando una capa de "juego" y reactividad a los accesos sociales.
 
 ### Tipografía & Lectura (Markdown)
 - **Vertical Rhythm Excellence**: Ajuste milimétrico de márgenes en `h2` (3rem/1.5rem) y `h3` (2.5rem/1.2rem) para optimizar la jerarquía y el descanso visual en artículos de largo formato.
 - **Image Presentation**: Las imágenes ahora cuentan con sombras de mayor profundidad (`0 8px 24px`) y una transición suave de escala en hover, elevando el contenido visual al estándar de publicación premium.
 
 ### Navegación & Estructura
-- **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)` y una sombra de profundidad mejorada (`0 8px 16px -6px`), reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
+- **Sidebar High-Visibility**: El estado activo de `AsideBar` ahora incorpora un borde izquierdo de 3px con `var(--color-accent)` y una sombra de profundidad mejorada (`0 8px 16px -6px rgba(var(--color-secondary-rgb), 0.4)`), reforzando la indicación visual de ubicación sin comprometer la elegancia del componente.
+- **Ritmo Vertical Global**: Estandarización de la separación entre secciones principales a `5rem` y refinamiento del footer con cursivas y opacidad reducida (`0.6`) para una jerarquía de cierre más ligera y profesional.
 - **Unified Shadows**: Auditoría y confirmación de que todas las tarjetas en 'Acerca de' y 'Papers' operan bajo el sistema de sombras tematizadas `rgba(var(--color-secondary-rgb), 0.15)`, garantizando una homogeneidad total en la profundidad del sitio.
 
 ## 🐜 [CAROL]: Refactorización y Refinamiento Estético
@@ -127,3 +134,10 @@
 - **Keyboard Shortcut**: Implementation of the `/` key as a global shortcut to focus the search input, improving accessibility and navigation speed.
 - **Visual Feedback**: Integration of React's `useTransition` to track the pending state of search navigation, with a corresponding pulsing animation on the search icon to reduce perceived latency.
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
+## 🎨 Palette: Micro-UX Improvements
+
+### Search Keyboard Shortcut
+- **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
+- **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
+- **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
+- **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.

@@ -105,17 +105,15 @@ export default async function BlogPage({
       <main className={styles.main}>
         {searchQuery && (
           <div
-            className={styles.searchInfo}
+            className={`${sharedStyles.infoBox} ${styles.searchInfo}`}
             role="status"
             aria-live="polite"
           >
-            <p>
-              {filteredPosts.length === 0
-                ? `No se encontraron resultados para "${searchQuery}"`
-                : `${filteredPosts.length} resultado${
-                    filteredPosts.length !== 1 ? "s" : ""
-                  } para "${searchQuery}"`}
-            </p>
+            {filteredPosts.length > 0
+              ? `${filteredPosts.length} resultado${
+                  filteredPosts.length !== 1 ? "s" : ""
+                } para "${searchQuery}"`
+              : `Búsqueda: ${searchQuery}`}
           </div>
         )}
 
@@ -126,11 +124,13 @@ export default async function BlogPage({
             ))}
           </div>
         ) : (
-          !searchQuery && (
-            <div className={styles.empty}>
-              <p>No hay entradas disponibles en esta sección.</p>
-            </div>
-          )
+          <div className={styles.empty}>
+            <p>
+              {searchQuery
+                ? `No se encontraron resultados para "${searchQuery}". Prueba con otros términos.`
+                : "No hay entradas disponibles en esta sección."}
+            </p>
+          </div>
         )}
 
         <Pagination

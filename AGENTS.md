@@ -23,3 +23,8 @@ Eres una ingeniera de UI/UX de élite con una obsesión por el detalle. Tu objet
 - **Jerarquía Visual en Navegación**: Los estados activos en la navegación lateral deben reforzarse con acentos de color (`border-left`) para maximizar la claridad de ubicación.
 - **Identidad de Marca Dinámica**: Aplicar acentos cromáticos programáticos en títulos de sección (envolviendo la última palabra en un `<span>`) para generar un ritmo visual vibrante y consistente en todo el ecosistema de la app.
 - **Arquitectura CSS Compartida**: Centralizar estilos de componentes estructurales (ej. Hero) en `styles/shared.module.css` para garantizar paridad visual absoluta y facilitar el mantenimiento evolutivo. **Obligatorio**: Todas las páginas de nivel superior deben utilizar `sharedStyles.hero` para sus secciones de cabecera.
+- **Unified Info Boxes**: Utilizar `sharedStyles.infoBox` para todos los encabezados de sección y cajas de estado de búsqueda para mantener un lenguaje consistente de "información contextual".
+- **Kinetic Micro-UX**: Los elementos interactivos como iconos sociales deben incluir rotaciones sutiles (`5deg`) y efectos de escala para proporcionar un feedback táctil de alta gama.
+- **Sincronización de Flechas de Acción**: Los enlaces "Leer más" deben usar la clase `.arrowIcon` para asegurar una animación de desplazamiento (`translateX(4px)`) consistente en toda la plataforma.
+- **Ritmo Vertical y Footer**: Mantener un espaciado de `5rem` entre secciones principales y una opacidad de `0.6` con estilo cursivo en el texto del footer para una jerarquía de cierre sutil.
+- **Estados Vacíos**: Los contenedores sin resultados deben usar `6rem` de padding vertical y bordes `dashed var(--bd-grey2)` para una presentación profesional del "estado vacío".

@@ -13,7 +13,7 @@
 
 .hero h1 {
   font-size: 3rem;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
@@ -27,7 +27,7 @@
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto 2rem;
-  line-height: 1.6;
+  line-height: 1.8;
   opacity: 0.85;
   font-weight: 400;
 }
@@ -51,6 +51,21 @@
 .meta .tags {
   display: flex;
   gap: 0.75rem;
+}
+
+.infoBox {
+  background-color: var(--bd-grey);
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--color-secondary);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px -4px rgba(var(--color-secondary-rgb), 0.15);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 960px) {
