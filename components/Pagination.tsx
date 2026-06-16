@@ -39,7 +39,10 @@ export default function Pagination({
               &laquo; Anterior
             </Link>
           ) : (
-            <span className={`${styles.paginationLink} ${styles.disabled}`}>
+            <span
+              className={`${styles.paginationLink} ${styles.disabled}`}
+              aria-disabled="true"
+            >
               &laquo; Anterior
             </span>
           )}
@@ -76,7 +79,10 @@ export default function Pagination({
               Siguiente &raquo;
             </Link>
           ) : (
-            <span className={`${styles.paginationLink} ${styles.disabled}`}>
+            <span
+              className={`${styles.paginationLink} ${styles.disabled}`}
+              aria-disabled="true"
+            >
               Siguiente &raquo;
             </span>
           )}
