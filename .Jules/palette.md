@@ -6,3 +6,7 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+
+## 2025-05-16 - [Kinetic Micro-UX in Social Elements]
+**Learning:** Adding subtle rotation (e.g., `5deg`) alongside scale effects on hover/focus for social icons provides a "kinetic" and premium feel that makes the interface feel more reactive and polished.
+**Action:** Implement combined `scale` and `rotate` transforms for social sharing elements to enhance tactile feedback.
