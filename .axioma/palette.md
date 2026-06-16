@@ -85,3 +85,19 @@
 ## 2026-06-12 - [Global UI Unification and Mobile Navigation Refinement]
 **Learning:** Centralizing UI patterns like Hero sections and Action buttons into shared CSS modules or global classes reduces technical debt and ensures visual parity across the application. Encapsulating mobile-specific navigation logic within its relevant component (e.g., AsideBar) rather than the global layout improves maintainability and prevents CSS leakages or side effects.
 **Action:** Standardized all page headers using `sharedStyles.hero`, implemented global `.pill-link` styles for contextual actions, and refactored mobile navigation to be self-contained in `AsideBar.module.css`, optimizing the active state for small screens.
+
+## 2026-06-15 - [Refined Navigation Depth and Unified Info Language]
+**Learning:** Increasing the active state shadow depth in sidebars (using `0.4` opacity for brand-themed RGB tokens) creates a much stronger sense of location and depth. Furthermore, unifiying section headers and search status boxes into a single visual language (`.infoBox`)—characterized by a 4px accent border and neutral backgrounds—standardizes how the user interprets "contextual information" across the site.
+**Action:** Elevated navigation active states with deeper shadows and created a unified `.infoBox` standard in `sharedStyles` for all informational headers and search feedback.
+
+## 2026-06-16 - [Kinetic Micro-UX for Social Interactions]
+**Learning:** Adding a subtle rotation (`5deg`) in combination with scaling and themed shadows on social icons transforms a static link into a "live" interactive element. This level of micro-UX detail signals a high quality of polish and makes the interface feel more responsive and high-end.
+**Action:** Enhanced `SocialLinks` with rotation and deeper themed shadows on hover to elevate the site's kinetic feedback.
+
+## 2026-06-18 - [Action Affordance and Vertical Rhythm]
+**Learning:** Standardizing micro-interactions (like the `translateX` animation on arrows) via a shared global class (`.arrowIcon`) creates a cohesive "action language" that users learn once and apply everywhere. Additionally, increasing primary section spacing to `5rem` provides the necessary breathing room for high-density homepages, improving content scannability and professional feel.
+**Action:** Implemented shared `.arrowIcon` kinetics and standardized global section vertical rhythm to `5rem`.
+
+## 2026-06-20 - [Semantic Empty States]
+**Learning:** Empty search or category states are often neglected UI moments. Using a `dashed` border and increased vertical padding (`6rem`) transforms these from "broken" states into intentional, clean placeholders that maintain the site's structural integrity while waiting for content.
+**Action:** Refined blog and archive empty states with themed dashed borders and generous padding.

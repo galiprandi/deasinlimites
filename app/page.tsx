@@ -41,7 +41,7 @@ export default function Home() {
 
       <main>
         <section>
-          <h2 className={styles.sectionTitle}>
+          <h2 className={sharedStyles.infoBox}>
             {renderTitleWithAccent("Dificultades específicas del aprendizaje")}
           </h2>
           <div className={styles.contentGrid}>
@@ -52,7 +52,7 @@ export default function Home() {
         </section>
 
         <section>
-          <h2 className={styles.sectionTitle}>
+          <h2 className={sharedStyles.infoBox}>
             {renderTitleWithAccent("Estrategias para familias")}
           </h2>
           <div className={styles.contentGrid}>
@@ -63,7 +63,7 @@ export default function Home() {
         </section>
 
         <section>
-          <h2 className={styles.sectionTitle}>
+          <h2 className={sharedStyles.infoBox}>
             {renderTitleWithAccent("Estrategias para docentes")}
           </h2>
           <div className={styles.contentGrid}>
