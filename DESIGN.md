@@ -16,6 +16,7 @@
 
 ### SharePost
 - **Consistencia de Micro-interacciones**: Los botones de compartir ahora comparten el mismo lenguaje visual que `SocialLinks`, con escalado suave (`scale(1.1)`) y fondos reactivos.
+- **Micro-interacciones Cinéticas**: Los iconos sociales ahora incluyen una rotación sutil (`rotate(5deg)`) en hover y focus-visible, proporcionando un feedback táctil de alta gama.
 - **Feedback Dinámico**: El mensaje "¡Copiado!" ahora presenta una animación de entrada (`fadeIn`) para reducir la carga cognitiva y mejorar la percepción de respuesta del sistema.
 
 ### Pagination

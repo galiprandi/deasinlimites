@@ -29,13 +29,14 @@
 
 .shareButton:hover {
   background-color: var(--bd-grey2);
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .shareButton:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   background-color: rgba(253, 179, 68, 0.1);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .copyContainer {
