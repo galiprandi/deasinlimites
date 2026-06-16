@@ -85,3 +85,7 @@
 ## 2026-06-12 - [Global UI Unification and Mobile Navigation Refinement]
 **Learning:** Centralizing UI patterns like Hero sections and Action buttons into shared CSS modules or global classes reduces technical debt and ensures visual parity across the application. Encapsulating mobile-specific navigation logic within its relevant component (e.g., AsideBar) rather than the global layout improves maintainability and prevents CSS leakages or side effects.
 **Action:** Standardized all page headers using `sharedStyles.hero`, implemented global `.pill-link` styles for contextual actions, and refactored mobile navigation to be self-contained in `AsideBar.module.css`, optimizing the active state for small screens.
+
+## 2026-06-15 - [Search Usability and Loading Feedback]
+**Learning:** Implementing keyboard shortcuts like '/' for focusing search bars enhances discoverability and speed for power users, but requires careful event handling to avoid conflicts with other text inputs. Additionally, using `useTransition` to track navigation-heavy state updates allows for immediate UI responsiveness and provides a hook for meaningful visual feedback (like a pulsing icon) during data fetching.
+**Action:** Always wrap debounced navigation updates in `startTransition` and provide explicit focus shortcuts for primary search interfaces, ensuring they are gated by active element checks.
