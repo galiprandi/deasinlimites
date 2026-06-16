@@ -115,12 +115,12 @@
   transform: translateX(0);
 }
 
-.button span {
-  transition: transform 0.2s ease;
+.arrowIcon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover .button span {
-  transform: translateX(3px);
+.card:hover .arrowIcon {
+  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {

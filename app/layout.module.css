@@ -48,12 +48,14 @@
     margin: 0;
     font-weight: 500;
     color: var(--text-primary);
+    opacity: 0.9;
   }
 
   & .tagline {
     font-size: 0.9rem;
     opacity: 0.6;
-    margin-top: 0.25rem;
+    margin-top: 0.35rem;
+    font-style: italic;
   }
 }
 

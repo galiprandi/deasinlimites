@@ -31,7 +31,7 @@ export default function PostCard({ post, pathname }: PostCardProps) {
           </div>
           <p className={styles.summary}>{post.summary}</p>
           <div className={styles.readMore}>
-            Leer más <span aria-hidden="true">→</span>
+            Leer más <span className={styles.arrowIcon} aria-hidden="true">→</span>
           </div>
         </div>
       </Link>

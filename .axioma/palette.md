@@ -93,3 +93,11 @@
 ## 2026-06-16 - [Kinetic Micro-UX for Social Interactions]
 **Learning:** Adding a subtle rotation (`5deg`) in combination with scaling and themed shadows on social icons transforms a static link into a "live" interactive element. This level of micro-UX detail signals a high quality of polish and makes the interface feel more responsive and high-end.
 **Action:** Enhanced `SocialLinks` with rotation and deeper themed shadows on hover to elevate the site's kinetic feedback.
+
+## 2026-06-18 - [Action Affordance and Vertical Rhythm]
+**Learning:** Standardizing micro-interactions (like the `translateX` animation on arrows) via a shared global class (`.arrowIcon`) creates a cohesive "action language" that users learn once and apply everywhere. Additionally, increasing primary section spacing to `5rem` provides the necessary breathing room for high-density homepages, improving content scannability and professional feel.
+**Action:** Implemented shared `.arrowIcon` kinetics and standardized global section vertical rhythm to `5rem`.
+
+## 2026-06-20 - [Semantic Empty States]
+**Learning:** Empty search or category states are often neglected UI moments. Using a `dashed` border and increased vertical padding (`6rem`) transforms these from "broken" states into intentional, clean placeholders that maintain the site's structural integrity while waiting for content.
+**Action:** Refined blog and archive empty states with themed dashed borders and generous padding.
