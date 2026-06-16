@@ -9,6 +9,10 @@
   margin-bottom: 4rem;
 }
 
+.searchInfo {
+  margin-bottom: 3rem;
+}
+
 .empty {
   text-align: center;
   padding: 6rem 1rem;

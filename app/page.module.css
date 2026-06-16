@@ -2,6 +2,10 @@
   margin: 0 auto;
 }
 
+.container section {
+  margin-bottom: 5rem;
+}
+
 .hero {
   text-align: center;
   padding: 4rem 1rem 3rem;

@@ -68,7 +68,7 @@ export default function PapersPage() {
                 <footer className={styles.footer}>
                   <span className={styles.date}>{pub.date}</span>
                   <div className={styles.button}>
-                    Leer más <span aria-hidden="true">→</span>
+                    Leer más <span className={styles.arrowIcon} aria-hidden="true">→</span>
                   </div>
                 </footer>
               </div>
