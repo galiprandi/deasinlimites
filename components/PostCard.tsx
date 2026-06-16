@@ -12,15 +12,20 @@ export default function PostCard({ post, pathname }: PostCardProps) {
         <div className={styles.cardContent}>
           <h2 className={styles.title}>{post.title}</h2>
           <div className={styles.meta}>
-            <span>
-              <Image
-                src={calendarIcon}
-                alt={formatDate(post.date)}
-                width={15}
-                height={15}
-              />
-              <time dateTime={post.date}>{formatDate(post.date)}</time>
-            </span>
+            <div className={styles.metaMain}>
+              <span>
+                <Image
+                  src={calendarIcon}
+                  alt={formatDate(post.date)}
+                  width={15}
+                  height={15}
+                />
+                <time dateTime={post.date}>{formatDate(post.date)}</time>
+              </span>
+              <span className={styles.readingTime}>
+                {post.readingTime} min de lectura
+              </span>
+            </div>
             <div className={styles.tags}>
               {post.tags.map((tag) => (
                 <span key={tag} className="tag">

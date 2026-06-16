@@ -48,6 +48,11 @@
   gap: 0.5em;
 }
 
+.meta .readingTime {
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
 .meta .tags {
   display: flex;
   gap: 0.75rem;
