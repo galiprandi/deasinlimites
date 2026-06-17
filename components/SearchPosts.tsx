@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useTransition } from "react";
-import { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import styles from "./SearchPosts.module.css";
 
@@ -13,27 +12,13 @@ export default function SearchPosts() {
   const initialQuery = searchParams.get("q") || "";
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [isPending, startTransition] = useTransition();
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  // Keyboard shortcut (/) to focus search
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "/" && document.activeElement?.tagName !== "INPUT" && document.activeElement?.tagName !== "TEXTAREA") {
-        e.preventDefault();
-        inputRef.current?.focus();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   // Sincronizar el estado local con el parámetro de búsqueda de la URL
   useEffect(() => {
     setSearchQuery(initialQuery);
   }, [initialQuery]);
 
-  // Shortcut to focus search input with '/'
+  // Keyboard shortcut (/) to focus search
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
@@ -100,10 +85,6 @@ export default function SearchPosts() {
         aria-label="Buscar en el blog"
       />
       <div className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}>
-      <div className={styles.searchShortcut} aria-hidden="true">
-        <span>/</span>
-      </div>
-      <div className={styles.searchIcon}>
         <svg
           width="18"
           height="18"
@@ -117,6 +98,9 @@ export default function SearchPosts() {
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
+      </div>
+      <div className={styles.searchShortcut} aria-hidden="true">
+        <span>/</span>
       </div>
       {searchQuery && (
         <button

@@ -141,3 +141,6 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Post Content & Metadata
+- **Estimated Reading Time**: Integrated a reading time calculation (200 wpm) into the markdown utility and displayed it in `PostCard` and article pages. This provides immediate value by setting user expectations for content length.
