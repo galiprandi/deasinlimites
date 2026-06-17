@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef, useTransition } from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useTransition, Suspense } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import styles from "./SearchPosts.module.css";
 
-export default function SearchPosts() {
+function SearchInput() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -13,27 +12,8 @@ export default function SearchPosts() {
   const initialQuery = searchParams.get("q") || "";
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [isPending, startTransition] = useTransition();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   // Keyboard shortcut (/) to focus search
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "/" && document.activeElement?.tagName !== "INPUT" && document.activeElement?.tagName !== "TEXTAREA") {
-        e.preventDefault();
-        inputRef.current?.focus();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
-  // Sincronizar el estado local con el parámetro de búsqueda de la URL
-  useEffect(() => {
-    setSearchQuery(initialQuery);
-  }, [initialQuery]);
-
-  // Shortcut to focus search input with '/'
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
@@ -50,6 +30,11 @@ export default function SearchPosts() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  // Sincronizar el estado local con el parámetro de búsqueda de la URL
+  useEffect(() => {
+    setSearchQuery(initialQuery);
+  }, [initialQuery]);
 
   // Debounce para evitar muchas redirecciones mientras el usuario escribe
   useEffect(() => {
@@ -90,20 +75,7 @@ export default function SearchPosts() {
 
   return (
     <div className={styles.searchContainer}>
-      <input
-        ref={inputRef}
-        type="text"
-        className={styles.searchInput}
-        placeholder="Buscar en el blog... (Presiona / para buscar)"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        aria-label="Buscar en el blog"
-      />
       <div className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}>
-      <div className={styles.searchShortcut} aria-hidden="true">
-        <span>/</span>
-      </div>
-      <div className={styles.searchIcon}>
         <svg
           width="18"
           height="18"
@@ -118,6 +90,18 @@ export default function SearchPosts() {
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       </div>
+      <input
+        ref={inputRef}
+        type="text"
+        className={styles.searchInput}
+        placeholder="Buscar en el blog... (Presiona / para buscar)"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        aria-label="Buscar en el blog"
+      />
+      <div className={styles.searchShortcut} aria-hidden="true">
+        <span>/</span>
+      </div>
       {searchQuery && (
         <button
           className={styles.clearButton}
@@ -129,5 +113,13 @@ export default function SearchPosts() {
         </button>
       )}
     </div>
+  );
+}
+
+export default function SearchPosts() {
+  return (
+    <Suspense fallback={<div className={styles.searchContainer}><div className={styles.searchInput} style={{ height: '3rem', opacity: 0.5 }}>Cargando buscador...</div></div>}>
+      <SearchInput />
+    </Suspense>
   );
 }

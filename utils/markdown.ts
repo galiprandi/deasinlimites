@@ -9,6 +9,8 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
+const CONTENT_PATH = path.join(process.cwd(), "content");
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -25,7 +27,7 @@ export interface Post extends PostMetadata {
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
   return fs
-    .readdirSync(path.join(process.cwd(), contentFolder))
+    .readdirSync(path.join(CONTENT_PATH, contentFolder))
     .filter((file) => file.endsWith(".md"));
 }
 
@@ -34,7 +36,7 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(process.cwd(), contentFolder, filename);
+  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data } = matter(fileContent);
 
@@ -65,7 +67,7 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(process.cwd(), contentFolder, `${slug}.md`);
+  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
