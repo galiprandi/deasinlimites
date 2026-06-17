@@ -8,9 +8,9 @@ import styles from "./page.module.css";
 import sharedStyles from "@/styles/shared.module.css";
 
 export default function Home() {
-  const postsDea = getAllPostsMetadata("/content/dea").slice(0, 3);
-  const postsFamilias = getAllPostsMetadata("/content/familias").slice(0, 3);
-  const postsDocentes = getAllPostsMetadata("/content/docentes").slice(0, 3);
+  const postsDea = getAllPostsMetadata("dea").slice(0, 3);
+  const postsFamilias = getAllPostsMetadata("familias").slice(0, 3);
+  const postsDocentes = getAllPostsMetadata("docentes").slice(0, 3);
 
   const renderTitleWithAccent = (title: string) => {
     const words = title.trim().split(" ");
