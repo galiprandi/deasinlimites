@@ -141,3 +141,8 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Reading Time Integration
+- **Contextual Awareness**: Addition of estimated reading time (baseline 200 wpm) to all post summaries and headers.
+- **Visual Consistency**: Use of the `.readingTime` class and a new `clockIcon` to provide a quick visual cue for content length.
+- **Accessibility**: Metadata icons (calendar, clock) now use `aria-hidden="true"` and empty `alt` tags to prevent redundant screen reader announcements.

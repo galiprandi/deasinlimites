@@ -6,6 +6,7 @@ import { getPostBySlug } from "@/utils/markdown";
 import { formatDate } from "@/utils/date";
 import SharePost from "@/components/SharePost";
 import calendarIcon from "@/assets/icons/calendar.svg";
+import clockIcon from "@/assets/icons/clock.svg";
 import Image from "next/image";
 import { blogsConfig } from "@/config";
 import { notFound } from "next/navigation";
@@ -51,7 +52,7 @@ export default async function Page({ params }: { params: PageParams }) {
   const { contentFolder } = config;
 
   const post = await getPostBySlug(contentFolder, slug);
-  const { title, summary, date, content, tags } = post;
+  const { title, summary, date, content, tags, readingTime } = post;
 
   const titleParts = title.split(" ");
   const lastWord = titleParts.pop();
@@ -82,11 +83,23 @@ export default async function Page({ params }: { params: PageParams }) {
             <span className={sharedStyles.date}>
               <Image
                 src={calendarIcon}
-                alt={formatDate(date)}
+                alt=""
+                aria-hidden="true"
                 width={16}
                 height={16}
               />
               <time dateTime={date}>{formatDate(date)}</time>
+            </span>
+
+            <span className={sharedStyles.readingTime}>
+              <Image
+                src={clockIcon}
+                alt=""
+                aria-hidden="true"
+                width={16}
+                height={16}
+              />
+              {readingTime} min
             </span>
 
             {tags && tags.length > 0 && (
