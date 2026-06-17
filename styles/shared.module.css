@@ -48,6 +48,14 @@
   gap: 0.5em;
 }
 
+.readingTime {
+  background-color: var(--bd-grey2);
+  padding: 0.15rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .meta .tags {
   display: flex;
   gap: 0.75rem;

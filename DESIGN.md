@@ -7,6 +7,7 @@
 - **Transiciones**: Uso de `cubic-bezier(0.4, 0, 0.2, 1)` para animaciones fluidas y naturales.
 - **Color Predictivo**: El título cambia a `var(--color-secondary)` en hover, alineando el componente con la identidad visual de la sección.
 - **Layout**: Ajuste de padding y espaciado interno para mejorar la legibilidad del resumen y los metadatos.
+- **Micro-UX de Tiempo de Lectura**: Inclusión de un indicador visual del tiempo de lectura estimado, proporcionando contexto inmediato sobre la extensión del contenido.
 
 ### AsideBar
 - **Interactividad Elevada**: Los enlaces de navegación ahora utilizan `padding` interno para maximizar el área de clic, mejorando la usabilidad.
@@ -27,6 +28,7 @@
 - **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con sombras temáticas (`var(--color-secondary-rgb)`) para una profundidad visual consistente.
 - **Micro-interacciones**: El botón de limpieza y el borde del input han sido migrados a `var(--bd-grey2)`, eliminando dependencias de colores estáticos y mejorando la integración con el fondo.
 - **Enfoque de Alta Visibilidad**: El anillo de enfoque utiliza ahora `var(--color-accent-rgb)` para una definición superior y consistencia cromática total.
+- **Estabilidad de Componente**: Saneamiento de sintaxis y lógica en `SearchPosts`, eliminando redundancias y garantizando un renderizado robusto.
 
 ## Estabilidad Técnica
 - **Arquitectura de Búsqueda**: Implementación de límites de `<Suspense>` en `app/[blog]/page.tsx` para el componente `SearchPosts`. Esta medida previene errores de hidratación vinculados a `useSearchParams` y permite una carga progresiva del cliente sin bloquear el renderizado estático del servidor.
@@ -54,6 +56,7 @@
 - **Optimización de Lectura**: Ajuste del `line-height` a 1.8 y aumento del tamaño de fuente base para reducir la fatiga visual en artículos largos.
 - **Citas Sofisticadas**: Refinamiento de `blockquote` con bordes de acento (`var(--color-secondary)`) y fondos neutros, elevando el valor de las menciones y extractos.
 - **Interactividad de Enlaces**: Implementación de `text-underline-offset` y transiciones de color de acento para una experiencia de navegación interna más fluida y estéticamente agradable.
+- **Tiempo de Lectura**: Los artículos detallados ahora muestran el tiempo estimado de lectura en la cabecera, alineado con los metadatos de fecha y etiquetas.
 
 ### Blog Home & Consistencia
 - **Feedback de Continuidad**: Inclusión de indicadores dinámicos "Leer más" en `PostCard` que se revelan con animaciones de opacidad y desplazamiento al interactuar, mejorando la affordance de lectura.
@@ -141,3 +144,8 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Estimated Reading Time
+- **Contextual Awareness**: Articles now display an estimated reading time (calculated at 200 wpm) in both preview cards and full article headers.
+- **Accessibility**: Reading times use descriptive `aria-label` for screen readers while remaining visually concise.
+- **Consistency**: The reading time indicator uses a standardized "pill" style consistent with tags and other metadata elements.

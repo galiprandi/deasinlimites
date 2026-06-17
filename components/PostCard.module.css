@@ -43,7 +43,7 @@
 .meta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 1em;
   margin-bottom: 1em;
@@ -51,15 +51,23 @@
   opacity: 0.6;
 }
 
-.meta span {
+.metaItem {
   display: flex;
   align-items: center;
   gap: 0.4em;
 }
 
+.readingTime {
+  font-size: 0.85rem;
+  background-color: var(--bd-grey2);
+  padding: 0.1rem 0.5rem;
+  border-radius: 1rem;
+}
+
 .tags {
   display: flex;
   gap: 0.5em;
+  margin-left: auto;
 }
 
 .summary {
@@ -109,5 +117,6 @@
 
   .tags {
     font-size: 0.9em;
+    margin-left: 0;
   }
 }
