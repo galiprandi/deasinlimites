@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: PageParams }) {
   const { contentFolder } = config;
 
   const post = await getPostBySlug(contentFolder, slug);
-  const { title, summary, date, content, tags } = post;
+  const { title, summary, date, content, tags, readingTime } = post;
 
   const titleParts = title.split(" ");
   const lastWord = titleParts.pop();
@@ -87,6 +87,10 @@ export default async function Page({ params }: { params: PageParams }) {
                 height={16}
               />
               <time dateTime={date}>{formatDate(date)}</time>
+            </span>
+
+            <span className={sharedStyles.readingTime}>
+              {readingTime} min de lectura
             </span>
 
             {tags && tags.length > 0 && (
