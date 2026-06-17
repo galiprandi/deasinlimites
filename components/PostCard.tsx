@@ -21,6 +21,9 @@ export default function PostCard({ post, pathname }: PostCardProps) {
               />
               <time dateTime={post.date}>{formatDate(post.date)}</time>
             </span>
+            <span className={styles.readingTime}>
+              {post.readingTime} min de lectura
+            </span>
             <div className={styles.tags}>
               {post.tags.map((tag) => (
                 <span key={tag} className="tag">
