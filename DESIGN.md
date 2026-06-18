@@ -141,3 +141,8 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Estimated Reading Time
+- **Expectation Management**: Implementation of an estimated reading time (200 words per minute baseline) for all articles, helping users decide when to engage with long-form content.
+- **Visual Consistency**: The reading time is displayed alongside the publication date using a clock icon, maintaining a unified metadata language.
+- **A11y Optimized Icons**: Calendar and clock icons are marked as decorative (`alt=""`, `aria-hidden="true"`) to ensure screen readers only announce the relevant data, reducing auditory noise.
