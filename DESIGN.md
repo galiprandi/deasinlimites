@@ -82,11 +82,16 @@
 ### Blog Category & Headers
 - **Unificación de Héroe**: Aplicación del patrón de acento cromático (`h1 span`) en los encabezados de las categorías del blog, alineando estas páginas con la Home y "Acerca de".
 
+### PostCard
+- **Tiempo de Lectura**: Inclusión de un indicador de tiempo estimado de lectura calculado dinámicamente para proporcionar contexto sobre la extensión del contenido.
+- **Accesibilidad de Iconos**: Los iconos decorativos (calendario, reloj) ahora utilizan `alt=""` y `aria-hidden="true"` para evitar redundancias en lectores de pantalla.
+
 ### Detalle de Artículo (Post Detail)
 - **Héroe Inmersivo**: Los artículos ahora cuentan con una sección de cabecera (Hero) centrada, con fondo `var(--bd-grey)` y bordes sutiles, unificando la experiencia visual con el resto del sitio.
 - **Jerarquía Tipográfica**: Implementación del acento cromático en el título (`h1 span`) y optimización del espaciado para el resumen y metadatos.
 - **Legibilidad Avanzada**: El contenido del artículo se envuelve en un contenedor `bodyContent` con un ancho máximo optimizado (`850px`), evitando líneas de texto excesivamente largas y mejorando el confort visual.
 - **Navegación Contextual**: El enlace "Volver" se integra de forma limpia en el Hero, facilitando el retorno a la categoría principal con una affordance mejorada.
+- **Metadatos Enriquecidos**: Visualización del tiempo estimado de lectura en la cabecera del artículo, manteniendo la consistencia visual con las `PostCard`.
 
 ## Refactor UI Polish Micro-UX
 
