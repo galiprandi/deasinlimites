@@ -4,6 +4,7 @@ import { PostMetadata } from "@/utils/markdown";
 import styles from "./PostCard.module.css";
 import Image from "next/image";
 import calendarIcon from "@/assets/icons/calendar.svg";
+import clockIcon from "@/assets/icons/clock.svg";
 
 export default function PostCard({ post, pathname }: PostCardProps) {
   return (
@@ -15,11 +16,22 @@ export default function PostCard({ post, pathname }: PostCardProps) {
             <span>
               <Image
                 src={calendarIcon}
-                alt={formatDate(post.date)}
+                alt=""
+                aria-hidden="true"
                 width={15}
                 height={15}
               />
               <time dateTime={post.date}>{formatDate(post.date)}</time>
+            </span>
+            <span>
+              <Image
+                src={clockIcon}
+                alt=""
+                aria-hidden="true"
+                width={15}
+                height={15}
+              />
+              {post.readingTime}
             </span>
             <div className={styles.tags}>
               {post.tags.map((tag) => (
