@@ -51,6 +51,12 @@
   opacity: 0.6;
 }
 
+.metaLeft {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
 .meta span {
   display: flex;
   align-items: center;
