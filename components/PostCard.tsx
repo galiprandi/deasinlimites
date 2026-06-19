@@ -21,6 +21,23 @@ export default function PostCard({ post, pathname }: PostCardProps) {
               />
               <time dateTime={post.date}>{formatDate(post.date)}</time>
             </span>
+            <span className={styles.readingTime} aria-label={`Tiempo de lectura: ${post.readingTime}`}>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              {post.readingTime}
+            </span>
             <div className={styles.tags}>
               {post.tags.map((tag) => (
                 <span key={tag} className="tag">

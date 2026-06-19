@@ -141,3 +141,9 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Reading Time (Micro-UX)
+- **Estimated Reading Time**: Implementation of a dedicated helper function in `utils/markdown.ts` to calculate reading time based on word count (200 wpm baseline).
+- **Global Integration**: Reading time is now displayed in all `PostCard` components and article headers, providing immediate context to the user.
+- **Visual Consistency**: Use of inline SVG icons for the clock indicator, ensuring scalability and consistent styling with other metadata elements.
+- **Accessibility**: Explicit `aria-label` providing a full description for screen readers (e.g., "Tiempo de lectura: 5 min").
