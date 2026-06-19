@@ -18,6 +18,7 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   slug: string;
+  readingTime: number;
 }
 
 export interface Post extends PostMetadata {
@@ -31,6 +32,11 @@ export function getPostFiles(contentFolder: string): string[] {
     .filter((file) => file.endsWith(".md"));
 }
 
+function calculateReadingTime(content: string): number {
+  const wordCount = content.trim().split(/\s+/).length;
+  return Math.ceil(wordCount / 200);
+}
+
 // Función para obtener los metadatos de un post
 export function getPostMetadata(
   contentFolder: string,
@@ -38,7 +44,9 @@ export function getPostMetadata(
 ): PostMetadata {
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(fileContent);
+  const { data, content } = matter(fileContent);
+
+  const readingTime = calculateReadingTime(content);
 
   return {
     title: data.title,
@@ -46,6 +54,7 @@ export function getPostMetadata(
     tags: data.tags || [],
     summary: data.summary || "",
     slug: filename.replace(".md", ""),
+    readingTime,
   };
 }
 
@@ -80,12 +89,15 @@ export async function getPostBySlug(
     .use(rehypeStringify)
     .process(content);
 
+  const readingTime = calculateReadingTime(content);
+
   return {
     title: data.title,
     date: data.date,
     tags: data.tags || [],
     summary: data.summary || "",
     slug,
+    readingTime,
     content: processedContent.toString(),
   };
 }
