@@ -18,6 +18,7 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   slug: string;
+  readingTime: string;
 }
 
 export interface Post extends PostMetadata {
@@ -31,6 +32,20 @@ export function getPostFiles(contentFolder: string): string[] {
     .filter((file) => file.endsWith(".md"));
 }
 
+/**
+ * Calcula el tiempo estimado de lectura de un texto
+ * @param content - El contenido del post
+ * @returns El tiempo de lectura formateado (ej: "5 min")
+ */
+export function calculateReadingTime(content: string): string {
+  if (!content || !content.trim()) return "0 min";
+  const wordsPerMinute = 200;
+  const noOfWords = content.trim().split(/\s+/).length;
+  const minutes = noOfWords / wordsPerMinute;
+  const readTime = Math.ceil(minutes);
+  return `${readTime} min`;
+}
+
 // Función para obtener los metadatos de un post
 export function getPostMetadata(
   contentFolder: string,
@@ -38,7 +53,7 @@ export function getPostMetadata(
 ): PostMetadata {
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(fileContent);
+  const { data, content } = matter(fileContent);
 
   return {
     title: data.title,
@@ -46,6 +61,7 @@ export function getPostMetadata(
     tags: data.tags || [],
     summary: data.summary || "",
     slug: filename.replace(".md", ""),
+    readingTime: calculateReadingTime(content),
   };
 }
 
@@ -87,6 +103,7 @@ export async function getPostBySlug(
     summary: data.summary || "",
     slug,
     content: processedContent.toString(),
+    readingTime: calculateReadingTime(content),
   };
 }
 
