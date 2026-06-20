@@ -141,3 +141,8 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Estimated Reading Time
+- **Time Prediction**: Implementation of an estimated reading time calculation based on a 200 words-per-minute heuristic.
+- **Visual Cues**: Addition of a clock icon (inline SVG) next to the reading time in both the `PostCard` and the post detail header.
+- **Consistent Styling**: Use of the `.date` class tokens to ensure the reading time metadata matches the spacing and typography of the publication date.

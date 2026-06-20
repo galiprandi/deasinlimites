@@ -11,6 +11,19 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+/**
+ * Calcula el tiempo estimado de lectura en base al contenido
+ * @param content - El contenido del post
+ * @returns Tiempo estimado en formato "X min"
+ */
+export function calculateReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const noOfWords = content.split(/\s+/).filter((word) => word.length > 0).length;
+  if (noOfWords === 0) return "0 min";
+  const minutes = Math.ceil(noOfWords / wordsPerMinute);
+  return `${minutes} min`;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -18,6 +31,7 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   slug: string;
+  readingTime: string;
 }
 
 export interface Post extends PostMetadata {
@@ -38,7 +52,7 @@ export function getPostMetadata(
 ): PostMetadata {
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(fileContent);
+  const { data, content } = matter(fileContent);
 
   return {
     title: data.title,
@@ -46,6 +60,7 @@ export function getPostMetadata(
     tags: data.tags || [],
     summary: data.summary || "",
     slug: filename.replace(".md", ""),
+    readingTime: calculateReadingTime(content),
   };
 }
 
@@ -87,6 +102,7 @@ export async function getPostBySlug(
     summary: data.summary || "",
     slug,
     content: processedContent.toString(),
+    readingTime: calculateReadingTime(content),
   };
 }
 
