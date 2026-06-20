@@ -18,6 +18,7 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   slug: string;
+  readingTime?: number;
 }
 
 export interface Post extends PostMetadata {
@@ -38,7 +39,7 @@ export function getPostMetadata(
 ): PostMetadata {
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(fileContent);
+  const { data, content } = matter(fileContent);
 
   return {
     title: data.title,
@@ -46,6 +47,7 @@ export function getPostMetadata(
     tags: data.tags || [],
     summary: data.summary || "",
     slug: filename.replace(".md", ""),
+    readingTime: getReadingTime(content),
   };
 }
 
@@ -87,6 +89,7 @@ export async function getPostBySlug(
     summary: data.summary || "",
     slug,
     content: processedContent.toString(),
+    readingTime: getReadingTime(content),
   };
 }
 
@@ -135,4 +138,15 @@ export function paginatePosts(
     posts: paginatedPosts,
     totalPages,
   };
+}
+
+/**
+ * Calcula el tiempo estimado de lectura en minutos basado en el contenido.
+ * Promedio estándar: 200 palabras por minuto.
+ */
+export function getReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const noOfWords = content.split(/\s+/).length;
+  const minutes = noOfWords / wordsPerMinute;
+  return Math.ceil(minutes);
 }

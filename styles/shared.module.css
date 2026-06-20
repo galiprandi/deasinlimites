@@ -53,6 +53,12 @@
   gap: 0.75rem;
 }
 
+.readingTime {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
 .infoBox {
   background-color: var(--bd-grey);
   padding: 1rem 1.25rem;

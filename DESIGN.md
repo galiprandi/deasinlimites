@@ -141,3 +141,22 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+## Refactor UI Polish Excellence
+
+### TitleAccent Component
+- **Centralized Logic**: Created `TitleAccent.tsx` to automatically wrap the last word of any title in a chromatic accent (`<span>`).
+- **Ubiquitous Application**: Migrated Home, Category, Post Detail, and Papers pages to use this component, ensuring 100% brand parity.
+
+### Reading Time Integration
+- **Contextual Awareness**: Implemented estimated reading time (200 ppm) in `PostCard` and Article Hero sections.
+- **Visual Consistency**: Added a minimal `clock.svg` icon to accompany the metric, aligning with the existing `calendar.svg` pattern.
+
+### Hero & Information Architecture
+- **Home Page Unification**: Refactored the Landing Page Hero to consume `sharedStyles.hero`, achieving perfect vertical rhythm and animation sync.
+- **CSS De-duplication**: Removed redundant hero styles from `page.module.css`, reducing technical debt.
+- **Contextual UI**: Ensured all primary section headers on the Home page utilize the `infoBox` standard.
+
+### Micro-UX Refinements
+- **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
+- **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.

@@ -4,6 +4,7 @@ import { PostMetadata } from "@/utils/markdown";
 import styles from "./PostCard.module.css";
 import Image from "next/image";
 import calendarIcon from "@/assets/icons/calendar.svg";
+import clockIcon from "@/assets/icons/clock.svg";
 
 export default function PostCard({ post, pathname }: PostCardProps) {
   return (
@@ -21,6 +22,17 @@ export default function PostCard({ post, pathname }: PostCardProps) {
               />
               <time dateTime={post.date}>{formatDate(post.date)}</time>
             </span>
+            {post.readingTime && (
+              <span>
+                <Image
+                  src={clockIcon}
+                  alt="Tiempo de lectura"
+                  width={14}
+                  height={14}
+                />
+                {post.readingTime} min
+              </span>
+            )}
             <div className={styles.tags}>
               {post.tags.map((tag) => (
                 <span key={tag} className="tag">

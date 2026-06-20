@@ -2,6 +2,7 @@ import { siteConfig } from "@/config";
 import { Metadata } from "next";
 import styles from "./page.module.css";
 import sharedStyles from "@/styles/shared.module.css";
+import TitleAccent from "@/components/TitleAccent";
 
 export const metadata: Metadata = {
   title: siteConfig.author.name,
@@ -105,14 +106,11 @@ const training: Training[] = [
 ];
 
 export default function AcercaDe() {
-  const [firstName, ...lastNameParts] = siteConfig.author.name.split(" ");
-  const lastName = lastNameParts.join(" ");
-
   return (
     <div className={styles.container}>
       <header className={sharedStyles.hero}>
         <h1>
-          {firstName} <span>{lastName}</span>
+          <TitleAccent text={siteConfig.author.name} />
         </h1>
         <p>Educadora y Especialista en Dificultades de Aprendizaje</p>
       </header>
