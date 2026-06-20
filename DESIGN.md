@@ -134,6 +134,12 @@
 - **Keyboard Shortcut**: Implementation of the `/` key as a global shortcut to focus the search input, improving accessibility and navigation speed.
 - **Visual Feedback**: Integration of React's `useTransition` to track the pending state of search navigation, with a corresponding pulsing animation on the search icon to reduce perceived latency.
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
+
+### Estimated Reading Time
+- **Expectation Management**: Added an estimated reading time to both the blog list and individual articles. This helps users decide if they have enough time to engage with the content.
+- **Visual Cues**: Integrated a subtle clock icon next to the reading time to provide an immediate visual category for the metadata.
+- **Consistency**: Uses a standardized 200 words-per-minute calculation across all blog sections.
+
 ## 🎨 Palette: Micro-UX Improvements
 
 ### Search Keyboard Shortcut
