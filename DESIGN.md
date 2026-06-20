@@ -28,6 +28,10 @@
 - **Micro-interacciones**: El botón de limpieza y el borde del input han sido migrados a `var(--bd-grey2)`, eliminando dependencias de colores estáticos y mejorando la integración con el fondo.
 - **Enfoque de Alta Visibilidad**: El anillo de enfoque utiliza ahora `var(--color-accent-rgb)` para una definición superior y consistencia cromática total.
 
+### Micro-UX de Lectura
+- **Tiempo de Lectura Estimado**: Implementación de un algoritmo de cálculo (basado en 200 palabras por minuto) que muestra el tiempo de lectura en `PostCard` y en el detalle del artículo.
+- **Iconografía Coherente**: Uso de un icono de reloj inline (SVG) para los metadatos de tiempo, manteniendo la ligereza y escalabilidad visual.
+
 ## Estabilidad Técnica
 - **Arquitectura de Búsqueda**: Implementación de límites de `<Suspense>` en `app/[blog]/page.tsx` para el componente `SearchPosts`. Esta medida previene errores de hidratación vinculados a `useSearchParams` y permite una carga progresiva del cliente sin bloquear el renderizado estático del servidor.
 
@@ -87,6 +91,7 @@
 - **Jerarquía Tipográfica**: Implementación del acento cromático en el título (`h1 span`) y optimización del espaciado para el resumen y metadatos.
 - **Legibilidad Avanzada**: El contenido del artículo se envuelve en un contenedor `bodyContent` con un ancho máximo optimizado (`850px`), evitando líneas de texto excesivamente largas y mejorando el confort visual.
 - **Navegación Contextual**: El enlace "Volver" se integra de forma limpia en el Hero, facilitando el retorno a la categoría principal con una affordance mejorada.
+- **Metadatos Enriquecidos**: Inclusión del tiempo estimado de lectura calculado dinámicamente, mejorando la preparación del usuario ante el contenido.
 
 ## Refactor UI Polish Micro-UX
 
