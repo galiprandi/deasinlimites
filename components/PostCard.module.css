@@ -43,15 +43,15 @@
 .meta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1em;
+  gap: 1.5em;
   margin-bottom: 1em;
   color: var(--text-primary);
   opacity: 0.6;
 }
 
-.meta span {
+.meta .date {
   display: flex;
   align-items: center;
   gap: 0.4em;
