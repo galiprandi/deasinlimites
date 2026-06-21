@@ -1,5 +1,6 @@
 import PostCard from "@/components/PostCard";
 import SocialLinks from "@/components/SocialLinks";
+import TitleAccent from "@/components/TitleAccent";
 import { getAllPostsMetadata } from "@/utils/markdown";
 import Image from "next/image";
 import logo from "@/public/logo.png";
@@ -12,18 +13,6 @@ export default function Home() {
   const postsFamilias = getAllPostsMetadata("familias").slice(0, 3);
   const postsDocentes = getAllPostsMetadata("docentes").slice(0, 3);
 
-  const renderTitleWithAccent = (title: string) => {
-    const words = title.trim().split(" ");
-    if (words.length <= 1) return <span>{title}</span>;
-    const lastWord = words.pop();
-    const firstPart = words.join(" ");
-    return (
-      <>
-        {firstPart} <span>{lastWord}</span>
-      </>
-    );
-  };
-
   return (
     <div className={styles.container}>
       <header className={sharedStyles.hero}>
@@ -31,7 +20,7 @@ export default function Home() {
           <Image src={logo} alt={siteConfig.title} width={230} height={230} />
         </div>
         <h1>
-          Bienvenido a <span>{siteConfig.title}</span>
+          <TitleAccent text={`Bienvenido a ${siteConfig.title}`} />
         </h1>
         <p>
           {siteConfig.description ||
@@ -42,7 +31,7 @@ export default function Home() {
       <main>
         <section>
           <h2 className={sharedStyles.infoBox}>
-            {renderTitleWithAccent("Dificultades específicas del aprendizaje")}
+            <TitleAccent text="Dificultades específicas del aprendizaje" />
           </h2>
           <div className={styles.contentGrid}>
             {postsDea.map((post) => (
@@ -53,7 +42,7 @@ export default function Home() {
 
         <section>
           <h2 className={sharedStyles.infoBox}>
-            {renderTitleWithAccent("Estrategias para familias")}
+            <TitleAccent text="Estrategias para familias" />
           </h2>
           <div className={styles.contentGrid}>
             {postsFamilias.map((post) => (
@@ -64,7 +53,7 @@ export default function Home() {
 
         <section>
           <h2 className={sharedStyles.infoBox}>
-            {renderTitleWithAccent("Estrategias para docentes")}
+            <TitleAccent text="Estrategias para docentes" />
           </h2>
           <div className={styles.contentGrid}>
             {postsDocentes.map((post) => (

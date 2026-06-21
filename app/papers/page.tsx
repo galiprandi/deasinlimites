@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./page.module.css";
 import sharedStyles from "@/styles/shared.module.css";
 import { Metadata } from "next";
+import TitleAccent from "@/components/TitleAccent";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -49,7 +50,7 @@ export default function PapersPage() {
   return (
     <div className={styles.container}>
       <header className={sharedStyles.hero}>
-        <h1>Publicaciones <span>especializadas</span></h1>
+        <h1><TitleAccent text="Publicaciones especializadas" /></h1>
         <p>
           Recursos y materiales descargables para familias y profesionales.
         </p>

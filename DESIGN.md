@@ -84,7 +84,8 @@
 
 ### Detalle de Artículo (Post Detail)
 - **Héroe Inmersivo**: Los artículos ahora cuentan con una sección de cabecera (Hero) centrada, con fondo `var(--bd-grey)` y bordes sutiles, unificando la experiencia visual con el resto del sitio.
-- **Jerarquía Tipográfica**: Implementación del acento cromático en el título (`h1 span`) y optimización del espaciado para el resumen y metadatos.
+- **Métricas de Lectura**: Integración del tiempo estimado de lectura en la cabecera del artículo para una mejor expectativa de consumo de contenido.
+- **Jerarquía Tipográfica**: Implementación del acento cromático unificado en el título (`TitleAccent`) y optimización del espaciado para el resumen y metadatos.
 - **Legibilidad Avanzada**: El contenido del artículo se envuelve en un contenedor `bodyContent` con un ancho máximo optimizado (`850px`), evitando líneas de texto excesivamente largas y mejorando el confort visual.
 - **Navegación Contextual**: El enlace "Volver" se integra de forma limpia en el Hero, facilitando el retorno a la categoría principal con una affordance mejorada.
 
@@ -132,6 +133,11 @@
 
 ## Refined Search Usability
 - **Keyboard Shortcut**: Implementation of the `/` key as a global shortcut to focus the search input, improving accessibility and navigation speed.
+
+## UI Unification & Content Metrics
+- **TitleAccent Component**: Centralized logic for chromatic accents in titles, ensuring consistent brand identity across all views.
+- **Estimated Reading Time**: Implementation of a word-count based reading time metric (200 wpm) displayed in `PostCard` and article headers, improving user affordance and content scannability.
+- **Shadow Depth Refinement**: Increased elevation feedback in `PostCard` (hover) and `AsideBar` (active) using themed RGB tokens for a more premium, depth-aware interface.
 - **Visual Feedback**: Integration of React's `useTransition` to track the pending state of search navigation, with a corresponding pulsing animation on the search icon to reduce perceived latency.
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements

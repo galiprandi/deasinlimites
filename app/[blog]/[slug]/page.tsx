@@ -4,8 +4,10 @@ import sharedStyles from "@/styles/shared.module.css";
 import Link from "next/link";
 import { getPostBySlug } from "@/utils/markdown";
 import { formatDate } from "@/utils/date";
+import TitleAccent from "@/components/TitleAccent";
 import SharePost from "@/components/SharePost";
 import calendarIcon from "@/assets/icons/calendar.svg";
+import clockIcon from "@/assets/icons/clock.svg";
 import Image from "next/image";
 import { blogsConfig } from "@/config";
 import { notFound } from "next/navigation";
@@ -51,11 +53,7 @@ export default async function Page({ params }: { params: PageParams }) {
   const { contentFolder } = config;
 
   const post = await getPostBySlug(contentFolder, slug);
-  const { title, summary, date, content, tags } = post;
-
-  const titleParts = title.split(" ");
-  const lastWord = titleParts.pop();
-  const firstPart = titleParts.join(" ");
+  const { title, summary, date, content, tags, readingTime } = post;
 
   return (
     <div className={styles.container}>
@@ -68,8 +66,7 @@ export default async function Page({ params }: { params: PageParams }) {
           </nav>
 
           <h1>
-            {firstPart && <>{firstPart} </>}
-            <span>{lastWord}</span>
+            <TitleAccent text={title} />
           </h1>
 
           {summary && (
@@ -87,6 +84,16 @@ export default async function Page({ params }: { params: PageParams }) {
                 height={16}
               />
               <time dateTime={date}>{formatDate(date)}</time>
+            </span>
+
+            <span className={sharedStyles.date}>
+              <Image
+                src={clockIcon}
+                alt="Tiempo de lectura"
+                width={16}
+                height={16}
+              />
+              {readingTime} min
             </span>
 
             {tags && tags.length > 0 && (

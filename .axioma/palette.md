@@ -104,3 +104,7 @@
 ## 2026-06-20 - [Semantic Empty States]
 **Learning:** Empty search or category states are often neglected UI moments. Using a `dashed` border and increased vertical padding (`6rem`) transforms these from "broken" states into intentional, clean placeholders that maintain the site's structural integrity while waiting for content.
 **Action:** Refined blog and archive empty states with themed dashed borders and generous padding.
+
+## 2026-06-21 - [Programmatic Brand Accents & Content Scannability]
+**Learning:** Centralizing visual patterns like title accents into reusable components (`TitleAccent`) eliminates logic duplication and prevents style drift. Furthermore, providing explicit content metrics like "estimated reading time" significantly reduces the user's uncertainty before engaging with long-form content, especially when paired with consistent iconography (`clock.svg`).
+**Action:** Centralized title highlighting via `TitleAccent` and implemented automated reading time metrics across all article-related views.
