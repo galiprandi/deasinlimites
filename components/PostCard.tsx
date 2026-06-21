@@ -12,14 +12,32 @@ export default function PostCard({ post, pathname }: PostCardProps) {
         <div className={styles.cardContent}>
           <h2 className={styles.title}>{post.title}</h2>
           <div className={styles.meta}>
-            <span>
+            <span className={styles.date}>
               <Image
                 src={calendarIcon}
-                alt={formatDate(post.date)}
+                alt=""
+                aria-hidden="true"
                 width={15}
                 height={15}
               />
               <time dateTime={post.date}>{formatDate(post.date)}</time>
+            </span>
+            <span className={styles.readingTime}>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              {post.readingTime}
             </span>
             <div className={styles.tags}>
               {post.tags.map((tag) => (
