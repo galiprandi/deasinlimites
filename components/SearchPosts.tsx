@@ -13,7 +13,20 @@ function SearchInput() {
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [isPending, startTransition] = useTransition();
 
-  // Keyboard shortcut (/) to focus search
+  const handleClear = () => {
+    setSearchQuery("");
+    const params = new URLSearchParams(searchParams);
+    params.delete("q");
+    params.delete("page");
+    const query = params.toString();
+    startTransition(() => {
+      router.replace(`${pathname}${query ? `?${query}` : ""}`, {
+        scroll: false,
+      });
+    });
+  };
+
+  // Keyboard shortcut (/) to focus search and (Esc) to clear
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
@@ -24,12 +37,15 @@ function SearchInput() {
       ) {
         e.preventDefault();
         inputRef.current?.focus();
+      } else if (e.key === "Escape" && document.activeElement === inputRef.current) {
+        handleClear();
+        inputRef.current?.blur();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [pathname, router, searchParams]);
 
   // Sincronizar el estado local con el parámetro de búsqueda de la URL
   useEffect(() => {
@@ -59,19 +75,6 @@ function SearchInput() {
 
     return () => clearTimeout(timer);
   }, [searchQuery, router, pathname, searchParams, initialQuery]);
-
-  const handleClear = () => {
-    setSearchQuery("");
-    const params = new URLSearchParams(searchParams);
-    params.delete("q");
-    params.delete("page");
-    const query = params.toString();
-    startTransition(() => {
-      router.replace(`${pathname}${query ? `?${query}` : ""}`, {
-        scroll: false,
-      });
-    });
-  };
 
   return (
     <div className={styles.searchContainer}>

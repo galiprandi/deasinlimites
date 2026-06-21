@@ -147,3 +147,8 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+- **Keyboard Usability**: Support for the `Escape` key to clear the search query and blur the input field, providing a fast and expected way to exit the search state.
+
+### SharePost Refined
+- **Kinetic Micro-UX**: Buttons now include a `rotate(5deg)` and a themed `box-shadow` on hover, matching the `SocialLinks` pattern.
+- **Desktop Discoverability**: Added `title` attributes to all share links to provide native tooltips for desktop users.
