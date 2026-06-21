@@ -141,3 +141,9 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Estimated Reading Time
+- **Automatic Calculation**: Implemented a helper function that estimates reading time based on a standard rate of 200 words per minute.
+- **UI Integration**: Reading time is now displayed in both `PostCard` and the article detail header, providing users with an immediate sense of the content's length.
+- **Visual Consistency**: Used an inline SVG clock icon that matches the existing iconography style (e.g., the calendar icon).
+- **Accessibility**: Icons are marked as decorative (`alt=""`, `aria-hidden="true"`) to avoid redundant announcements for screen reader users, while the reading time text is clearly presented.

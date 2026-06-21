@@ -18,10 +18,24 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   slug: string;
+  readingTime: string;
 }
 
 export interface Post extends PostMetadata {
   content: string;
+}
+
+/**
+ * Calcula el tiempo estimado de lectura en base al contenido.
+ * @param content El contenido en formato markdown.
+ * @returns El tiempo estimado en formato "X min".
+ */
+export function calculateReadingTime(content: string): string {
+  if (!content || !content.trim()) return "0 min";
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min`;
 }
 
 // Función para obtener todos los archivos MD en el directorio
@@ -38,7 +52,7 @@ export function getPostMetadata(
 ): PostMetadata {
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(fileContent);
+  const { data, content } = matter(fileContent);
 
   return {
     title: data.title,
@@ -46,6 +60,7 @@ export function getPostMetadata(
     tags: data.tags || [],
     summary: data.summary || "",
     slug: filename.replace(".md", ""),
+    readingTime: calculateReadingTime(content),
   };
 }
 
@@ -87,6 +102,7 @@ export async function getPostBySlug(
     summary: data.summary || "",
     slug,
     content: processedContent.toString(),
+    readingTime: calculateReadingTime(content),
   };
 }
 

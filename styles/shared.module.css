@@ -42,7 +42,7 @@
   font-size: 0.95rem;
 }
 
-.meta .date {
+.meta .date, .meta .readingTime {
   display: flex;
   align-items: center;
   gap: 0.5em;

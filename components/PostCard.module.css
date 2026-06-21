@@ -51,7 +51,7 @@
   opacity: 0.6;
 }
 
-.meta span {
+.meta .date, .meta .readingTime {
   display: flex;
   align-items: center;
   gap: 0.4em;
