@@ -141,3 +141,9 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+### Estimated Reading Time
+- **Automatic Calculation**: Implementation of a `calculateReadingTime` utility in `utils/markdown.ts` based on a standard 200 words per minute average.
+- **PostCard Integration**: Display of the reading time in all article cards, providing immediate context before clicking.
+- **Hero Metadata**: Integration of reading time in the post detail hero section for a complete article overview.
+- **Visual Consistency**: Use of an inline clock SVG icon and thematic styling that matches the existing date and metadata patterns.

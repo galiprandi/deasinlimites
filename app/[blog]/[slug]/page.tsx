@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: PageParams }) {
   const { contentFolder } = config;
 
   const post = await getPostBySlug(contentFolder, slug);
-  const { title, summary, date, content, tags } = post;
+  const { title, summary, date, content, tags, readingTime } = post;
 
   const titleParts = title.split(" ");
   const lastWord = titleParts.pop();
@@ -87,6 +87,24 @@ export default async function Page({ params }: { params: PageParams }) {
                 height={16}
               />
               <time dateTime={date}>{formatDate(date)}</time>
+            </span>
+
+            <span className={sharedStyles.readingTime} title="Tiempo estimado de lectura">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              {readingTime}
             </span>
 
             {tags && tags.length > 0 && (
