@@ -108,3 +108,7 @@
 ## 2026-06-22 - [Dynamic Title Accents and Reading Metrics]
 **Learning:** Centralizing programmatic UI logic like title word-splitting into a dedicated component (`TitleAccent`) eliminates redundancy and ensures a perfectly consistent brand identity across the entire site. Furthermore, integrating estimated reading times provides users with valuable context, improving content engagement and accessibility.
 **Action:** Always use the `TitleAccent` component for headers and include reading time metrics (200 wpm standard) for all long-form content previews and detail views.
+
+## 2026-06-21 - [Programmatic Brand Accents & Content Scannability]
+**Learning:** Centralizing visual patterns like title accents into reusable components (`TitleAccent`) eliminates logic duplication and prevents style drift. Furthermore, providing explicit content metrics like "estimated reading time" significantly reduces the user's uncertainty before engaging with long-form content, especially when paired with consistent iconography (`clock.svg`).
+**Action:** Centralized title highlighting via `TitleAccent` and implemented automated reading time metrics across all article-related views.

@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import sharedStyles from "@/styles/shared.module.css";
 import TitleAccent from "@/components/TitleAccent";
 import { Metadata } from "next";
+import TitleAccent from "@/components/TitleAccent";
 import Link from "next/link";
 
 export const metadata: Metadata = {

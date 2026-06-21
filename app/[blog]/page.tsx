@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import PostCard from "@/components/PostCard";
 import SearchPosts from "@/components/SearchPosts";
 import Pagination from "@/components/Pagination";
+import TitleAccent from "@/components/TitleAccent";
 import styles from "@/styles/blog-home.module.css";
 import sharedStyles from "@/styles/shared.module.css";
 import TitleAccent from "@/components/TitleAccent";

@@ -5,6 +5,7 @@ import TitleAccent from "@/components/TitleAccent";
 import Link from "next/link";
 import { getPostBySlug } from "@/utils/markdown";
 import { formatDate } from "@/utils/date";
+import TitleAccent from "@/components/TitleAccent";
 import SharePost from "@/components/SharePost";
 import calendarIcon from "@/assets/icons/calendar.svg";
 import clockIcon from "@/assets/icons/clock.svg";

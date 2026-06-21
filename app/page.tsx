@@ -1,5 +1,6 @@
 import PostCard from "@/components/PostCard";
 import SocialLinks from "@/components/SocialLinks";
+import TitleAccent from "@/components/TitleAccent";
 import { getAllPostsMetadata } from "@/utils/markdown";
 import Image from "next/image";
 import logo from "@/public/logo.png";
