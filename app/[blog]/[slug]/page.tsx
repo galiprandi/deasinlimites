@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import styles from "@/styles/markdown.module.css";
 import sharedStyles from "@/styles/shared.module.css";
+import TitleAccent from "@/components/TitleAccent";
 import Link from "next/link";
 import { getPostBySlug } from "@/utils/markdown";
 import { formatDate } from "@/utils/date";
@@ -86,15 +87,17 @@ export default async function Page({ params }: { params: PageParams }) {
               <time dateTime={date}>{formatDate(date)}</time>
             </span>
 
-            <span className={sharedStyles.date}>
-              <Image
-                src={clockIcon}
-                alt="Tiempo de lectura"
-                width={16}
-                height={16}
-              />
-              {readingTime} min
-            </span>
+            {readingTime && (
+              <span className={sharedStyles.readingTime}>
+                <Image
+                  src={clockIcon}
+                  alt="Tiempo de lectura"
+                  width={16}
+                  height={16}
+                />
+                {readingTime} min de lectura
+              </span>
+            )}
 
             {tags && tags.length > 0 && (
               <div className={sharedStyles.tags}>

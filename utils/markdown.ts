@@ -18,7 +18,7 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   slug: string;
-  readingTime: number;
+  readingTime?: number;
 }
 
 export interface Post extends PostMetadata {
@@ -141,12 +141,12 @@ export function paginatePosts(
 }
 
 /**
- * Calcula el tiempo estimado de lectura en minutos.
- * Basado en una velocidad promedio de 200 palabras por minuto.
+ * Calcula el tiempo estimado de lectura en minutos basado en el contenido.
+ * Promedio estándar: 200 palabras por minuto.
  */
 export function getReadingTime(content: string): number {
-  if (!content) return 0;
-  const words = content.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / 200);
-  return minutes;
+  const wordsPerMinute = 200;
+  const noOfWords = content.split(/\s+/).length;
+  const minutes = noOfWords / wordsPerMinute;
+  return Math.ceil(minutes);
 }

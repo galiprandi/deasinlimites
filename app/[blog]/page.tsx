@@ -12,6 +12,7 @@ import Pagination from "@/components/Pagination";
 import TitleAccent from "@/components/TitleAccent";
 import styles from "@/styles/blog-home.module.css";
 import sharedStyles from "@/styles/shared.module.css";
+import TitleAccent from "@/components/TitleAccent";
 import { blogsConfig, getBlogConfig, siteConfig } from "@/config";
 
 // Generate static params for each blog/section

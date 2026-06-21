@@ -24,9 +24,9 @@
 
 .paginationLink:hover:not(.active):not(.disabled) {
   background-color: var(--bd-grey2);
-  border-color: rgba(var(--color-secondary-rgb), 0.2);
+  border-color: var(--color-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px -4px rgba(var(--color-secondary-rgb), 0.15);
+  box-shadow: 0 8px 16px -4px rgba(var(--color-secondary-rgb), 0.2);
 }
 
 .paginationLink:focus-visible {

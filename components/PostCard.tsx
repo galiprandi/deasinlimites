@@ -22,10 +22,17 @@ export default function PostCard({ post, pathname }: PostCardProps) {
               />
               <time dateTime={post.date}>{formatDate(post.date)}</time>
             </span>
-            <span className={styles.readingTime}>
-              <Image src={clockIcon} alt="Tiempo de lectura" width={14} height={14} />
-              {post.readingTime} min
-            </span>
+            {post.readingTime && (
+              <span>
+                <Image
+                  src={clockIcon}
+                  alt="Tiempo de lectura"
+                  width={14}
+                  height={14}
+                />
+                {post.readingTime} min
+              </span>
+            )}
             <div className={styles.tags}>
               {post.tags.map((tag) => (
                 <span key={tag} className="tag">
