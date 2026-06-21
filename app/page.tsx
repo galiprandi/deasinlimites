@@ -7,7 +7,6 @@ import logo from "@/public/logo.png";
 import { siteConfig } from "@/config";
 import styles from "./page.module.css";
 import sharedStyles from "@/styles/shared.module.css";
-import TitleAccent from "@/components/TitleAccent";
 
 export default function Home() {
   const postsDea = getAllPostsMetadata("dea").slice(0, 3);
