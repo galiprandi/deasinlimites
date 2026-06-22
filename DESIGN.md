@@ -133,6 +133,8 @@
 
 ## Refined Search Usability
 - **Keyboard Shortcut**: Implementation of the `/` key as a global shortcut to focus the search input, improving accessibility and navigation speed.
+- **Enhanced Dismissal**: Added `Escape` key support to the search input, allowing users to quickly clear their query or blur the input for better keyboard flow.
+- **Focus Continuity**: The search input now automatically regains focus after the "Clear" button is clicked, enabling immediate re-entry without extra clicks.
 
 ## UI Unification & Content Metrics
 - **TitleAccent Component**: Centralized logic for chromatic accents in titles, ensuring consistent brand identity across all views.
