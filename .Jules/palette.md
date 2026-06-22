@@ -6,3 +6,11 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+
+## 2025-05-15 - [Redundant Icon Announcements]
+**Learning:** Decorative icons (e.g., clock icons for reading time) should use `alt=""` and `aria-hidden="true"` to prevent redundant announcements when the associated data is already present in text form. This reduces noise for screen reader users.
+**Action:** Apply `aria-hidden="true"` and empty `alt` to all decorative metadata icons.
+
+## 2025-05-15 - [Search Input UX]
+**Learning:** Search inputs should support the 'Escape' key to clear and blur, and regain focus after a 'clear' action to enable immediate re-entry for keyboard users.
+**Action:** Implement 'Escape' handling and `inputRef.current?.focus()` in search components.

@@ -25,6 +25,11 @@ function SearchInput() {
         e.preventDefault();
         inputRef.current?.focus();
       }
+
+      if (e.key === "Escape" && document.activeElement === inputRef.current) {
+        setSearchQuery("");
+        inputRef.current?.blur();
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -71,6 +76,7 @@ function SearchInput() {
         scroll: false,
       });
     });
+    inputRef.current?.focus();
   };
 
   return (
@@ -94,10 +100,11 @@ function SearchInput() {
         ref={inputRef}
         type="text"
         className={styles.searchInput}
-        placeholder="Buscar en el blog... (Presiona / para buscar)"
+        placeholder="Buscar en el blog..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         aria-label="Buscar en el blog"
+        aria-keyshortcuts="/"
       />
       <div className={styles.searchShortcut} aria-hidden="true">
         <span>/</span>

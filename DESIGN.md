@@ -133,6 +133,8 @@
 
 ## Refined Search Usability
 - **Keyboard Shortcut**: Implementation of the `/` key as a global shortcut to focus the search input, improving accessibility and navigation speed.
+- **Enhanced Keyboard Control**: Added `Escape` key support to clear and blur the search input, and `aria-keyshortcuts` for screen reader awareness.
+- **Improved Focus Flow**: The search input now automatically regains focus after using the "Clear" button, ensuring a seamless re-entry experience.
 
 ## UI Unification & Content Metrics
 - **TitleAccent Component**: Centralized logic for chromatic accents in titles, ensuring consistent brand identity across all views.
