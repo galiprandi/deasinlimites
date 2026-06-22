@@ -71,6 +71,14 @@ function SearchInput() {
         scroll: false,
       });
     });
+    inputRef.current?.focus();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Escape") {
+      handleClear();
+      inputRef.current?.blur();
+    }
   };
 
   return (
@@ -94,10 +102,12 @@ function SearchInput() {
         ref={inputRef}
         type="text"
         className={styles.searchInput}
-        placeholder="Buscar en el blog... (Presiona / para buscar)"
+        placeholder="Buscar en el blog..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
         aria-label="Buscar en el blog"
+        aria-keyshortcuts="/"
       />
       <div className={styles.searchShortcut} aria-hidden="true">
         <span>/</span>

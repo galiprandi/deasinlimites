@@ -140,13 +140,16 @@
 - **Shadow Depth Refinement**: Increased elevation feedback in `PostCard` (hover) and `AsideBar` (active) using themed RGB tokens for a more premium, depth-aware interface.
 - **Visual Feedback**: Integration of React's `useTransition` to track the pending state of search navigation, with a corresponding pulsing animation on the search icon to reduce perceived latency.
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
+- **Enhanced Search UX**: Implementation of the `Escape` key to clear and blur the search input, and automatic refocusing after clicking the clear button for seamless re-entry.
+
 ## 🎨 Palette: Micro-UX Improvements
 
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
+- **Refined Interaction**: Added `Escape` key support to clear and blur the search input, and ensured the input regains focus after clearing to allow immediate re-entry.
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
-- **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+- **Accessibility**: Added `aria-keyshortcuts="/"` for screen readers and cleaned up redundant placeholder text, keeping the interface focused and informative.
 
 ## Refactor UI Polish Excellence
 
