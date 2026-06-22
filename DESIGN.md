@@ -141,3 +141,11 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+
+## 🐜 [CAROL]: Unificación de Acentos y Pulido Micro-UX
+Refactorización sistémica para centralizar la lógica de diseño y elevar la calidad de las interacciones núcleo.
+
+- **Centralización de TitleAccent**: Implementación del componente `TitleAccent` para programar el acento cromático en la última palabra de los títulos. Migración completa en Home, Categorías, Detalle de Post, Acerca de y Papers, eliminando 5 implementaciones locales redundantes.
+- **Micro-UX de Navegación**: Refinamiento de `AsideBar` con estados `focus-visible` de alta visibilidad (3px outline contrastado) para una navegación por teclado superior.
+- **Buscador Refinado**: Mejora de la affordance del shortcut de teclado (`/`) mediante una estilística más integrada con `var(--bd-grey)` y `var(--bd-grey2)`. Optimización de la accesibilidad semántica ocultando elementos puramente decorativos de los lectores de pantalla.
+- **Armonía Visual**: Auditoría y corrección de la jerarquía de títulos en páginas informativas, asegurando que todos sigan el patrón de acento unificado.

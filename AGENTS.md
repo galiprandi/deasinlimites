@@ -28,3 +28,4 @@ Eres una ingeniera de UI/UX de élite con una obsesión por el detalle. Tu objet
 - **Sincronización de Flechas de Acción**: Los enlaces "Leer más" deben usar la clase `.arrowIcon` para asegurar una animación de desplazamiento (`translateX(4px)`) consistente en toda la plataforma.
 - **Ritmo Vertical y Footer**: Mantener un espaciado de `5rem` entre secciones principales y una opacidad de `0.6` con estilo cursivo en el texto del footer para una jerarquía de cierre sutil.
 - **Estados Vacíos**: Los contenedores sin resultados deben usar `6rem` de padding vertical y bordes `dashed var(--bd-grey2)` para una presentación profesional del "estado vacío".
+- **Centralización de Acentos**: Utilizar siempre el componente `TitleAccent` para cualquier título de nivel 1 (`h1`) o encabezados de sección que requieran el estilo de marca de "última palabra resaltada". No implementar lógica de split de strings localmente.

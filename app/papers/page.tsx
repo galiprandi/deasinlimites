@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import sharedStyles from "@/styles/shared.module.css";
 import { Metadata } from "next";
 import Link from "next/link";
+import TitleAccent from "@/components/TitleAccent";
 
 export const metadata: Metadata = {
   title: "Publicaciones | DEA sin límites",
@@ -49,7 +50,7 @@ export default function PapersPage() {
   return (
     <div className={styles.container}>
       <header className={sharedStyles.hero}>
-        <h1>Publicaciones <span>especializadas</span></h1>
+        <h1><TitleAccent text="Publicaciones especializadas" /></h1>
         <p>
           Recursos y materiales descargables para familias y profesionales.
         </p>

@@ -12,6 +12,7 @@ import Pagination from "@/components/Pagination";
 import styles from "@/styles/blog-home.module.css";
 import sharedStyles from "@/styles/shared.module.css";
 import { blogsConfig, getBlogConfig, siteConfig } from "@/config";
+import TitleAccent from "@/components/TitleAccent";
 
 // Generate static params for each blog/section
 export async function generateStaticParams() {
@@ -86,15 +87,11 @@ export default async function BlogPage({
     config.pageSize
   );
 
-  const titleParts = config.title.split(" ");
-  const lastWord = titleParts.pop();
-  const firstPart = titleParts.join(" ");
-
   return (
     <div className={styles.container}>
       <header className={sharedStyles.hero}>
         <h1>
-          {firstPart && <>{firstPart} </>}<span>{lastWord}</span>
+          <TitleAccent text={config.title} />
         </h1>
         <p>{config.description}</p>
         <Suspense fallback={<div style={{ height: "45px" }} />}>

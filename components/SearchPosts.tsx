@@ -75,7 +75,10 @@ function SearchInput() {
 
   return (
     <div className={styles.searchContainer}>
-      <div className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}>
+      <div
+        className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}
+        aria-hidden="true"
+      >
         <svg
           width="18"
           height="18"

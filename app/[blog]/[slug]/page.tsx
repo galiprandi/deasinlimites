@@ -9,6 +9,7 @@ import calendarIcon from "@/assets/icons/calendar.svg";
 import Image from "next/image";
 import { blogsConfig } from "@/config";
 import { notFound } from "next/navigation";
+import TitleAccent from "@/components/TitleAccent";
 
 // Define dynamic metadata generation
 export async function generateMetadata({
@@ -53,10 +54,6 @@ export default async function Page({ params }: { params: PageParams }) {
   const post = await getPostBySlug(contentFolder, slug);
   const { title, summary, date, content, tags } = post;
 
-  const titleParts = title.split(" ");
-  const lastWord = titleParts.pop();
-  const firstPart = titleParts.join(" ");
-
   return (
     <div className={styles.container}>
       <article className={styles.article}>
@@ -68,8 +65,7 @@ export default async function Page({ params }: { params: PageParams }) {
           </nav>
 
           <h1>
-            {firstPart && <>{firstPart} </>}
-            <span>{lastWord}</span>
+            <TitleAccent text={title} />
           </h1>
 
           {summary && (
