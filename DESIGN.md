@@ -15,8 +15,9 @@
 - **Micro-interacciones en SocialLinks**: Los iconos sociales ahora incluyen un fondo circular reactivo y un efecto de escala al pasar el cursor, alineándose con las tendencias modernas de micro-UX.
 
 ### SharePost
-- **Consistencia de Micro-interacciones**: Los botones de compartir ahora comparten el mismo lenguaje visual que `SocialLinks`, con escalado suave (`scale(1.1)`) y fondos reactivos.
+- **Consistencia de Micro-interacciones**: Los botones de compartir ahora comparten el mismo lenguaje visual que `SocialLinks`, con escalado suave (`scale(1.1)`), rotación cinética (`5deg`) y sombras temáticas.
 - **Feedback Dinámico**: El mensaje "¡Copiado!" ahora presenta una animación de entrada (`fadeIn`) para reducir la carga cognitiva y mejorar la percepción de respuesta del sistema.
+- **Accesibilidad y Tooltips**: Inclusión de atributos `title` para tooltips nativos en escritorio y optimización de iconos para lectores de pantalla mediante `aria-hidden="true"`.
 
 ### Pagination
 - **Unificación de Tokens**: Uso de `var(--border-radius)` y eliminación de colores hexadecimales en favor de tokens de diseño y opacidad sobre `var(--text-primary)`.
@@ -94,7 +95,7 @@
 ### Micro-interacciones & Feedback
 - **Sincronización de Flechas de Acción**: Introducción de la clase global `.arrowIcon` con una animación de entrada `translateX(4px)` coordinada para todos los enlaces de "Leer más". Esto crea un lenguaje de dirección de lectura consistente en `PostCard` y `Papers`.
 - **SharePost Refined**: Evolución de la animación `fadeInPop` usando `cubic-bezier(0.4, 0, 0.2, 1)` y una micro-escala inicial (`0.95`), logrando un feedback de copiado mucho más elástico y profesional.
-- **SocialLinks Kinetics**: Inclusión de una rotación sutil (`5deg`) combinada con escalado y una sombra temática profunda en el estado `:hover`, aportando una capa de "juego" y reactividad a los accesos sociales.
+- **Kinetics Unification**: Extensión del comportamiento cinético (`rotate(5deg)` y sombras temáticas) de `SocialLinks` a los botones de `SharePost`, unificando la respuesta táctil de todos los elementos sociales del sitio.
 
 ### Tipografía & Lectura (Markdown)
 - **Vertical Rhythm Excellence**: Ajuste milimétrico de márgenes en `h2` (3rem/1.5rem) y `h3` (2.5rem/1.2rem) para optimizar la jerarquía y el descanso visual en artículos de largo formato.
