@@ -94,10 +94,17 @@ function SearchInput() {
         ref={inputRef}
         type="text"
         className={styles.searchInput}
-        placeholder="Buscar en el blog... (Presiona / para buscar)"
+        placeholder="Buscar en el blog..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            handleClear();
+            inputRef.current?.blur();
+          }
+        }}
         aria-label="Buscar en el blog"
+        aria-keyshortcuts="/"
       />
       <div className={styles.searchShortcut} aria-hidden="true">
         <span>/</span>
