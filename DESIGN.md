@@ -166,3 +166,14 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+
+## 🎨 Palette: Search & Share Polish
+
+### Search Accessibility & Usability
+- **Escape to Clear**: Added support for the `Escape` key to immediately clear the search query and blur the input field, following standard UX patterns.
+- **Shortcut Metadata**: Exposed the `/` global shortcut to assistive technologies using the `aria-keyshortcuts` attribute.
+- **Clean Interface**: Refined the input placeholder to remove redundant keyboard shortcut instructions, relying on the visual hint for discoverability and ARIA attributes for accessibility.
+
+### Kinetic Social Sharing
+- **Consistent Tooltips**: Added descriptive `title` attributes to all sharing links to provide native tooltips for desktop users, matching existing `aria-label` content.
+- **Delightful Interactions**: Standardized kinetic micro-interactions for share buttons by adding a subtle rotation (`rotate(5deg)`) and themed `box-shadow` on hover, achieving visual parity with primary social links in the sidebar.
