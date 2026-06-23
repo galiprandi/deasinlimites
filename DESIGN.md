@@ -27,6 +27,7 @@
 - **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con sombras temáticas (`var(--color-secondary-rgb)`) para una profundidad visual consistente.
 - **Micro-interacciones**: El botón de limpieza y el borde del input han sido migrados a `var(--bd-grey2)`, eliminando dependencias de colores estáticos y mejorando la integración con el fondo.
 - **Enfoque de Alta Visibilidad**: El anillo de enfoque utiliza ahora `var(--color-accent-rgb)` para una definición superior y consistencia cromática total.
+- **Usabilidad Mejorada**: Implementación de la tecla `Escape` para limpiar y desenfocar el campo de búsqueda, y re-enfoque automático tras limpiar manualmente para agilizar la interacción.
 
 ## Estabilidad Técnica
 - **Arquitectura de Búsqueda**: Implementación de límites de `<Suspense>` en `app/[blog]/page.tsx` para el componente `SearchPosts`. Esta medida previene errores de hidratación vinculados a `useSearchParams` y permite una carga progresiva del cliente sin bloquear el renderizado estático del servidor.
