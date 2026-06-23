@@ -79,7 +79,8 @@ export default async function Page({ params }: { params: PageParams }) {
             <span className={sharedStyles.date}>
               <Image
                 src={calendarIcon}
-                alt={formatDate(date)}
+                alt=""
+                aria-hidden="true"
                 width={16}
                 height={16}
               />
@@ -90,7 +91,8 @@ export default async function Page({ params }: { params: PageParams }) {
               <span className={sharedStyles.readingTime}>
                 <Image
                   src={clockIcon}
-                  alt="Tiempo de lectura"
+                  alt=""
+                  aria-hidden="true"
                   width={16}
                   height={16}
                 />
