@@ -60,8 +60,11 @@ function SearchInput() {
     return () => clearTimeout(timer);
   }, [searchQuery, router, pathname, searchParams, initialQuery]);
 
-  const handleClear = () => {
+  const handleClear = (shouldFocus = true) => {
     setSearchQuery("");
+    if (shouldFocus) {
+      inputRef.current?.focus();
+    }
     const params = new URLSearchParams(searchParams);
     params.delete("q");
     params.delete("page");
@@ -75,7 +78,9 @@ function SearchInput() {
 
   return (
     <div className={styles.searchContainer}>
-      <div className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}>
+      <div
+        className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}
+      >
         <svg
           width="18"
           height="18"
@@ -94,10 +99,17 @@ function SearchInput() {
         ref={inputRef}
         type="text"
         className={styles.searchInput}
-        placeholder="Buscar en el blog... (Presiona / para buscar)"
+        placeholder="Buscar en el blog..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            handleClear(false);
+            inputRef.current?.blur();
+          }
+        }}
         aria-label="Buscar en el blog"
+        aria-keyshortcuts="/"
       />
       <div className={styles.searchShortcut} aria-hidden="true">
         <span>/</span>
@@ -105,7 +117,7 @@ function SearchInput() {
       {searchQuery && (
         <button
           className={styles.clearButton}
-          onClick={handleClear}
+          onClick={() => handleClear(true)}
           aria-label="Limpiar búsqueda"
           title="Limpiar búsqueda"
         >
