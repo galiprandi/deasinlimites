@@ -13,9 +13,10 @@ function SearchInput() {
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [isPending, startTransition] = useTransition();
 
-  // Keyboard shortcut (/) to focus search
+  // Global keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Focus search with /
       if (
         e.key === "/" &&
         document.activeElement?.tagName !== "INPUT" &&
@@ -30,6 +31,23 @@ function SearchInput() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Escape") {
+      setSearchQuery("");
+      inputRef.current?.blur();
+      // Trigger URL update
+      const params = new URLSearchParams(searchParams);
+      params.delete("q");
+      params.delete("page");
+      const query = params.toString();
+      startTransition(() => {
+        router.replace(`${pathname}${query ? `?${query}` : ""}`, {
+          scroll: false,
+        });
+      });
+    }
+  };
 
   // Sincronizar el estado local con el parámetro de búsqueda de la URL
   useEffect(() => {
@@ -71,6 +89,7 @@ function SearchInput() {
         scroll: false,
       });
     });
+    inputRef.current?.focus();
   };
 
   return (
@@ -94,10 +113,12 @@ function SearchInput() {
         ref={inputRef}
         type="text"
         className={styles.searchInput}
-        placeholder="Buscar en el blog... (Presiona / para buscar)"
+        placeholder="Buscar en el blog..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
         aria-label="Buscar en el blog"
+        aria-keyshortcuts="/"
       />
       <div className={styles.searchShortcut} aria-hidden="true">
         <span>/</span>
