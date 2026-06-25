@@ -147,6 +147,9 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+- **Escape to Clear**: Added support for the `Escape` key to immediately clear the search query and blur the input, providing a fast exit for keyboard users.
+- **Focus Restoration**: Updated the "Clear" button to automatically return focus to the input field, enabling seamless back-to-back searches.
+- **Clean Interface**: Removed redundant keyboard shortcut instructions from the placeholder to reduce visual noise, relying on the visual hint and `aria-keyshortcuts`.
 
 ## Refactor UI Polish Excellence
 
