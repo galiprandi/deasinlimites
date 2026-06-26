@@ -83,6 +83,7 @@
 - **Unificación de Héroe**: Aplicación del patrón de acento cromático (`h1 span`) en los encabezados de las categorías del blog, alineando estas páginas con la Home y "Acerca de".
 
 ### Detalle de Artículo (Post Detail)
+- **Reading Progress Bar**: Implementación de una barra de progreso de lectura fija en la parte superior, proporcionando feedback visual dinámico sobre el avance en el artículo.
 - **Héroe Inmersivo**: Los artículos ahora cuentan con una sección de cabecera (Hero) centrada, con fondo `var(--bd-grey)` y bordes sutiles, unificando la experiencia visual con el resto del sitio.
 - **Métricas de Lectura**: Integración del tiempo estimado de lectura en la cabecera del artículo para una mejor expectativa de consumo de contenido.
 - **Jerarquía Tipográfica**: Implementación del acento cromático unificado en el título (`TitleAccent`) y optimización del espaciado para el resumen y metadatos.
