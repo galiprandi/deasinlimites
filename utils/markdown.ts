@@ -69,6 +69,11 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
+  // Prevent path traversal
+  if (slug.includes("..") || slug.includes("/") || slug.includes("\\")) {
+    throw new Error("Invalid slug");
+  }
+
   const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
