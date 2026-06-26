@@ -1,0 +1,23 @@
+.progressContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 1000;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: var(--color-secondary);
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px rgba(var(--color-secondary-rgb), 0.4);
+}
+
+@media screen and (max-width: 960px) {
+  .progressContainer {
+    height: 3px;
+  }
+}
