@@ -11,6 +11,16 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+/**
+ * Valida que una ruta o slug no contenga secuencias de escape de directorio (path traversal).
+ * Permite "/" para subdirectorios de contenido, pero prohíbe ".." y "\" .
+ */
+function validatePath(p: string) {
+  if (p.includes("..") || p.includes("\\")) {
+    throw new Error("Invalid path or slug detected");
+  }
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -27,6 +37,7 @@ export interface Post extends PostMetadata {
 
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
+  validatePath(contentFolder);
   return fs
     .readdirSync(path.join(CONTENT_PATH, contentFolder))
     .filter((file) => file.endsWith(".md"));
@@ -37,6 +48,8 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
+  validatePath(contentFolder);
+  validatePath(filename);
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
@@ -53,6 +66,7 @@ export function getPostMetadata(
 
 // Función para obtener todos los metadatos de los posts
 export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
+  validatePath(contentFolder);
   const postFiles = getPostFiles(contentFolder);
   const postsMetadata = postFiles.map((filename) =>
     getPostMetadata(contentFolder, filename)
@@ -69,6 +83,8 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
+  validatePath(contentFolder);
+  validatePath(slug);
   const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
@@ -108,6 +124,7 @@ export function searchPosts(
 
 // Función para obtener todos los tags únicos
 export function getAllTags(contentFolder: string): string[] {
+  validatePath(contentFolder);
   const allPosts = getAllPostsMetadata(contentFolder);
   const tagsSet = new Set<string>();
 
