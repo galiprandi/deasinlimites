@@ -29,7 +29,8 @@
 
 .shareButton:hover {
   background-color: var(--bd-grey2);
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 12px rgba(var(--color-accent-rgb), 0.2);
 }
 
 .shareButton:focus-visible {
