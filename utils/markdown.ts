@@ -37,6 +37,11 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
+  // Seguridad: Prevenir path traversal
+  if (filename.includes("..") || filename.includes("/") || filename.includes("\\")) {
+    throw new Error("Invalid filename");
+  }
+
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
@@ -69,6 +74,11 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
+  // Seguridad: Prevenir path traversal
+  if (slug.includes("..") || slug.includes("/") || slug.includes("\\")) {
+    throw new Error("Invalid slug");
+  }
+
   const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
