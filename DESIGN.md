@@ -140,6 +140,7 @@
 - **Shadow Depth Refinement**: Increased elevation feedback in `PostCard` (hover) and `AsideBar` (active) using themed RGB tokens for a more premium, depth-aware interface.
 - **Visual Feedback**: Integration of React's `useTransition` to track the pending state of search navigation, with a corresponding pulsing animation on the search icon to reduce perceived latency.
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
+- **Reading Progress Visibility**: Implementation of a fixed `ReadingProgressBar` on article pages to provide visual feedback of scroll depth, utilizing `requestAnimationFrame` for optimal performance.
 ## 🎨 Palette: Micro-UX Improvements
 
 ### Search Keyboard Shortcut
