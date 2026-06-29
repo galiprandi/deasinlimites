@@ -3,6 +3,7 @@ import SocialLinks from "@/components/SocialLinks";
 import TitleAccent from "@/components/TitleAccent";
 import { getAllPostsMetadata } from "@/utils/markdown";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/public/logo.png";
 import { siteConfig } from "@/config";
 import styles from "./page.module.css";
@@ -17,7 +18,9 @@ export default function Home() {
     <div className={styles.container}>
       <header className={sharedStyles.hero}>
         <div className="logo only-mobile">
-          <Image src={logo} alt={siteConfig.title} width={230} height={230} />
+          <Link href="/" aria-label={`Ir al inicio de ${siteConfig.title}`}>
+            <Image src={logo} alt="" width={230} height={230} />
+          </Link>
         </div>
         <h1>
           <TitleAccent text={`Bienvenido a ${siteConfig.title}`} />

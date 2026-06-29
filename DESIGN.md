@@ -166,3 +166,16 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+
+## 🎨 Palette: Micro-UX Improvements
+
+### Logo Navigation & Accessibility
+- **Home Navigation**: Wrapped site logos in `Link` components for both desktop (Sidebar) and mobile views, fulfilling a standard user expectation.
+- **Accessibility Patterns**: Optimized linked images by using empty `alt` attributes and providing descriptive `aria-label` attributes on the parent links, ensuring a clean experience for screen readers.
+
+### 404 Page Unification
+- **Visual Parity**: Updated the 404 page header to use the `TitleAccent` component, aligning its visual language with the rest of the application.
+
+### Social Sharing UX
+- **Desktop Affordance**: Added `title` attributes to all social sharing links in `SharePost` to provide native browser tooltips on hover.
+- **Redundancy Reduction**: Refined `SharePost` icons by setting `alt=""` for the `Image` components, as their function is already described by the parent link's `aria-label`.

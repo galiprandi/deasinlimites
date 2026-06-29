@@ -6,6 +6,7 @@ import Image from "next/image";
 import logo from "@/public/logo_no-bg.png";
 import Link from "next/link";
 import SocialLinks from "./SocialLinks";
+import { siteConfig } from "@/config";
 import { usePathname } from "next/navigation";
 
 const AsideBar = () => {
@@ -23,7 +24,9 @@ const AsideBar = () => {
   return (
     <div className={styles.sidebar}>
       <header className={`${styles.header} only-desktop`}>
-        <Image src={logo} alt="Logo" width={200} height={200} priority />
+        <Link href="/" aria-label={`Ir al inicio de ${siteConfig.title}`}>
+          <Image src={logo} alt="" width={200} height={200} priority />
+        </Link>
       </header>
       <nav className={styles.nav}>
         {navLinks.map((link) => {
