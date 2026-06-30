@@ -11,6 +11,16 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+/**
+ * Validates that a path component does not contain traversal sequences
+ * or directory separators to prevent Path Traversal attacks.
+ */
+function validatePath(part: string): void {
+  if (part.includes("..") || part.includes("/") || part.includes("\\")) {
+    throw new Error(`Invalid path component: ${part}`);
+  }
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -27,6 +37,7 @@ export interface Post extends PostMetadata {
 
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
+  validatePath(contentFolder);
   return fs
     .readdirSync(path.join(CONTENT_PATH, contentFolder))
     .filter((file) => file.endsWith(".md"));
@@ -37,6 +48,8 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
+  validatePath(contentFolder);
+  validatePath(filename);
   const filePath = path.join(CONTENT_PATH, contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
@@ -69,6 +82,8 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
+  validatePath(contentFolder);
+  validatePath(slug);
   const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
