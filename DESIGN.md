@@ -84,6 +84,7 @@
 
 ### Detalle de Artículo (Post Detail)
 - **Héroe Inmersivo**: Los artículos ahora cuentan con una sección de cabecera (Hero) centrada, con fondo `var(--bd-grey)` y bordes sutiles, unificando la experiencia visual con el resto del sitio.
+- **Barra de Progreso de Lectura**: Implementación de una barra visual en la parte superior que indica el progreso de lectura del artículo, mejorando la orientación del usuario en contenidos extensos.
 - **Métricas de Lectura**: Integración del tiempo estimado de lectura en la cabecera del artículo para una mejor expectativa de consumo de contenido.
 - **Jerarquía Tipográfica**: Implementación del acento cromático unificado en el título (`TitleAccent`) y optimización del espaciado para el resumen y metadatos.
 - **Legibilidad Avanzada**: El contenido del artículo se envuelve en un contenedor `bodyContent` con un ancho máximo optimizado (`850px`), evitando líneas de texto excesivamente largas y mejorando el confort visual.
