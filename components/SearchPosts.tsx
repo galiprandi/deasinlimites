@@ -60,7 +60,7 @@ function SearchInput() {
     return () => clearTimeout(timer);
   }, [searchQuery, router, pathname, searchParams, initialQuery]);
 
-  const handleClear = () => {
+  const handleClear = (shouldFocus = true) => {
     setSearchQuery("");
     const params = new URLSearchParams(searchParams);
     params.delete("q");
@@ -71,11 +71,16 @@ function SearchInput() {
         scroll: false,
       });
     });
+    if (shouldFocus) {
+      inputRef.current?.focus();
+    }
   };
 
   return (
     <div className={styles.searchContainer}>
-      <div className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}>
+      <div
+        className={`${styles.searchIcon} ${isPending ? styles.loadingIcon : ""}`}
+      >
         <svg
           width="18"
           height="18"
@@ -97,6 +102,12 @@ function SearchInput() {
         placeholder="Buscar en el blog... (Presiona / para buscar)"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            handleClear(false);
+            inputRef.current?.blur();
+          }
+        }}
         aria-label="Buscar en el blog"
       />
       <div className={styles.searchShortcut} aria-hidden="true">
@@ -105,7 +116,7 @@ function SearchInput() {
       {searchQuery && (
         <button
           className={styles.clearButton}
-          onClick={handleClear}
+          onClick={() => handleClear()}
           aria-label="Limpiar búsqueda"
           title="Limpiar búsqueda"
         >

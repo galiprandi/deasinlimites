@@ -47,6 +47,7 @@ export default function SharePost({ url }: { url: string }) {
           rel="noopener noreferrer"
           className={styles.shareButton}
           aria-label="Compartir en LinkedIn"
+          title="Compartir en LinkedIn"
         >
           <Image src={linkedin} alt="LinkedIn" width={32} height={32} />
         </a>
@@ -57,6 +58,7 @@ export default function SharePost({ url }: { url: string }) {
           rel="noopener noreferrer"
           className={styles.shareButton}
           aria-label="Compartir en X"
+          title="Compartir en X"
         >
           <Image src={x} alt="X" width={32} height={32} />
         </a>
@@ -69,6 +71,7 @@ export default function SharePost({ url }: { url: string }) {
           rel="noopener noreferrer"
           className={styles.shareButton}
           aria-label="Compartir en Facebook"
+          title="Compartir en Facebook"
         >
           <Image src={facebook} alt="Facebook" width={32} height={32} />
         </a>

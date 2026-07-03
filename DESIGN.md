@@ -133,6 +133,12 @@
 
 ## Refined Search Usability
 - **Keyboard Shortcut**: Implementation of the `/` key as a global shortcut to focus the search input, improving accessibility and navigation speed.
+- **Escape to Exit**: Added `Escape` key handling to the search input to clear the query and blur the input, providing a fast exit path for keyboard users.
+- **Focus Restoration**: The "Clear" button now returns focus to the search input, allowing for immediate re-typing.
+
+## Accessibility & Micro-UX
+- **Icon Silencing**: Decorative calendar and clock icons are now marked with `alt=""` and `aria-hidden="true"` to avoid redundant screen reader announcements, as the data is already present in text.
+- **Social Share Tooltips**: Added native `title` attributes to social sharing links in `SharePost` for better desktop discoverability.
 
 ## UI Unification & Content Metrics
 - **TitleAccent Component**: Centralized logic for chromatic accents in titles, ensuring consistent brand identity across all views.
