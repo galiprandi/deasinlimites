@@ -1,0 +1,4 @@
+## 2025-05-15 - Fix Path Traversal in Markdown Utilities
+**Vulnerability:** Path Traversal in `utils/markdown.ts`. The application was reading local filesystem files using unsanitized `contentFolder`, `slug`, and `filename` parameters, allowing an attacker to read any file on the server by using `../` segments.
+**Learning:** Even in static or semi-static Next.js sites, any filesystem access using parameters that can be influenced by the URL must be strictly validated. Standard path joining does not prevent traversal if the segments themselves contain `..`.
+**Prevention:** Implement a strict `validatePath` helper that rejects any path segment containing `..`, `/`, or `\` before using it in filesystem operations. Apply this validation to all parameters used in `fs.readdirSync` and `fs.readFileSync`.
