@@ -93,7 +93,7 @@
 
 ### Micro-interacciones & Feedback
 - **Sincronización de Flechas de Acción**: Introducción de la clase global `.arrowIcon` con una animación de entrada `translateX(4px)` coordinada para todos los enlaces de "Leer más". Esto crea un lenguaje de dirección de lectura consistente en `PostCard` y `Papers`.
-- **SharePost Refined**: Evolución de la animación `fadeInPop` usando `cubic-bezier(0.4, 0, 0.2, 1)` y una micro-escala inicial (`0.95`), logrando un feedback de copiado mucho más elástico y profesional.
+- **SharePost Refined**: Evolución de la animación `fadeInPop` usando `cubic-bezier(0.4, 0, 0.2, 1)` y una micro-escala inicial (`0.95`), logrando un feedback de copiado mucho más elástico y profesional. Además, los botones sociales ahora incluyen rotación cinética (`5deg`), escalado y sombras temáticas para coincidir con `SocialLinks`.
 - **SocialLinks Kinetics**: Inclusión de una rotación sutil (`5deg`) combinada con escalado y una sombra temática profunda en el estado `:hover`, aportando una capa de "juego" y reactividad a los accesos sociales.
 
 ### Tipografía & Lectura (Markdown)
