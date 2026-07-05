@@ -22,6 +22,9 @@
 - **Unificación de Tokens**: Uso de `var(--border-radius)` y eliminación de colores hexadecimales en favor de tokens de diseño y opacidad sobre `var(--text-primary)`.
 - **Feedback de Navegación**: Los enlaces de paginación ahora reaccionan con elevación dinámica (`translateY(-2px)`) y sombras temáticas basadas en `var(--color-secondary-rgb)`, alineándose con el lenguaje de las `PostCard`.
 
+### Brand Navigation
+- **Logo Home Link**: Sincronización del logo del sitio en la barra lateral (escritorio) y en el héroe (móvil) para que funcionen como enlaces directos a la página de inicio, mejorando la affordance de navegación global y alineándose con las expectativas de los usuarios.
+
 ### Search UI
 - **Contexto Visual**: El icono de búsqueda ahora utiliza una opacidad adaptativa y transiciones fluidas para reaccionar al enfoque del campo de entrada.
 - **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con sombras temáticas (`var(--color-secondary-rgb)`) para una profundidad visual consistente.
