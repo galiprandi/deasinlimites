@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getPostBySlug } from "@/utils/markdown";
 import { formatDate } from "@/utils/date";
 import SharePost from "@/components/SharePost";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
 import calendarIcon from "@/assets/icons/calendar.svg";
 import clockIcon from "@/assets/icons/clock.svg";
 import Image from "next/image";
@@ -57,6 +58,7 @@ export default async function Page({ params }: { params: PageParams }) {
 
   return (
     <div className={styles.container}>
+      <ReadingProgressBar />
       <article className={styles.article}>
         <header className={sharedStyles.hero}>
           <nav className={styles.backNav}>
@@ -79,7 +81,8 @@ export default async function Page({ params }: { params: PageParams }) {
             <span className={sharedStyles.date}>
               <Image
                 src={calendarIcon}
-                alt={formatDate(date)}
+                alt=""
+                aria-hidden="true"
                 width={16}
                 height={16}
               />
@@ -90,7 +93,8 @@ export default async function Page({ params }: { params: PageParams }) {
               <span className={sharedStyles.readingTime}>
                 <Image
                   src={clockIcon}
-                  alt="Tiempo de lectura"
+                  alt=""
+                  aria-hidden="true"
                   width={16}
                   height={16}
                 />
