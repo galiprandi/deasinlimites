@@ -142,6 +142,9 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### Decorative Icon Silence
+- **Accessibility**: Marked decorative `calendar.svg` and `clock.svg` icons in `PostCard` and Article Header with `alt=""` and `aria-hidden="true"`, preventing screen readers from reading dates and reading times twice in sequence.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
