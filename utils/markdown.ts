@@ -11,6 +11,27 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+/** Validates and resolves path to prevent path traversal vulnerabilities. */
+export function validatePath(contentFolder: string, inputPath: string): string {
+  if (
+    !inputPath && inputPath !== "" ||
+    typeof inputPath !== "string" ||
+    inputPath.includes("\0") ||
+    inputPath.includes("..")
+  ) {
+    throw new Error("Invalid path component");
+  }
+  const folder = path.resolve(CONTENT_PATH, contentFolder);
+  if (folder !== CONTENT_PATH && !folder.startsWith(CONTENT_PATH + path.sep)) {
+    throw new Error("Invalid content folder");
+  }
+  const fullPath = path.resolve(folder, inputPath);
+  if (!fullPath.startsWith(folder + path.sep) && fullPath !== folder) {
+    throw new Error("Path traversal attempt detected");
+  }
+  return fullPath;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -27,8 +48,9 @@ export interface Post extends PostMetadata {
 
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
+  const folderPath = validatePath(contentFolder, "");
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(folderPath)
     .filter((file) => file.endsWith(".md"));
 }
 
@@ -37,7 +59,7 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = validatePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -69,7 +91,7 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = validatePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
