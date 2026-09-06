@@ -34,9 +34,13 @@ export default function SharePost({ url }: { url: string }) {
             aria-label="Copiar enlace al portapapeles"
             title="Copiar enlace"
           >
-            <Image src={clipboard} alt="Copiar" width={32} height={32} />
+            <Image src={clipboard} alt="" aria-hidden="true" width={32} height={32} />
           </button>
-          {copied && <span className={styles.copyFeedback}>¡Copiado!</span>}
+          {copied && (
+            <span className={styles.copyFeedback} role="status" aria-live="polite">
+              ¡Copiado!
+            </span>
+          )}
         </div>
 
         <a
@@ -48,7 +52,7 @@ export default function SharePost({ url }: { url: string }) {
           className={styles.shareButton}
           aria-label="Compartir en LinkedIn"
         >
-          <Image src={linkedin} alt="LinkedIn" width={32} height={32} />
+          <Image src={linkedin} alt="" aria-hidden="true" width={32} height={32} />
         </a>
 
         <a
@@ -58,7 +62,7 @@ export default function SharePost({ url }: { url: string }) {
           className={styles.shareButton}
           aria-label="Compartir en X"
         >
-          <Image src={x} alt="X" width={32} height={32} />
+          <Image src={x} alt="" aria-hidden="true" width={32} height={32} />
         </a>
 
         <a
@@ -70,7 +74,7 @@ export default function SharePost({ url }: { url: string }) {
           className={styles.shareButton}
           aria-label="Compartir en Facebook"
         >
-          <Image src={facebook} alt="Facebook" width={32} height={32} />
+          <Image src={facebook} alt="" aria-hidden="true" width={32} height={32} />
         </a>
       </div>
     </div>
