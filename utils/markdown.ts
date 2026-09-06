@@ -11,6 +11,33 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+/**
+ * Validates and resolves filesystem paths to prevent path traversal vulnerabilities.
+ * Ensures the target path stays strictly within the content root directory.
+ */
+function validatePath(contentFolder: string, filename?: string): string {
+  if (
+    contentFolder.includes("\0") ||
+    contentFolder.includes("..") ||
+    (filename && (filename.includes("\0") || filename.includes("..")))
+  ) {
+    throw new Error("Invalid path segment: path traversal attempted");
+  }
+
+  const fullPath = filename
+    ? path.join(CONTENT_PATH, contentFolder, filename)
+    : path.join(CONTENT_PATH, contentFolder);
+
+  const resolved = path.resolve(fullPath);
+  const root = path.resolve(CONTENT_PATH);
+
+  if (resolved !== root && !resolved.startsWith(root + path.sep)) {
+    throw new Error("Path traversal blocked: resolved path outside content directory");
+  }
+
+  return resolved;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -27,9 +54,8 @@ export interface Post extends PostMetadata {
 
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
-  return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
-    .filter((file) => file.endsWith(".md"));
+  const dirPath = validatePath(contentFolder);
+  return fs.readdirSync(dirPath).filter((file) => file.endsWith(".md"));
 }
 
 // Función para obtener los metadatos de un post
@@ -37,7 +63,7 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = validatePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -69,7 +95,7 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = validatePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
