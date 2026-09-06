@@ -82,6 +82,9 @@
 ### Blog Category & Headers
 - **Unificación de Héroe**: Aplicación del patrón de acento cromático (`h1 span`) en los encabezados de las categorías del blog, alineando estas páginas con la Home y "Acerca de".
 
+### Accesibilidad en Metadatos
+- **Iconos Decorativos**: Marcado de los iconos decorativos (`calendarIcon` y `clockIcon`) en `PostCard` y cabeceras de artículos con `alt=""` y `aria-hidden="true"` para evitar descripciones redundantes en lectores de pantalla cuando el texto adyacente ya comunica la información.
+
 ### Detalle de Artículo (Post Detail)
 - **Héroe Inmersivo**: Los artículos ahora cuentan con una sección de cabecera (Hero) centrada, con fondo `var(--bd-grey)` y bordes sutiles, unificando la experiencia visual con el resto del sitio.
 - **Métricas de Lectura**: Integración del tiempo estimado de lectura en la cabecera del artículo para una mejor expectativa de consumo de contenido.
