@@ -11,6 +11,19 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+// Validate path to prevent directory traversal attacks
+function validatePath(targetPath: string): string {
+  if (targetPath.includes("\0") || targetPath.split(path.sep).includes("..")) {
+    throw new Error("Invalid path traversal attempt");
+  }
+  const res = path.resolve(targetPath);
+  const root = path.resolve(CONTENT_PATH);
+  if (res !== root && !res.startsWith(root + path.sep)) {
+    throw new Error("Invalid path traversal attempt");
+  }
+  return res;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -25,19 +38,19 @@ export interface Post extends PostMetadata {
   content: string;
 }
 
-// Función para obtener todos los archivos MD en el directorio
+// Get all markdown files in a folder
 export function getPostFiles(contentFolder: string): string[] {
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(validatePath(path.join(CONTENT_PATH, contentFolder)))
     .filter((file) => file.endsWith(".md"));
 }
 
-// Función para obtener los metadatos de un post
+// Get metadata for a single post
 export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = validatePath(path.join(CONTENT_PATH, contentFolder, filename));
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -51,25 +64,25 @@ export function getPostMetadata(
   };
 }
 
-// Función para obtener todos los metadatos de los posts
+// Get metadata for all posts in a folder
 export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
   const postFiles = getPostFiles(contentFolder);
   const postsMetadata = postFiles.map((filename) =>
     getPostMetadata(contentFolder, filename)
   );
 
-  // Ordenar posts por fecha (más reciente primero)
+  // Sort posts by date (newest first)
   return postsMetadata.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 }
 
-// Función para obtener un post completo por slug
+// Get full post by slug
 export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = validatePath(path.join(CONTENT_PATH, contentFolder, `${slug}.md`));
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -106,7 +119,7 @@ export function searchPosts(
   );
 }
 
-// Función para obtener todos los tags únicos
+// Get all unique tags
 export function getAllTags(contentFolder: string): string[] {
   const allPosts = getAllPostsMetadata(contentFolder);
   const tagsSet = new Set<string>();
@@ -120,7 +133,7 @@ export function getAllTags(contentFolder: string): string[] {
   return Array.from(tagsSet);
 }
 
-// Función para paginar posts
+// Paginate posts
 export function paginatePosts(
   posts: PostMetadata[],
   page: number = 1,
@@ -141,8 +154,8 @@ export function paginatePosts(
 }
 
 /**
- * Calcula el tiempo estimado de lectura en minutos basado en el contenido.
- * Promedio estándar: 200 palabras por minuto.
+ * Calculates estimated reading time in minutes based on content.
+ * Standard average: 200 words per minute.
  */
 export function getReadingTime(content: string): number {
   const wordsPerMinute = 200;
