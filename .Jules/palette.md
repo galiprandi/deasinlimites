@@ -6,3 +6,6 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+## 2025-05-15 - [Persistent Live Region for Transient Feedback]
+**Learning:** Transient status feedback elements (like a temporary "¡Copiado!" badge) must be wrapped inside a persistently mounted container with `role="status"` and `aria-live="polite"`. Conditionally creating/destroying the live region container can cause screen reader engines to miss the dynamic content announcement.
+**Action:** Always maintain persistent container elements for live regions and toggle content within them.
