@@ -142,6 +142,10 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### Share Post Live Region & Icon Accessibility
+- **Screen Reader Announcements**: Wrapped transient copy feedback ("¡Copiado!") in a persistent container using `role="status"` and `aria-live="polite"` so screen reader users receive immediate auditory feedback when copying article links.
+- **Decorative Icon Cleanup**: Set `alt=""` and `aria-hidden="true"` on decorative icons inside icon-only social/copy links and buttons to prevent redundant announcements alongside `aria-label`.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
