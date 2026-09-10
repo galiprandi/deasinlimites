@@ -7,6 +7,7 @@
 - **Transiciones**: Uso de `cubic-bezier(0.4, 0, 0.2, 1)` para animaciones fluidas y naturales.
 - **Color Predictivo**: El título cambia a `var(--color-secondary)` en hover, alineando el componente con la identidad visual de la sección.
 - **Layout**: Ajuste de padding y espaciado interno para mejorar la legibilidad del resumen y los metadatos.
+- **Accesibilidad de Iconos**: Marcar los iconos decorativos de fecha y reloj con `alt=""` y `aria-hidden="true"` para evitar lecturas redundantes en lectores de pantalla.
 
 ### AsideBar
 - **Interactividad Elevada**: Los enlaces de navegación ahora utilizan `padding` interno para maximizar el área de clic, mejorando la usabilidad.
