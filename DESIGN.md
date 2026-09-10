@@ -142,6 +142,11 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### Accessible Live Region for Link Copying
+- **Persistent Live Region**: Maintained the status `span` persistently in DOM with `role="status"` and `aria-live="polite"` so screen readers reliably announce copy feedback ("¡Copiado!").
+- **Kinetic Re-triggering**: Utilized the CSS `:not(:empty)` selector to seamlessly trigger entry animations (`fadeInPop`) whenever feedback text is rendered.
+- **Screen Reader Parity**: Standardized dynamic feedback notifications to follow ARIA live region standards without interrupting user speech.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
