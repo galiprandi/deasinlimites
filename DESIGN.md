@@ -147,6 +147,7 @@
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
+- **Focus Restoration**: Automatically restores focus to the search input (`inputRef.current?.focus()`) when clearing search queries, preventing focus loss and enabling continuous typing.
 
 ## Refactor UI Polish Excellence
 

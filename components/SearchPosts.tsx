@@ -62,6 +62,7 @@ function SearchInput() {
 
   const handleClear = () => {
     setSearchQuery("");
+    inputRef.current?.focus();
     const params = new URLSearchParams(searchParams);
     params.delete("q");
     params.delete("page");
@@ -105,7 +106,7 @@ function SearchInput() {
       {searchQuery && (
         <button
           className={styles.clearButton}
-          onClick={handleClear}
+          onClick={() => handleClear()}
           aria-label="Limpiar búsqueda"
           title="Limpiar búsqueda"
         >
