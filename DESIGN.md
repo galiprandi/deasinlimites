@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Search Clear Button Focus Restoration
+- **Focus Restoration**: Updated `handleClear` in `SearchPosts.tsx` to automatically restore keyboard focus to the search input field (`inputRef.current?.focus()`) after clearing a search query.
+- **Micro-UX & Accessibility**: Users navigating via keyboard or screen reader no longer lose input focus when clearing search text, allowing them to immediately type a new query without extra tab/click steps.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
