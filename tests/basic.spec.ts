@@ -32,4 +32,17 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('article')).toBeVisible();
   });
+
+  test('should restore focus to search input after clearing search', async ({ page }) => {
+    await page.goto('/dea');
+    const searchInput = page.locator('input[aria-label="Buscar en el blog"]');
+    await searchInput.waitFor({ state: 'visible' });
+    await page.waitForTimeout(2000);
+    await searchInput.fill('dislexia');
+    const clearButton = page.locator('button[aria-label="Limpiar búsqueda"]');
+    await expect(clearButton).toBeVisible();
+    await clearButton.click();
+    await expect(searchInput).toBeFocused();
+    await expect(searchInput).toHaveValue('');
+  });
 });
