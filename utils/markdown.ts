@@ -25,19 +25,38 @@ export interface Post extends PostMetadata {
   content: string;
 }
 
+function validatePath(folder: string, file: string = ""): string {
+  if (
+    folder.includes("..") ||
+    folder.includes("\0") ||
+    file.includes("..") ||
+    file.includes("\0")
+  ) {
+    throw new Error("Invalid path");
+  }
+  const resolved = path.resolve(CONTENT_PATH, folder, file);
+  if (
+    resolved !== CONTENT_PATH &&
+    !resolved.startsWith(CONTENT_PATH + path.sep)
+  ) {
+    throw new Error("Path traversal detected");
+  }
+  return resolved;
+}
+
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(validatePath(contentFolder))
     .filter((file) => file.endsWith(".md"));
 }
 
 // Función para obtener los metadatos de un post
 export function getPostMetadata(
   contentFolder: string,
-  filename: string
+  filename: string,
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = validatePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -55,7 +74,7 @@ export function getPostMetadata(
 export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
   const postFiles = getPostFiles(contentFolder);
   const postsMetadata = postFiles.map((filename) =>
-    getPostMetadata(contentFolder, filename)
+    getPostMetadata(contentFolder, filename),
   );
 
   // Ordenar posts por fecha (más reciente primero)
@@ -67,9 +86,9 @@ export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
 // Función para obtener un post completo por slug
 export async function getPostBySlug(
   contentFolder: string,
-  slug: string
+  slug: string,
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = validatePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -95,14 +114,14 @@ export async function getPostBySlug(
 
 export function searchPosts(
   posts: PostMetadata[],
-  query: string
+  query: string,
 ): PostMetadata[] {
   const lowerCaseQuery = query.toLowerCase();
   return posts.filter(
     (post) =>
       post.title?.toLowerCase().includes(lowerCaseQuery) ||
       post.summary?.toLowerCase().includes(lowerCaseQuery) ||
-      post.tags?.some((tag) => tag.toLowerCase().includes(lowerCaseQuery))
+      post.tags?.some((tag) => tag.toLowerCase().includes(lowerCaseQuery)),
   );
 }
 
@@ -124,7 +143,7 @@ export function getAllTags(contentFolder: string): string[] {
 export function paginatePosts(
   posts: PostMetadata[],
   page: number = 1,
-  postsPerPage: number = 10
+  postsPerPage: number = 10,
 ): {
   posts: PostMetadata[];
   totalPages: number;
