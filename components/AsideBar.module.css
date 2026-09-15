@@ -10,6 +10,22 @@
   justify-content: center;
 }
 
+.logoLink {
+  display: inline-block;
+  border-radius: var(--border-radius);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoLink:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.logoLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
 .nav {
   display: flex;
   flex-direction: column;

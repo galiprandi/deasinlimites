@@ -9,6 +9,7 @@
 - **Layout**: Ajuste de padding y espaciado interno para mejorar la legibilidad del resumen y los metadatos.
 
 ### AsideBar
+- **Logo de Navegación**: El logo de la cabecera ahora funciona como enlace interactivo hacia la página de inicio (`/`) con etiqueta de accesibilidad (`aria-label`), feedback visual de elevación (`scale`) y anillo de enfoque (`:focus-visible`) adaptativo.
 - **Interactividad Elevada**: Los enlaces de navegación ahora utilizan `padding` interno para maximizar el área de clic, mejorando la usabilidad.
 - **Feedback Visual**: Implementación de un estado `:hover` con desplazamiento sutil (`padding-left`) para guiar el ojo del usuario.
 - **Estado Activo**: Uso de `var(--color-secondary)` con una sombra suave para destacar la sección actual con elegancia y consistencia.
