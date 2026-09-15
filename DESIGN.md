@@ -17,6 +17,7 @@
 ### SharePost
 - **Consistencia de Micro-interacciones**: Los botones de compartir ahora comparten el mismo lenguaje visual que `SocialLinks`, con escalado suave (`scale(1.1)`) y fondos reactivos.
 - **Feedback Dinámico**: El mensaje "¡Copiado!" ahora presenta una animación de entrada (`fadeIn`) para reducir la carga cognitiva y mejorar la percepción de respuesta del sistema.
+- **Región Viva Accesible**: El contenedor de feedback de copiado se mantiene montado de forma persistente con `role="status"` y `aria-live="polite"` para garantizar que los lectores de pantalla anuncien el cambio de estado de manera confiable. Además, las imágenes de los botones etiquetados incluyen `alt=""` y `aria-hidden="true"` para evitar duplicación auditiva.
 
 ### Pagination
 - **Unificación de Tokens**: Uso de `var(--border-radius)` y eliminación de colores hexadecimales en favor de tokens de diseño y opacidad sobre `var(--text-primary)`.
