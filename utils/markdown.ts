@@ -11,6 +11,24 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+// Helper for path traversal protection
+function validatePath(contentFolder: string, relativePath?: string): string {
+  if (contentFolder.includes("\0") || (relativePath && relativePath.includes("\0"))) {
+    throw new Error("Invalid path: null bytes detected");
+  }
+  const root = path.resolve(CONTENT_PATH);
+  const folder = path.resolve(root, contentFolder);
+  if (folder !== root && !folder.startsWith(root + path.sep)) {
+    throw new Error("Access denied: Invalid folder path");
+  }
+  if (!relativePath) return folder;
+  const filePath = path.resolve(folder, relativePath);
+  if (filePath !== folder && !filePath.startsWith(folder + path.sep)) {
+    throw new Error("Access denied: Invalid file path");
+  }
+  return filePath;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -27,8 +45,9 @@ export interface Post extends PostMetadata {
 
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
+  const dirPath = validatePath(contentFolder);
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(dirPath)
     .filter((file) => file.endsWith(".md"));
 }
 
@@ -37,7 +56,7 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = validatePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -69,7 +88,7 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = validatePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 

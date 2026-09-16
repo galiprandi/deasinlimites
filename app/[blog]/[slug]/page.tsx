@@ -13,46 +13,36 @@ import { blogsConfig } from "@/config";
 import { notFound } from "next/navigation";
 
 // Define dynamic metadata generation
-export async function generateMetadata({
-  params,
-}: {
-  params: PageParams;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
   const { blog, slug } = await params;
-
   const config = blogsConfig[blog];
   if (!config) notFound();
-  const { contentFolder, url } = config;
-  const { title, summary, date } = await getPostBySlug(contentFolder, slug);
-
-  return {
-    title,
-    description: summary,
-    alternates: {
-      canonical: `${url}/${slug}`,
-    },
-    openGraph: {
+  try {
+    const { title, summary, date } = await getPostBySlug(config.contentFolder, slug);
+    return {
       title,
       description: summary,
-      url: `${url}/${slug}`,
-      type: "article",
-      publishedTime: date,
-    },
-    twitter: {
-      title,
-      description: summary,
-    },
-  };
+      alternates: { canonical: `${config.url}/${slug}` },
+      openGraph: { title, description: summary, url: `${config.url}/${slug}`, type: "article", publishedTime: date },
+      twitter: { title, description: summary },
+    };
+  } catch {
+    notFound();
+  }
 }
 
 export default async function Page({ params }: { params: PageParams }) {
   const { blog, slug } = await params;
-
   const config = blogsConfig[blog];
   if (!config) notFound();
-  const { contentFolder } = config;
 
-  const post = await getPostBySlug(contentFolder, slug);
+  let post;
+  try {
+    post = await getPostBySlug(config.contentFolder, slug);
+  } catch {
+    notFound();
+  }
+
   const { title, summary, date, content, tags, readingTime } = post;
 
   return (
