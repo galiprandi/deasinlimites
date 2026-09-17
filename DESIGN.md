@@ -148,6 +148,9 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Search Clear Focus Restoration
+- **Focus Preservation**: Added automatic focus restoration (`inputRef.current?.focus()`) when clearing search input query, preventing focus loss when the clear button unmounts and enabling immediate typing of a new query.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
