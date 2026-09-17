@@ -11,6 +11,24 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+/**
+ * Validates that a path remains strictly within the content directory.
+ * Throws an error if path traversal or invalid characters are detected.
+ */
+function validatePath(targetPath: string): string {
+  if (targetPath.includes("\0") || targetPath.includes("..")) {
+    throw new Error("Invalid path segment");
+  }
+  const resolved = path.resolve(targetPath);
+  if (
+    resolved !== CONTENT_PATH &&
+    !resolved.startsWith(CONTENT_PATH + path.sep)
+  ) {
+    throw new Error("Path traversal detected");
+  }
+  return resolved;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -25,19 +43,20 @@ export interface Post extends PostMetadata {
   content: string;
 }
 
-// Función para obtener todos los archivos MD en el directorio
+// Get all MD files in the specified content directory
 export function getPostFiles(contentFolder: string): string[] {
-  return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
-    .filter((file) => file.endsWith(".md"));
+  const dirPath = validatePath(path.join(CONTENT_PATH, contentFolder));
+  return fs.readdirSync(dirPath).filter((file) => file.endsWith(".md"));
 }
 
-// Función para obtener los metadatos de un post
+// Get metadata for a specific post file
 export function getPostMetadata(
   contentFolder: string,
-  filename: string
+  filename: string,
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = validatePath(
+    path.join(CONTENT_PATH, contentFolder, filename),
+  );
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -51,25 +70,26 @@ export function getPostMetadata(
   };
 }
 
-// Función para obtener todos los metadatos de los posts
+// Get metadata for all posts in a folder, sorted by date (newest first)
 export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
   const postFiles = getPostFiles(contentFolder);
   const postsMetadata = postFiles.map((filename) =>
-    getPostMetadata(contentFolder, filename)
+    getPostMetadata(contentFolder, filename),
   );
 
-  // Ordenar posts por fecha (más reciente primero)
   return postsMetadata.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 }
 
-// Función para obtener un post completo por slug
+// Get full post content and metadata by slug
 export async function getPostBySlug(
   contentFolder: string,
-  slug: string
+  slug: string,
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = validatePath(
+    path.join(CONTENT_PATH, contentFolder, `${slug}.md`),
+  );
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -95,18 +115,18 @@ export async function getPostBySlug(
 
 export function searchPosts(
   posts: PostMetadata[],
-  query: string
+  query: string,
 ): PostMetadata[] {
   const lowerCaseQuery = query.toLowerCase();
   return posts.filter(
     (post) =>
       post.title?.toLowerCase().includes(lowerCaseQuery) ||
       post.summary?.toLowerCase().includes(lowerCaseQuery) ||
-      post.tags?.some((tag) => tag.toLowerCase().includes(lowerCaseQuery))
+      post.tags?.some((tag) => tag.toLowerCase().includes(lowerCaseQuery)),
   );
 }
 
-// Función para obtener todos los tags únicos
+// Get all unique tags from posts in a folder
 export function getAllTags(contentFolder: string): string[] {
   const allPosts = getAllPostsMetadata(contentFolder);
   const tagsSet = new Set<string>();
@@ -120,11 +140,11 @@ export function getAllTags(contentFolder: string): string[] {
   return Array.from(tagsSet);
 }
 
-// Función para paginar posts
+// Paginate posts list
 export function paginatePosts(
   posts: PostMetadata[],
   page: number = 1,
-  postsPerPage: number = 10
+  postsPerPage: number = 10,
 ): {
   posts: PostMetadata[];
   totalPages: number;
