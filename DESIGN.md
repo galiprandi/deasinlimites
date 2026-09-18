@@ -27,6 +27,7 @@
 - **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con sombras temáticas (`var(--color-secondary-rgb)`) para una profundidad visual consistente.
 - **Micro-interacciones**: El botón de limpieza y el borde del input han sido migrados a `var(--bd-grey2)`, eliminando dependencias de colores estáticos y mejorando la integración con el fondo.
 - **Enfoque de Alta Visibilidad**: El anillo de enfoque utiliza ahora `var(--color-accent-rgb)` para una definición superior y consistencia cromática total.
+- **Preservación de Enfoque**: Al hacer clic en el botón de limpiar búsqueda, el enfoque regresa automáticamente al campo de entrada (`inputRef.current?.focus()`), permitiendo al usuario continuar escribiendo sin perder el foco del teclado.
 
 ## Estabilidad Técnica
 - **Arquitectura de Búsqueda**: Implementación de límites de `<Suspense>` en `app/[blog]/page.tsx` para el componente `SearchPosts`. Esta medida previene errores de hidratación vinculados a `useSearchParams` y permite una carga progresiva del cliente sin bloquear el renderizado estático del servidor.
