@@ -23,7 +23,15 @@ const AsideBar = () => {
   return (
     <div className={styles.sidebar}>
       <header className={`${styles.header} only-desktop`}>
-        <Image src={logo} alt="Logo" width={200} height={200} priority />
+        <Link href="/" aria-label="Ir al inicio" className={styles.logoLink}>
+          <Image
+            src={logo}
+            alt="Logo DEA sin límites"
+            width={200}
+            height={200}
+            priority
+          />
+        </Link>
       </header>
       <nav className={styles.nav}>
         {navLinks.map((link) => {
