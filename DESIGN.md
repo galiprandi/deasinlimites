@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### SharePost Accessible Status Feedback
+- **Accessible Live Region**: Wrapped the dynamic "¡Copiado!" feedback inside a persistent `<div role="status" aria-live="polite">` element to ensure assistive technologies announce the copy action immediately.
+- **Decorative Icon Silence**: Set `alt=""` and `aria-hidden="true"` on inner icons inside social links and copy buttons to prevent redundant screen reader announcements when parent elements already provide descriptive `aria-label` attributes.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
