@@ -32,4 +32,9 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('article')).toBeVisible();
   });
+
+  test('should return 404 on path traversal attempt in slug', async ({ page }) => {
+    const response = await page.goto('/dea/../../README');
+    expect(response?.status()).toBe(404);
+  });
 });

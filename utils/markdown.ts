@@ -11,6 +11,18 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+// Security helper to prevent path traversal vulnerabilities
+function validatePath(...segments: string[]): string {
+  for (const s of segments) {
+    if (!s || s.includes("\0") || s.includes("..")) throw new Error("Invalid path segment");
+  }
+  const target = path.resolve(CONTENT_PATH, ...segments);
+  if (target !== CONTENT_PATH && !target.startsWith(CONTENT_PATH + path.sep)) {
+    throw new Error("Access denied: path outside content folder");
+  }
+  return target;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -28,7 +40,7 @@ export interface Post extends PostMetadata {
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(validatePath(contentFolder))
     .filter((file) => file.endsWith(".md"));
 }
 
@@ -37,7 +49,7 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = validatePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -69,7 +81,7 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = validatePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
