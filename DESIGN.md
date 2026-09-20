@@ -148,6 +148,9 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### PostCard Keyboard Focus Parity
+- **Keyboard Affordance Parity**: Paired `:hover` state selectors with `:focus-within` in `PostCard.module.css`. Keyboard users tabbing through post cards now receive identical visual cues (card elevation, title highlight, and revealed "Leer más →" arrow animation) as pointer users.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
