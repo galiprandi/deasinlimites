@@ -6,3 +6,6 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+## 2025-05-16 - [Decorative Metadata Icons Accessibility]
+**Learning:** Icons displayed alongside visible text (e.g., calendar icon next to a formatted date or clock icon next to reading time) must be marked with `alt=""` and `aria-hidden="true"`. Otherwise, screen readers announce both the alt text and the adjacent text, creating redundant audio output.
+**Action:** Always set `alt=""` and `aria-hidden="true"` on decorative icons when adjacent text provides the same information.
