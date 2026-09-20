@@ -166,3 +166,4 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+- **SharePost Accessibility**: Added persistent `role="status"` and `aria-live="polite"` live region semantics to article share feedback ("¡Copiado!"), ensuring screen readers immediately announce status updates, while hiding redundant inner icons (`alt=""`, `aria-hidden="true"`).
