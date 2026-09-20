@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Decorative Metadata Icons Accessibility
+- **Screen Reader Optimization**: Marked metadata icons (`calendar.svg` and `clock.svg`) in `PostCard.tsx` and article headers with `alt=""` and `aria-hidden="true"`.
+- **Eliminating Redundancy**: Prevents screen readers from announcing duplicate date and reading time descriptions that are already explicitly rendered in adjacent text elements.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
