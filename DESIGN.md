@@ -166,3 +166,7 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+
+### Screen Reader Accessibility on Decorative Metadata Icons
+- **Accessibility Enhancement**: Marked decorative calendar (`calendar.svg`) and clock (`clock.svg`) icons in `PostCard.tsx` and `app/[blog]/[slug]/page.tsx` with `alt=""` and `aria-hidden="true"`.
+- **User Problem Solved**: Eliminates redundant audio descriptions for screen reader users (e.g., reading dates and reading times twice).

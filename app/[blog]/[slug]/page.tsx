@@ -61,7 +61,10 @@ export default async function Page({ params }: { params: PageParams }) {
         <header className={sharedStyles.hero}>
           <nav className={styles.backNav}>
             <Link href={`/${blog}`} className="pill-link">
-              <span aria-hidden="true" className="arrow-back">←</span> Volver a {config.title}
+              <span aria-hidden="true" className="arrow-back">
+                ←
+              </span>{" "}
+              Volver a {config.title}
             </Link>
           </nav>
 
@@ -79,7 +82,8 @@ export default async function Page({ params }: { params: PageParams }) {
             <span className={sharedStyles.date}>
               <Image
                 src={calendarIcon}
-                alt={formatDate(date)}
+                alt=""
+                aria-hidden="true"
                 width={16}
                 height={16}
               />
@@ -90,7 +94,8 @@ export default async function Page({ params }: { params: PageParams }) {
               <span className={sharedStyles.readingTime}>
                 <Image
                   src={clockIcon}
-                  alt="Tiempo de lectura"
+                  alt=""
+                  aria-hidden="true"
                   width={16}
                   height={16}
                 />
