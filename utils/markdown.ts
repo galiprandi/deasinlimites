@@ -11,6 +11,15 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+// Safely resolves paths within CONTENT_PATH to prevent path traversal
+function getSafePath(...segments: string[]): string {
+  const resolved = path.resolve(CONTENT_PATH, ...segments);
+  if (resolved !== CONTENT_PATH && !resolved.startsWith(CONTENT_PATH + path.sep)) {
+    throw new Error("Invalid path: path traversal detected");
+  }
+  return resolved;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -28,7 +37,7 @@ export interface Post extends PostMetadata {
 // Función para obtener todos los archivos MD en el directorio
 export function getPostFiles(contentFolder: string): string[] {
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(getSafePath(contentFolder))
     .filter((file) => file.endsWith(".md"));
 }
 
@@ -37,7 +46,7 @@ export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = getSafePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -69,7 +78,7 @@ export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = getSafePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
