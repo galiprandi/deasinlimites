@@ -5,7 +5,7 @@
 ### PostCard
 - **Elevación y Profundidad**: Implementación de `transform: translateY(-5px)` y `box-shadow` en estado `:hover` para proporcionar feedback visual claro de interactividad.
 - **Transiciones**: Uso de `cubic-bezier(0.4, 0, 0.2, 1)` para animaciones fluidas y naturales.
-- **Color Predictivo**: El título cambia a `var(--color-secondary)` en hover, alineando el componente con la identidad visual de la sección.
+- **Color Predictivo**: El título cambia a `var(--color-secondary)` en hover y `:focus-within`, alineando el componente con la identidad visual de la sección.
 - **Layout**: Ajuste de padding y espaciado interno para mejorar la legibilidad del resumen y los metadatos.
 
 ### AsideBar
@@ -56,7 +56,7 @@
 - **Interactividad de Enlaces**: Implementación de `text-underline-offset` y transiciones de color de acento para una experiencia de navegación interna más fluida y estéticamente agradable.
 
 ### Blog Home & Consistencia
-- **Feedback de Continuidad**: Inclusión de indicadores dinámicos "Leer más" en `PostCard` que se revelan con animaciones de opacidad y desplazamiento al interactuar, mejorando la affordance de lectura.
+- **Feedback de Continuidad**: Inclusión de indicadores dinámicos "Leer más" en `PostCard` y `Papers` que se revelan con animaciones de opacidad y desplazamiento al interactuar en hover y navegación por teclado (`:focus-within`), garantizando paridad de affordance para usuarios de teclado.
 - **Navegación Contextual**: Implementación de enlaces de retorno en artículos individuales que facilitan la exploración por categorías, manteniendo al usuario dentro del flujo de contenido.
 - **Modernización de Elementos Globales**: Refinamiento de la regla horizontal (`hr`) alineada con los tokens de diseño neutros (`var(--bd-grey2)`), eliminando gradientes innecesarios para un look más contemporáneo y limpio.
 - **Estandarización de Layout Global**: Unificación del ancho máximo del contenido a `1000px` en `layout.module.css`, eliminando discrepancias entre páginas y asegurando una alineación vertical perfecta en todo el sitio.
