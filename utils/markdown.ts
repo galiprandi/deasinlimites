@@ -25,19 +25,31 @@ export interface Post extends PostMetadata {
   content: string;
 }
 
-// Función para obtener todos los archivos MD en el directorio
-export function getPostFiles(contentFolder: string): string[] {
-  return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
-    .filter((file) => file.endsWith(".md"));
+// Safely resolve path within CONTENT_PATH to prevent path traversal
+function safePath(folder: string, file: string = ""): string {
+  const dir = path.resolve(CONTENT_PATH, folder);
+  if (dir !== CONTENT_PATH && !dir.startsWith(CONTENT_PATH + path.sep)) {
+    throw new Error("Invalid path: Path traversal detected");
+  }
+  if (!file) return dir;
+  const target = path.resolve(dir, decodeURIComponent(file));
+  if (!target.startsWith(dir + path.sep)) {
+    throw new Error("Invalid path: Path traversal detected");
+  }
+  return target;
 }
 
-// Función para obtener los metadatos de un post
+// Get all markdown files in directory
+export function getPostFiles(contentFolder: string): string[] {
+  return fs.readdirSync(safePath(contentFolder)).filter((file) => file.endsWith(".md"));
+}
+
+// Get post metadata by filename
 export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = safePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -64,12 +76,12 @@ export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
   });
 }
 
-// Función para obtener un post completo por slug
+// Get full post by slug
 export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = safePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
