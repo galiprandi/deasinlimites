@@ -36,7 +36,9 @@ export default function SharePost({ url }: { url: string }) {
           >
             <Image src={clipboard} alt="Copiar" width={32} height={32} />
           </button>
-          {copied && <span className={styles.copyFeedback}>¡Copiado!</span>}
+          <div role="status" aria-live="polite">
+            {copied && <span className={styles.copyFeedback}>¡Copiado!</span>}
+          </div>
         </div>
 
         <a
