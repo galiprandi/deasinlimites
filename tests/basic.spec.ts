@@ -13,6 +13,21 @@ test.describe('Home Page', () => {
   });
 });
 
+test.describe('Search Usability', () => {
+  test('should restore focus to search input when clear button is clicked', async ({ page }) => {
+    await page.goto('http://localhost:3000/dea');
+    const searchInput = page.locator('input[aria-label="Buscar en el blog"]');
+    await expect(searchInput).toBeVisible();
+    await page.waitForTimeout(1000);
+    await searchInput.focus();
+    await page.keyboard.type('dislexia');
+    const clearButton = page.locator('button[aria-label="Limpiar búsqueda"]');
+    await expect(clearButton).toBeVisible();
+    await clearButton.click();
+    await expect(searchInput).toBeFocused();
+  });
+});
+
 test.describe('Blog Pages', () => {
   test('should navigate to a blog post from the home page', async ({ page }) => {
     await page.goto('/');
