@@ -4,6 +4,7 @@
 
 ### PostCard
 - **Elevación y Profundidad**: Implementación de `transform: translateY(-5px)` y `box-shadow` en estado `:hover` para proporcionar feedback visual claro de interactividad.
+- **Paridad Focus/Hover**: Aplicación de `:focus-within` en combinación con `:hover` para asegurar que los usuarios que navegan con teclado visualicen la elevación de la tarjeta, el resalte del título y el revelado dinámico de la flecha "Leer más".
 - **Transiciones**: Uso de `cubic-bezier(0.4, 0, 0.2, 1)` para animaciones fluidas y naturales.
 - **Color Predictivo**: El título cambia a `var(--color-secondary)` en hover, alineando el componente con la identidad visual de la sección.
 - **Layout**: Ajuste de padding y espaciado interno para mejorar la legibilidad del resumen y los metadatos.
