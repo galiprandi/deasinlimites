@@ -33,3 +33,16 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('article')).toBeVisible();
   });
 });
+
+test.describe('Security Headers', () => {
+  test('should include essential security headers on responses', async ({ request }) => {
+    const response = await request.get('/');
+    const headers = response.headers();
+
+    expect(headers['x-frame-options']).toBe('DENY');
+    expect(headers['x-content-type-options']).toBe('nosniff');
+    expect(headers['referrer-policy']).toBe('strict-origin-when-cross-origin');
+    expect(headers['permissions-policy']).toBe('camera=(), microphone=(), geolocation=()');
+    expect(headers['strict-transport-security']).toBe('max-age=31536000; includeSubDomains');
+  });
+});
