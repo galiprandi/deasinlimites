@@ -148,6 +148,11 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### SharePost Screen Reader & Live Region Enhancements
+- **Persistent Live Region**: Maintained persistent `<span role="status" aria-live="polite">` element in `SharePost.tsx` to guarantee dynamic clipboard feedback ("¡Copiado!") is reliably announced across all screen reader engines.
+- **Keyframe Animation Sync**: Updated `SharePost.module.css` with `.copyFeedback:not(:empty)` so the entrance keyframe animation re-triggers cleanly whenever text is rendered.
+- **Icon Alt Cleanup**: Marked nested share icon images as decorative (`alt=""`, `aria-hidden="true"`) when parent buttons/links already supply clear `aria-label` descriptors.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
