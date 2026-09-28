@@ -112,3 +112,7 @@
 ## 2026-06-21 - [Programmatic Brand Accents & Content Scannability]
 **Learning:** Centralizing visual patterns like title accents into reusable components (`TitleAccent`) eliminates logic duplication and prevents style drift. Furthermore, providing explicit content metrics like "estimated reading time" significantly reduces the user's uncertainty before engaging with long-form content, especially when paired with consistent iconography (`clock.svg`).
 **Action:** Centralized title highlighting via `TitleAccent` and implemented automated reading time metrics across all article-related views.
+
+## 2026-06-25 - [Persistent Live Regions for Clipboard Feedback]
+**Learning:** Screen readers often miss dynamic DOM updates if the live region container (`role="status"`, `aria-live="polite"`) is dynamically mounted alongside the text content. Keeping the container persistently mounted and conditionally rendering its text ensures reliable speech synthesis across screen readers. In CSS, using `:not(:empty)` allows re-triggering entrance animations cleanly when text appears.
+**Action:** Keep live region containers persistently in the DOM and target `:not(:empty)` for CSS animations.
