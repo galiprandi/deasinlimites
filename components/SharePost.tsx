@@ -27,7 +27,7 @@ export default function SharePost({ url }: { url: string }) {
         Si te resultó interesante, comparte este artículo:
       </p>
       <div className={styles.shareButtons}>
-        <div className={styles.copyContainer}>
+        <div className={styles.copyContainer} role="status" aria-live="polite">
           <button
             onClick={handleCopy}
             className={styles.shareButton}
