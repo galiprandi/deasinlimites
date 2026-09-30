@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### PostCard Keyboard & Screen Reader Accessibility
+- **Keyboard Affordance**: Paired `:hover` with `:focus-within` in `PostCard.module.css` to trigger card elevation, title color changes, "Leer más" reveal, and arrow translation during Tab keyboard navigation.
+- **Decorative Icon Cleanliness**: Added `alt=""` and `aria-hidden="true"` to calendar and clock icons in `PostCard` and post detail headers to eliminate duplicate date audio announcements for screen readers.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
