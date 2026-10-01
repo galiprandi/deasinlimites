@@ -166,3 +166,7 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+
+### PostCard Keyboard Parity & Screen Reader Cleanliness
+- **Keyboard Focus Parity**: Paired `:hover` with `:focus-within` selectors to trigger card elevation, title color change, "Leer más" reveal, and arrow animation when tabbing through cards.
+- **Screen Reader Efficiency**: Updated decorative calendar and clock icons in `PostCard` and Post detail pages to use `alt=""` and `aria-hidden="true"`, preventing redundant announcements alongside adjacent date and reading time text.
