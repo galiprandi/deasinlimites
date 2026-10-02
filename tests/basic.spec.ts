@@ -32,4 +32,19 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('article')).toBeVisible();
   });
+
+  test('should copy post link and announce feedback via persistent live region', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-write', 'clipboard-read']);
+    await page.goto('http://localhost:3000/dea/guia_dislexia');
+
+    const copyFeedback = page.locator('span[role="status"]');
+    await expect(copyFeedback).toBeAttached();
+    await expect(copyFeedback).toHaveAttribute('aria-live', 'polite');
+    await expect(copyFeedback).toHaveText('');
+
+    const copyButton = page.getByRole('button', { name: 'Copiar enlace al portapapeles' });
+    await copyButton.click();
+
+    await expect(copyFeedback).toHaveText('¡Copiado!');
+  });
 });

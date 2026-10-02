@@ -142,6 +142,10 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### Persistent Live Region Feedback
+- **Accessibility**: Rendered a persistent live region container (`role="status"`, `aria-live="polite"`) in `SharePost.tsx` so screen readers announce copy feedback when link copying succeeds.
+- **Micro-UX Animation**: Used CSS `:not(:empty)` pseudo-class selector in `SharePost.module.css` to trigger `fadeInPop` keyframe animation only when text content is present.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
