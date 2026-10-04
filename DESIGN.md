@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Decorative Metadata Icons Accessibility
+- **Screen Reader Cleanliness**: Updated `calendarIcon` and `clockIcon` images in `PostCard` and post detail headers with `alt=""` and `aria-hidden="true"`.
+- **Eliminating Redundancy**: Prevents assistive technologies from announcing duplicate date text or redundant icon labels adjacent to visible metadata text.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
