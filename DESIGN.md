@@ -142,6 +142,10 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### Persistent Live Region Status Feedback
+- **Accessible Copy Feedback**: Kept the status element in `SharePost` persistently mounted in the DOM with `role="status"` and `aria-live="polite"` so screen readers automatically announce "¡Copiado!" upon copying.
+- **Animation Synchronization**: Updated CSS selector to `.copyFeedback:not(:empty)` to ensure keyframe animations trigger dynamically when feedback text is inserted without taking layout space when empty.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
