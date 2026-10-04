@@ -11,6 +11,22 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+/** Decodes and validates paths to prevent path traversal attacks. */
+function getSafePath(...relativePathSegments: string[]): string {
+  const decoded = relativePathSegments.map((s) => {
+    try {
+      return decodeURIComponent(s);
+    } catch {
+      return s;
+    }
+  });
+  const resolved = path.resolve(CONTENT_PATH, ...decoded);
+  if (resolved !== CONTENT_PATH && !resolved.startsWith(CONTENT_PATH + path.sep)) {
+    throw new Error("Invalid path: Access denied");
+  }
+  return resolved;
+}
+
 // Interfaces
 export interface PostMetadata {
   title: string;
@@ -25,19 +41,19 @@ export interface Post extends PostMetadata {
   content: string;
 }
 
-// Función para obtener todos los archivos MD en el directorio
+// Helper to get all MD files in directory
 export function getPostFiles(contentFolder: string): string[] {
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(getSafePath(contentFolder))
     .filter((file) => file.endsWith(".md"));
 }
 
-// Función para obtener los metadatos de un post
+// Helper to get post metadata
 export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = getSafePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -64,12 +80,12 @@ export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
   });
 }
 
-// Función para obtener un post completo por slug
+// Helper to get full post by slug
 export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = getSafePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
