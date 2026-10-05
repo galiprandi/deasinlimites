@@ -148,6 +148,9 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Keyboard Accessible Card Reveal Animations
+- **Keyboard Parity**: Paired `:hover` with `:focus-within` in `PostCard` and `Papers` card modules so keyboard users experience identical visual feedback (card elevation, title color shift, action button reveal, and arrow animation) when focusing links via Tab.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
