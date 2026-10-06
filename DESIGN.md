@@ -166,3 +166,4 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+- **Metadata Decorative Icons Accessibility**: Updated `calendarIcon` and `clockIcon` images in `PostCard` and article headers to use `alt=""` and `aria-hidden="true"` so screen readers do not repeat text adjacent to visible dates and reading times.
