@@ -32,4 +32,9 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('article')).toBeVisible();
   });
+
+  test('should block path traversal attempts', async ({ page }) => {
+    const response = await page.goto('/dea/..%2F..%2Fpackage');
+    expect(response?.status()).toBeGreaterThanOrEqual(400);
+  });
 });
