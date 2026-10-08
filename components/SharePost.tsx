@@ -36,12 +36,18 @@ export default function SharePost({ url }: { url: string }) {
           >
             <Image src={clipboard} alt="Copiar" width={32} height={32} />
           </button>
-          {copied && <span className={styles.copyFeedback}>¡Copiado!</span>}
+          <span
+            className={styles.copyFeedback}
+            role="status"
+            aria-live="polite"
+          >
+            {copied && "¡Copiado!"}
+          </span>
         </div>
 
         <a
           href={`https://www.linkedin.com/share/link?mini=true&url=${encodeURIComponent(
-            url
+            url,
           )}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -63,7 +69,7 @@ export default function SharePost({ url }: { url: string }) {
 
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-            url
+            url,
           )}`}
           target="_blank"
           rel="noopener noreferrer"
