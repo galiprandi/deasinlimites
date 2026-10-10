@@ -6,3 +6,7 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+
+## 2025-05-15 - [Accessible Transient Feedback]
+**Learning:** Dynamic transient feedback elements (such as '¡Copiado!') created after user actions should use `role="status"` and `aria-live="polite"` so screen readers announce state changes without interrupting ongoing speech.
+**Action:** Ensure transient feedback spans for actions like clipboard copies include appropriate live region attributes.
