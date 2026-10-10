@@ -142,6 +142,10 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### PostCard Keyboard Focus Affordance
+- **Keyboard Focus Parity**: Paired `:hover` with `:focus-within` selectors in `PostCard.module.css`.
+- **Interactive Feedback**: Tabbing through article cards with keyboard navigation now triggers the card elevation, title color highlighting, and "Leer más" arrow slide-in reveal, granting keyboard users parity with pointer users.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
