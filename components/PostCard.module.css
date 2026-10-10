@@ -2,13 +2,16 @@
   border-radius: var(--border-radius);
   margin-bottom: 2em;
   font-size: smaller;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--bd-grey2);
   border: 1px solid transparent;
   overflow: hidden;
 }
 
-.card:hover {
+.card:hover,
+.card:focus-within {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px -8px rgba(var(--color-secondary-rgb), 0.2);
   border-color: var(--color-secondary);
@@ -20,7 +23,9 @@
   display: block;
   padding: 1.5em;
   border-radius: var(--border-radius);
-  transition: background-color 0.2s ease, outline 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    outline 0.2s ease;
 }
 
 .cardLink:focus-visible {
@@ -36,7 +41,8 @@
   transition: color 0.2s ease;
 }
 
-.card:hover .title {
+.card:hover .title,
+.card:focus-within .title {
   color: var(--color-secondary);
 }
 
@@ -85,7 +91,8 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover .readMore {
+.card:hover .readMore,
+.card:focus-within .readMore {
   opacity: 1;
   transform: translateX(0);
 }
@@ -94,7 +101,8 @@
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover .arrowIcon {
+.card:hover .arrowIcon,
+.card:focus-within .arrowIcon {
   transform: translateX(4px);
 }
 
