@@ -71,6 +71,7 @@ function SearchInput() {
         scroll: false,
       });
     });
+    inputRef.current?.focus();
   };
 
   return (
