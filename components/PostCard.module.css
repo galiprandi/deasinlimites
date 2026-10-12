@@ -36,7 +36,8 @@
   transition: color 0.2s ease;
 }
 
-.card:hover .title {
+.card:hover .title,
+.cardLink:focus-visible .title {
   color: var(--color-secondary);
 }
 
@@ -85,7 +86,8 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover .readMore {
+.card:hover .readMore,
+.cardLink:focus-visible .readMore {
   opacity: 1;
   transform: translateX(0);
 }
@@ -94,7 +96,8 @@
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover .arrowIcon {
+.card:hover .arrowIcon,
+.cardLink:focus-visible .arrowIcon {
   transform: translateX(4px);
 }
 
