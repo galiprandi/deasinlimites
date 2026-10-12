@@ -32,4 +32,9 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('article')).toBeVisible();
   });
+
+  test('should reject path traversal attempts safely', async ({ page }) => {
+    const response = await page.goto('/dea/..%2Fpackage.json');
+    expect(response?.status()).toBe(404);
+  });
 });

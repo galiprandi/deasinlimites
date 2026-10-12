@@ -23,7 +23,9 @@ export async function generateMetadata({
   const config = blogsConfig[blog];
   if (!config) notFound();
   const { contentFolder, url } = config;
-  const { title, summary, date } = await getPostBySlug(contentFolder, slug);
+  const postData = await getPostBySlug(contentFolder, slug).catch(() => null);
+  if (!postData) notFound();
+  const { title, summary, date } = postData;
 
   return {
     title,
@@ -52,7 +54,8 @@ export default async function Page({ params }: { params: PageParams }) {
   if (!config) notFound();
   const { contentFolder } = config;
 
-  const post = await getPostBySlug(contentFolder, slug);
+  const post = await getPostBySlug(contentFolder, slug).catch(() => null);
+  if (!post) notFound();
   const { title, summary, date, content, tags, readingTime } = post;
 
   return (
@@ -61,7 +64,10 @@ export default async function Page({ params }: { params: PageParams }) {
         <header className={sharedStyles.hero}>
           <nav className={styles.backNav}>
             <Link href={`/${blog}`} className="pill-link">
-              <span aria-hidden="true" className="arrow-back">←</span> Volver a {config.title}
+              <span aria-hidden="true" className="arrow-back">
+                ←
+              </span>{" "}
+              Volver a {config.title}
             </Link>
           </nav>
 
