@@ -26,6 +26,7 @@
 - **Contexto Visual**: El icono de búsqueda ahora utiliza una opacidad adaptativa y transiciones fluidas para reaccionar al enfoque del campo de entrada.
 - **Feedback de Resultados**: Refinamiento de la caja de información de búsqueda con sombras temáticas (`var(--color-secondary-rgb)`) para una profundidad visual consistente.
 - **Micro-interacciones**: El botón de limpieza y el borde del input han sido migrados a `var(--bd-grey2)`, eliminando dependencias de colores estáticos y mejorando la integración con el fondo.
+- **Restauración de Enfoque**: Al hacer clic en el botón de limpieza de búsqueda, el campo de texto recupera el enfoque automáticamente para evitar la pérdida de foco en la navegación con teclado o lectores de pantalla.
 - **Enfoque de Alta Visibilidad**: El anillo de enfoque utiliza ahora `var(--color-accent-rgb)` para una definición superior y consistencia cromática total.
 
 ## Estabilidad Técnica
