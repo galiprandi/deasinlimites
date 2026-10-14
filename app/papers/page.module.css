@@ -2,7 +2,6 @@
   margin: 0 auto;
 }
 
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -13,16 +12,18 @@
   background: var(--bd-grey2);
   border-radius: var(--border-radius);
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s ease;
   border: 1px solid transparent;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.card:hover {
+.card:hover,
+.card:focus-within {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px -8px rgba(var(--color-secondary-rgb), 0.15);
   border-color: var(--color-secondary);
@@ -70,7 +71,8 @@
   transition: color 0.3s ease;
 }
 
-.card:hover .cardTitle {
+.card:hover .cardTitle,
+.card:focus-within .cardTitle {
   color: var(--color-secondary);
 }
 
@@ -110,7 +112,8 @@
   transform: translateX(-10px);
 }
 
-.card:hover .button {
+.card:hover .button,
+.card:focus-within .button {
   opacity: 1;
   transform: translateX(0);
 }
@@ -119,7 +122,8 @@
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover .arrowIcon {
+.card:hover .arrowIcon,
+.card:focus-within .arrowIcon {
   transform: translateX(4px);
 }
 

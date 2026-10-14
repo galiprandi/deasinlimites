@@ -3,9 +3,9 @@
 ## Componentes Refinados
 
 ### PostCard
-- **Elevación y Profundidad**: Implementación de `transform: translateY(-5px)` y `box-shadow` en estado `:hover` para proporcionar feedback visual claro de interactividad.
+- **Elevación y Profundidad**: Implementación de `transform: translateY(-5px)` y `box-shadow` en estados `:hover` y `:focus-within` para proporcionar feedback visual claro de interactividad tanto con puntero como por teclado.
 - **Transiciones**: Uso de `cubic-bezier(0.4, 0, 0.2, 1)` para animaciones fluidas y naturales.
-- **Color Predictivo**: El título cambia a `var(--color-secondary)` en hover, alineando el componente con la identidad visual de la sección.
+- **Color Predictivo y Paridad de Teclado**: El título cambia a `var(--color-secondary)` y la acción "Leer más" se revela dinámicamente al interactuar mediante `:hover` o `:focus-within`.
 - **Layout**: Ajuste de padding y espaciado interno para mejorar la legibilidad del resumen y los metadatos.
 
 ### AsideBar
