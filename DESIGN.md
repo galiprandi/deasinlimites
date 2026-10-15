@@ -166,3 +166,7 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+
+### SocialLinks Navigation Landmark
+- **Landmark Navigation**: Migrated `SocialLinks` from an unheaded `<section>` to `<nav aria-label="Redes sociales">` to establish an explicit navigation landmark for assistive technologies.
+- **Non-Text Content Accessibility**: Marked nested social icon images as decorative (`alt=""`) because the parent `<a>` elements already carry descriptive `aria-label` attributes, eliminating redundant audio announcements.
