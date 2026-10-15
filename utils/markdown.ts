@@ -9,7 +9,20 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-const CONTENT_PATH = path.join(process.cwd(), "content");
+const CONTENT_PATH = path.resolve(process.cwd(), "content");
+
+/**
+ * Safely resolves and validates target file paths against CONTENT_PATH
+ * to prevent Path Traversal vulnerabilities.
+ */
+function getSafePath(...segments: string[]): string {
+  const decoded = segments.map((s) => decodeURIComponent(s));
+  const resolved = path.resolve(CONTENT_PATH, ...decoded);
+  if (resolved !== CONTENT_PATH && !resolved.startsWith(CONTENT_PATH + path.sep)) {
+    throw new Error("Invalid path traversal attempt");
+  }
+  return resolved;
+}
 
 // Interfaces
 export interface PostMetadata {
@@ -25,19 +38,19 @@ export interface Post extends PostMetadata {
   content: string;
 }
 
-// Función para obtener todos los archivos MD en el directorio
+// Get all MD files in directory safely
 export function getPostFiles(contentFolder: string): string[] {
   return fs
-    .readdirSync(path.join(CONTENT_PATH, contentFolder))
+    .readdirSync(getSafePath(contentFolder))
     .filter((file) => file.endsWith(".md"));
 }
 
-// Función para obtener los metadatos de un post
+// Get post metadata safely
 export function getPostMetadata(
   contentFolder: string,
   filename: string
 ): PostMetadata {
-  const filePath = path.join(CONTENT_PATH, contentFolder, filename);
+  const filePath = getSafePath(contentFolder, filename);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
@@ -51,25 +64,25 @@ export function getPostMetadata(
   };
 }
 
-// Función para obtener todos los metadatos de los posts
+// Get all posts metadata
 export function getAllPostsMetadata(contentFolder: string): PostMetadata[] {
   const postFiles = getPostFiles(contentFolder);
   const postsMetadata = postFiles.map((filename) =>
     getPostMetadata(contentFolder, filename)
   );
 
-  // Ordenar posts por fecha (más reciente primero)
+  // Sort posts by date (newest first)
   return postsMetadata.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 }
 
-// Función para obtener un post completo por slug
+// Get full post by slug safely
 export async function getPostBySlug(
   contentFolder: string,
   slug: string
 ): Promise<Post> {
-  const filePath = path.join(CONTENT_PATH, contentFolder, `${slug}.md`);
+  const filePath = getSafePath(contentFolder, `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
