@@ -11,6 +11,15 @@ test.describe('Home Page', () => {
     const postCards = page.locator('section article');
     await expect(postCards).not.toHaveCount(0);
   });
+
+  test('should have accessible social links navigation landmark', async ({ page }) => {
+    await page.goto('/');
+    const socialNav = page.locator('nav[aria-label="Redes sociales"]').first();
+    await expect(socialNav).toBeVisible();
+    const linkedinIcon = socialNav.locator('a[aria-label="LinkedIn"] img');
+    await expect(linkedinIcon).toHaveAttribute('alt', '');
+    await expect(linkedinIcon).toHaveAttribute('aria-hidden', 'true');
+  });
 });
 
 test.describe('Blog Pages', () => {

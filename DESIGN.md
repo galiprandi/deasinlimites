@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Social Links Navigation Landmark & Icon Accessibility
+- **Landmark Navigation**: Converted the unheaded `<section>` tag in `SocialLinks.tsx` to a semantic `<nav aria-label="Redes sociales">` navigation landmark, enabling screen reader users to jump directly to social links.
+- **Non-Redundant Speech**: Set `alt=""` and `aria-hidden="true"` on nested social icons inside `<a>` links that already have `aria-label`, preventing duplicate audio announcements for screen reader users.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
