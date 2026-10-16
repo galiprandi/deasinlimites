@@ -14,6 +14,9 @@
 - **Estado Activo**: Uso de `var(--color-secondary)` con una sombra suave para destacar la sección actual con elegancia y consistencia.
 - **Micro-interacciones en SocialLinks**: Los iconos sociales ahora incluyen un fondo circular reactivo y un efecto de escala al pasar el cursor, alineándose con las tendencias modernas de micro-UX.
 
+### SocialLinks
+- **Accesibilidad**: Conversión de `<section>` unheaded a `<nav aria-label="Redes sociales">`.
+
 ### SharePost
 - **Consistencia de Micro-interacciones**: Los botones de compartir ahora comparten el mismo lenguaje visual que `SocialLinks`, con escalado suave (`scale(1.1)`) y fondos reactivos.
 - **Feedback Dinámico**: El mensaje "¡Copiado!" ahora presenta una animación de entrada (`fadeIn`) para reducir la carga cognitiva y mejorar la percepción de respuesta del sistema.
