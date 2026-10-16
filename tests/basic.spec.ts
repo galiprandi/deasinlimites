@@ -1,5 +1,17 @@
 import { test, expect } from '@playwright/test';
 
+test.describe('Security Headers', () => {
+  test('should return security headers', async ({ page }) => {
+    const response = await page.goto('/');
+    expect(response).not.toBeNull();
+    const headers = response!.headers();
+    expect(headers['x-frame-options']).toBe('DENY');
+    expect(headers['x-content-type-options']).toBe('nosniff');
+    expect(headers['referrer-policy']).toBe('strict-origin-when-cross-origin');
+    expect(headers['permissions-policy']).toBe('camera=(), microphone=(), geolocation=()');
+  });
+});
+
 test.describe('Home Page', () => {
   test('should load the home page and show the title', async ({ page }) => {
     await page.goto('/');
