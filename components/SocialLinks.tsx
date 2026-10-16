@@ -7,7 +7,7 @@ import { socialLinks } from "@/config";
 
 const SocialLinks = () => {
   return (
-    <section className={styles.socialLinks}>
+    <nav className={styles.socialLinks} aria-label="Redes sociales">
         
         <a
           href={socialLinks.linkedin.src}
@@ -47,7 +47,7 @@ const SocialLinks = () => {
           />
         </a>
      
-    </section>
+    </nav>
   );
 };
 
