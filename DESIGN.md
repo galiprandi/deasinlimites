@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Search Clear Focus Restoration
+- **Focus Preservation**: Restores keyboard focus to the search input field (`inputRef.current?.focus()`) when clicking the clear button (`×`).
+- **Ergonomics & Accessibility**: Prevents keyboard and screen reader focus from resetting to `document.body` when the clear button unmounts, enabling seamless typing of subsequent queries.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
