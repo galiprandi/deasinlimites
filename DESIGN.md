@@ -13,6 +13,7 @@
 - **Feedback Visual**: Implementación de un estado `:hover` con desplazamiento sutil (`padding-left`) para guiar el ojo del usuario.
 - **Estado Activo**: Uso de `var(--color-secondary)` con una sombra suave para destacar la sección actual con elegancia y consistencia.
 - **Micro-interacciones en SocialLinks**: Los iconos sociales ahora incluyen un fondo circular reactivo y un efecto de escala al pasar el cursor, alineándose con las tendencias modernas de micro-UX.
+- **Accesibilidad en SocialLinks**: Encapsulamiento en `<nav aria-label="Redes sociales">` para definir un landmark de navegación y uso de `alt=""` con `aria-hidden="true"` en los iconos internos para evitar lecturas duplicadas en lectores de pantalla.
 
 ### SharePost
 - **Consistencia de Micro-interacciones**: Los botones de compartir ahora comparten el mismo lenguaje visual que `SocialLinks`, con escalado suave (`scale(1.1)`) y fondos reactivos.
