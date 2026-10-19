@@ -33,3 +33,12 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('article')).toBeVisible();
   });
 });
+
+test.describe('Security', () => {
+  test('should block path traversal attempts', async ({ page }) => {
+    const response = await page.goto('/dea/..%2F..%2Fpackage.json');
+    expect(response?.status()).toBeGreaterThanOrEqual(400);
+    const bodyText = await page.textContent('body');
+    expect(bodyText).not.toContain('"name": "deasinlimites"');
+  });
+});
