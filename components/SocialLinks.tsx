@@ -7,47 +7,35 @@ import { socialLinks } from "@/config";
 
 const SocialLinks = () => {
   return (
-    <section className={styles.socialLinks}>
-        
-        <a
-          href={socialLinks.linkedin.src}
-          title={socialLinks.linkedin.alt}
-          aria-label={socialLinks.linkedin.alt}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            src={linkedin}
-            alt={socialLinks.linkedin.alt}
-            width={32}
-            height={32}
-          />
-        </a>
-        <a
-          href={socialLinks.email.src}
-          title={socialLinks.email.alt}
-          aria-label={socialLinks.email.alt}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image src={email} alt={socialLinks.email.alt} width={32} height={32} />
-        </a>
-        <a
-          href={socialLinks.whatsapp.src}
-          title={socialLinks.whatsapp.alt}
-          aria-label={socialLinks.whatsapp.alt}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            src={whatsapp}
-            alt={socialLinks.whatsapp.alt}
-            width={32}
-            height={32}
-          />
-        </a>
-     
-    </section>
+    <nav className={styles.socialLinks} aria-label="Redes sociales">
+      <a
+        href={socialLinks.linkedin.src}
+        title={socialLinks.linkedin.alt}
+        aria-label={socialLinks.linkedin.alt}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image src={linkedin} alt="" width={32} height={32} />
+      </a>
+      <a
+        href={socialLinks.email.src}
+        title={socialLinks.email.alt}
+        aria-label={socialLinks.email.alt}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image src={email} alt="" width={32} height={32} />
+      </a>
+      <a
+        href={socialLinks.whatsapp.src}
+        title={socialLinks.whatsapp.alt}
+        aria-label={socialLinks.whatsapp.alt}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image src={whatsapp} alt="" width={32} height={32} />
+      </a>
+    </nav>
   );
 };
 
