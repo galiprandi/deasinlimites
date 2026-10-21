@@ -112,3 +112,7 @@
 ## 2026-06-21 - [Programmatic Brand Accents & Content Scannability]
 **Learning:** Centralizing visual patterns like title accents into reusable components (`TitleAccent`) eliminates logic duplication and prevents style drift. Furthermore, providing explicit content metrics like "estimated reading time" significantly reduces the user's uncertainty before engaging with long-form content, especially when paired with consistent iconography (`clock.svg`).
 **Action:** Centralized title highlighting via `TitleAccent` and implemented automated reading time metrics across all article-related views.
+
+## 2026-06-22 - [Accessible Social Links Navigation Landmark]
+**Learning:** Containers grouping social media links without headings should use `<nav aria-label="...">` instead of unheaded `<section>` elements to establish a properly labeled navigation landmark for screen reader users. Furthermore, when parent `<a>` tags already carry a descriptive `aria-label`, setting `alt=""` on nested images prevents duplicate audio announcements.
+**Action:** Use `<nav aria-label="...">` for social navigation groups and `alt=""` on nested images inside links with explicit `aria-label` attributes.
