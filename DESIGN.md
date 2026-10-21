@@ -142,6 +142,10 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### Social Links Navigation Accessibility
+- **Landmark Region**: Converted unheaded `<section>` in `SocialLinks.tsx` to `<nav aria-label="Redes sociales">` for landmark navigation discovery.
+- **Decorative Image Handling**: Added `alt=""` and `aria-hidden="true"` to nested social icon images to avoid duplicate screen reader announcements since parent `<a>` elements specify explicit `aria-label` attributes.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
