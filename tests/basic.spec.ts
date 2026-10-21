@@ -11,6 +11,14 @@ test.describe('Home Page', () => {
     const postCards = page.locator('section article');
     await expect(postCards).not.toHaveCount(0);
   });
+
+  test('should render accessible social links navigation landmark', async ({ page }) => {
+    await page.goto('/');
+    const socialNav = page.locator('nav[aria-label="Redes sociales"]').first();
+    await expect(socialNav).toBeVisible();
+    const links = socialNav.locator('a');
+    await expect(links).toHaveCount(3);
+  });
 });
 
 test.describe('Blog Pages', () => {
