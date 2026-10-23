@@ -142,6 +142,9 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
+### Search Clear Focus Restoration
+- **Focus Preservation**: Added `inputRef.current?.focus()` to `handleClear` in `SearchPosts.tsx`. When users click the clear ("×") button, focus is automatically restored to the search input field instead of being lost when the button unmounts.
+
 ### Search Keyboard Shortcut
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
