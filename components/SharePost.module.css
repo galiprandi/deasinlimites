@@ -44,10 +44,10 @@
   gap: 0.5em;
 }
 
-.copyFeedback {
-  font-size: 0.75rem;
-  color: var(--color-secondary);
-  font-weight: bold;
+.copyFeedback:not(:empty) {
+  font-size: 0.85rem;
+  color: #2b6d2e;
+  font-weight: 600;
   animation: fadeInPop 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
