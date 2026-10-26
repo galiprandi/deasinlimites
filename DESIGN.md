@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Focus Management on Search Clear
+- **Focus Retention**: Restored focus to search input upon clearing search query via `handleClear`.
+- **Keyboard & Screen Reader UX**: Prevents focus loss to `document.body` when the clear button unmounts, allowing users to immediately resume typing.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
