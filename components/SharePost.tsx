@@ -34,21 +34,27 @@ export default function SharePost({ url }: { url: string }) {
             aria-label="Copiar enlace al portapapeles"
             title="Copiar enlace"
           >
-            <Image src={clipboard} alt="Copiar" width={32} height={32} />
+            <Image src={clipboard} alt="" width={32} height={32} />
           </button>
-          {copied && <span className={styles.copyFeedback}>¡Copiado!</span>}
+          <span
+            className={styles.copyFeedback}
+            role="status"
+            aria-live="polite"
+          >
+            {copied ? "¡Copiado!" : ""}
+          </span>
         </div>
 
         <a
           href={`https://www.linkedin.com/share/link?mini=true&url=${encodeURIComponent(
-            url
+            url,
           )}`}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.shareButton}
           aria-label="Compartir en LinkedIn"
         >
-          <Image src={linkedin} alt="LinkedIn" width={32} height={32} />
+          <Image src={linkedin} alt="" width={32} height={32} />
         </a>
 
         <a
@@ -58,19 +64,19 @@ export default function SharePost({ url }: { url: string }) {
           className={styles.shareButton}
           aria-label="Compartir en X"
         >
-          <Image src={x} alt="X" width={32} height={32} />
+          <Image src={x} alt="" width={32} height={32} />
         </a>
 
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-            url
+            url,
           )}`}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.shareButton}
           aria-label="Compartir en Facebook"
         >
-          <Image src={facebook} alt="Facebook" width={32} height={32} />
+          <Image src={facebook} alt="" width={32} height={32} />
         </a>
       </div>
     </div>
