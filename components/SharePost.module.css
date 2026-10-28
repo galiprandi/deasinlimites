@@ -44,7 +44,11 @@
   gap: 0.5em;
 }
 
-.copyFeedback {
+.copyFeedback:empty {
+  display: none;
+}
+
+.copyFeedback:not(:empty) {
   font-size: 0.75rem;
   color: var(--color-secondary);
   font-weight: bold;
