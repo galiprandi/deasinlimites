@@ -157,6 +157,7 @@
 ### Reading Time Integration
 - **Contextual Awareness**: Implemented estimated reading time (200 ppm) in `PostCard` and Article Hero sections.
 - **Visual Consistency**: Added a minimal `clock.svg` icon to accompany the metric, aligning with the existing `calendar.svg` pattern.
+- **Accessibility Refinement**: Silenced decorative metadata icons (`calendar.svg`, `clock.svg`) with `alt=""` and `aria-hidden="true"` across `PostCard` and Article Headers to prevent screen readers from announcing redundant descriptions alongside visible text content.
 
 ### Hero & Information Architecture
 - **Home Page Unification**: Refactored the Landing Page Hero to consume `sharedStyles.hero`, achieving perfect vertical rhythm and animation sync.
