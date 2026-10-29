@@ -25,7 +25,7 @@ const AsideBar = () => {
       <header className={`${styles.header} only-desktop`}>
         <Image src={logo} alt="Logo" width={200} height={200} priority />
       </header>
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="Navegación principal">
         {navLinks.map((link) => {
           const isActive = link.exact
             ? pathname === link.href

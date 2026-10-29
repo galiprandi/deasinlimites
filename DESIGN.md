@@ -166,3 +166,7 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+
+### Navigation Landmarks & Icon Accessibility
+- **Distinct Navigation Landmarks**: Added `aria-label="Navegación principal"` to `AsideBar` and converted `SocialLinks` container to `<nav aria-label="Redes sociales">`, enabling assistive tech users to easily differentiate navigation regions.
+- **Icon Accessibility**: Marked nested social media icons inside labeled anchor tags with `alt=""` and `aria-hidden="true"` to prevent redundant screen reader announcements.
