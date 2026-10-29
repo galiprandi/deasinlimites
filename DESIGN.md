@@ -142,8 +142,9 @@
 - **Snappier Interactions**: The search "Clear" button now immediately resets both the local state and the URL query parameters, providing an instantaneous reset experience.
 ## 🎨 Palette: Micro-UX Improvements
 
-### Search Keyboard Shortcut
+### Search Keyboard Shortcut & Focus Retention
 - **Keyboard Shortcut**: Implementation of the `/` key shortcut to focus the search input globally.
+- **Focus Retention**: Automatically returns focus to the search input field (`inputRef.current?.focus()`) when clearing queries, preventing focus loss when the clear button unmounts.
 - **Visual Discoverability**: Added a subtle shortcut hint ("/") in the search field that disappears on focus or when text is present (`:not(:placeholder-shown)`).
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
