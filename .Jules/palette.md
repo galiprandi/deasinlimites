@@ -6,3 +6,7 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+
+## 2025-05-16 - [Search Clear Focus Preservation]
+**Learning:** When a clear button unmounts upon resetting an input query, active focus is lost and resets to the document body. Explicitly calling focus on the input ref inside the clear handler preserves focus context for keyboard and screen reader users.
+**Action:** Always restore focus to the input element when unmounting inline clear/reset buttons in form inputs.
