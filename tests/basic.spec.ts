@@ -13,6 +13,18 @@ test.describe('Home Page', () => {
   });
 });
 
+test.describe('Search Functionality', () => {
+  test('should retain focus on search input after clicking clear button', async ({ page }) => {
+    await page.goto('/dea');
+    const searchInput = page.locator('input[aria-label="Buscar en el blog"]');
+    await searchInput.fill('dislexia');
+    const clearButton = page.locator('button[aria-label="Limpiar búsqueda"]');
+    await expect(clearButton).toBeVisible();
+    await clearButton.click();
+    await expect(searchInput).toBeFocused();
+  });
+});
+
 test.describe('Blog Pages', () => {
   test('should navigate to a blog post from the home page', async ({ page }) => {
     await page.goto('/');

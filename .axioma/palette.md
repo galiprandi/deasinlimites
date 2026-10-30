@@ -112,3 +112,7 @@
 ## 2026-06-21 - [Programmatic Brand Accents & Content Scannability]
 **Learning:** Centralizing visual patterns like title accents into reusable components (`TitleAccent`) eliminates logic duplication and prevents style drift. Furthermore, providing explicit content metrics like "estimated reading time" significantly reduces the user's uncertainty before engaging with long-form content, especially when paired with consistent iconography (`clock.svg`).
 **Action:** Centralized title highlighting via `TitleAccent` and implemented automated reading time metrics across all article-related views.
+
+## 2026-06-22 - [Search Clear Focus Preservation]
+**Learning:** When a clear button unmounts upon resetting an input query, active focus is lost and resets to the document body. Explicitly calling focus on the input ref inside the clear handler preserves focus context for keyboard and screen reader users.
+**Action:** Always restore focus to the input element when unmounting inline clear/reset buttons in form inputs.
