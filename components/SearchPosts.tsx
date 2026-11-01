@@ -62,6 +62,7 @@ function SearchInput() {
 
   const handleClear = () => {
     setSearchQuery("");
+    inputRef.current?.focus();
     const params = new URLSearchParams(searchParams);
     params.delete("q");
     params.delete("page");
