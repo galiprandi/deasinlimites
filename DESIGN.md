@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Accessible Copy Feedback
+- **Live Region Announcement**: Added `role="status"` and `aria-live="polite"` to the copy confirmation message so assistive technologies immediately announce state updates.
+- **Clean Audio Affordance**: Set `alt=""` on the inner icon to avoid redundant screen reader announcements alongside the button's `aria-label`.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
