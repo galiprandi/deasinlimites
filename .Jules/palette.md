@@ -6,3 +6,7 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+
+## 2026-06-23 - [Navigation Landmark and Icon Link Accessibility]
+**Learning:** Grouping external social links inside a `<nav aria-label="...">` landmark rather than an unheaded `<section>` provides screen reader users with a clear navigation context. Additionally, when parent links have explicit `aria-label` attributes, nested icon images should use `alt=""` to avoid duplicate audio announcements.
+**Action:** Use labeled `<nav>` elements for link groups and empty `alt=""` for icons nested inside links that already possess accessible names.
