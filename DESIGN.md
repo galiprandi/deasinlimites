@@ -148,6 +148,10 @@
 - **Responsive Design**: The shortcut hint is automatically hidden on mobile devices to save space.
 - **Accessibility**: The visual hint is hidden from screen readers (`aria-hidden="true"`) to avoid redundant information, while the input remains fully accessible.
 
+### Accessible SharePost Feedback & Icons
+- **Accessible Status Announcement**: The copy feedback element now uses a persistent live region with `role="status"` and `aria-live="polite"`, ensuring screen readers automatically announce link copying.
+- **Icon Label Deduplication**: Icons nested inside buttons and links that already have explicit `aria-label` attributes now use `alt=""` to avoid duplicate audio announcements.
+
 ## Refactor UI Polish Excellence
 
 ### TitleAccent Component
