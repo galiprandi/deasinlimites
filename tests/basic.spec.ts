@@ -32,4 +32,26 @@ test.describe('Blog Pages', () => {
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('article')).toBeVisible();
   });
+
+  test('should have accessible share buttons and copy status feedback', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto('http://localhost:3000/dea/guia_dislexia');
+
+    const copyBtn = page.getByRole('button', { name: 'Copiar enlace al portapapeles' });
+    await expect(copyBtn).toBeVisible();
+
+    const statusEl = page.locator('[role="status"]');
+    await expect(statusEl).toBeAttached();
+    await expect(statusEl).toHaveText('');
+
+    await copyBtn.click();
+    await expect(statusEl).toHaveText('¡Copiado!');
+
+    const shareLinks = page.locator('a[aria-label^="Compartir"] img');
+    const count = await shareLinks.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      await expect(shareLinks.nth(i)).toHaveAttribute('alt', '');
+    }
+  });
 });
