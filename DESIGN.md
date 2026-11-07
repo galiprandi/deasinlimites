@@ -166,3 +166,4 @@
 ### Micro-UX Refinements
 - **Pagination Depth**: Enhanced pagination hover states with deeper, theme-aware shadows (`rgba(var(--color-secondary-rgb), 0.2)`) and brand-aligned borders.
 - **Empty State Professionalism**: Standardized all empty search and category states with `6rem` vertical padding and dashed borders for an intentional, polished look.
+- **SharePost Feedback & Accessibility**: Refined clipboard feedback with a persistent live region (`role="status"`, `aria-live="polite"`) and `display: none` when empty to ensure reliable screen reader announcements without flexbox spacing drift. Nested icon images are marked with `alt=""` to eliminate redundant audio descriptions.
