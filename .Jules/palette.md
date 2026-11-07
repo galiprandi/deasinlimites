@@ -6,3 +6,7 @@
 ## 2025-05-15 - [Search Keyboard Shortcut Discoverability]
 **Learning:** Adding a visual shortcut hint (like '/') that disappears on focus or when the input is not empty improves discoverability without cluttering the UI permanently. Using `:not(:placeholder-shown)` is a clean CSS-only way to handle the visibility state based on input content.
 **Action:** Always pair global keyboard shortcuts with subtle visual hints to ensure they are discoverable by users who don't read documentation.
+
+## 2025-05-15 - [Keyboard Focus Visual Parity for Cards]
+**Learning:** Hover animations and reveal effects inside card components (such as "Read more" links or title color shifts) must also trigger on `:focus-within` or `:focus-visible` so keyboard users receive the same interactive visual feedback as mouse users.
+**Action:** Pair `:hover` CSS selectors with `:focus-within` on card containers that wrap interactive elements.
