@@ -7,8 +7,7 @@ import { socialLinks } from "@/config";
 
 const SocialLinks = () => {
   return (
-    <section className={styles.socialLinks}>
-        
+    <nav className={styles.socialLinks} aria-label="Redes sociales">
         <a
           href={socialLinks.linkedin.src}
           title={socialLinks.linkedin.alt}
@@ -16,12 +15,7 @@ const SocialLinks = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            src={linkedin}
-            alt={socialLinks.linkedin.alt}
-            width={32}
-            height={32}
-          />
+          <Image src={linkedin} alt="" width={32} height={32} />
         </a>
         <a
           href={socialLinks.email.src}
@@ -30,7 +24,7 @@ const SocialLinks = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={email} alt={socialLinks.email.alt} width={32} height={32} />
+          <Image src={email} alt="" width={32} height={32} />
         </a>
         <a
           href={socialLinks.whatsapp.src}
@@ -39,15 +33,9 @@ const SocialLinks = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            src={whatsapp}
-            alt={socialLinks.whatsapp.alt}
-            width={32}
-            height={32}
-          />
+          <Image src={whatsapp} alt="" width={32} height={32} />
         </a>
-     
-    </section>
+    </nav>
   );
 };
 
