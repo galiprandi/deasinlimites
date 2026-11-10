@@ -34,9 +34,11 @@ export default function SharePost({ url }: { url: string }) {
             aria-label="Copiar enlace al portapapeles"
             title="Copiar enlace"
           >
-            <Image src={clipboard} alt="Copiar" width={32} height={32} />
+            <Image src={clipboard} alt="" width={32} height={32} />
           </button>
-          {copied && <span className={styles.copyFeedback}>¡Copiado!</span>}
+          <span className={styles.copyFeedback} role="status" aria-live="polite">
+            {copied ? "¡Copiado!" : ""}
+          </span>
         </div>
 
         <a
