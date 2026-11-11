@@ -11,6 +11,13 @@ test.describe('Home Page', () => {
     const postCards = page.locator('section article');
     await expect(postCards).not.toHaveCount(0);
   });
+
+  test('should show read more feedback when post card link is focused', async ({ page }) => {
+    await page.goto('/');
+    const firstPost = page.locator('section article').first();
+    await firstPost.locator('a').first().focus();
+    await expect(firstPost.locator('text=Leer más')).toBeVisible();
+  });
 });
 
 test.describe('Blog Pages', () => {
