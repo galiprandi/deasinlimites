@@ -17,7 +17,15 @@ export default function Home() {
     <div className={styles.container}>
       <header className={sharedStyles.hero}>
         <div className="logo only-mobile">
-          <Image src={logo} alt={siteConfig.title} width={230} height={230} />
+          <Image
+            className={sharedStyles.heroLogo}
+            src={logo}
+            alt={siteConfig.title}
+            width={230}
+            height={230}
+            sizes="140px"
+            priority
+          />
         </div>
         <h1>
           <TitleAccent text={`Bienvenido a ${siteConfig.title}`} />
